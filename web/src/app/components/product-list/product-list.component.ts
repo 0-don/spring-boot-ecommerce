@@ -10,8 +10,9 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductListComponent implements OnInit {
 
-  products!: Product[];
-  currentCategoryId!: number;
+  products: Product[];
+  currentCategoryId: number;
+  searchMode: boolean;
 
   constructor(private productListService: ProductService, private route: ActivatedRoute) {}
 
