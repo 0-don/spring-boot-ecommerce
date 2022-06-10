@@ -9,9 +9,14 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
-  products: Product[];
-  currentCategoryId: number;
-  searchMode: boolean;
+  products: Product[] = [];
+  currentCategoryId: number = 1;
+  previousCateogryId: number = 1;
+  searchMode: boolean = false;
+
+  thePageNumber: number = 1;
+  thePageSize: number = 10;
+  theTotalElements: number = 0;
 
   constructor(
     private productListService: ProductService,
@@ -51,8 +56,27 @@ export class ProductListComponent implements OnInit {
       this.currentCategoryId = 1;
     }
 
+    if (this.previousCateogryId != this.currentCategoryId) {
+      this.thePageNumber = 1;
+    }
+
+    this.previousCateogryId = this.currentCategoryId;
+
     this.productListService
-      .getProductList(this.currentCategoryId)
+      .getProductListPaginate(
+        this.thePageNumber - 1,
+        this.thePageSize,
+        this.currentCategoryId
+      )
       .subscribe((data) => (this.products = data));
+  }
+
+  processResult() {
+    return (data) => {
+      this.products = data._embedded.products;
+      this.thePageNumber = data.page.number + 1;
+      this.thePageSize = data.page.size;
+      this.theTotalElements = data.page.totalElements;
+    };
   }
 }
