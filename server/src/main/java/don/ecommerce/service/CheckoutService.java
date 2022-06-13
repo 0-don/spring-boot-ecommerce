@@ -1,4 +1,4 @@
-package don.ecommerce.checkout;
+package don.ecommerce.service;
 
 import don.ecommerce.dto.Purchase;
 import don.ecommerce.dto.PurchaseResponse;

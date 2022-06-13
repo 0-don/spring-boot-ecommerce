@@ -1,6 +1,6 @@
 package don.ecommerce.controller;
 
-import don.ecommerce.checkout.CheckoutService;
+import don.ecommerce.service.CheckoutService;
 import don.ecommerce.dto.Purchase;
 import don.ecommerce.dto.PurchaseResponse;
 import org.springframework.web.bind.annotation.*;
