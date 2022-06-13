@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  shopUrl: `${
+    location.protocol.includes('https') ? 'https' : 'http'
+  }://localhost:8080`,
 };
 
 /*
