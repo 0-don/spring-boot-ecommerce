@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OktaAuthStateService } from '@okta/okta-angular';
+import { OktaAuthService } from '@okta/okta-angular';
 import OktaSignIn from '@okta/okta-signin-widget';
 
 import myAppConfig from '../../config/my-app-config';
@@ -12,7 +12,7 @@ import myAppConfig from '../../config/my-app-config';
 export class LoginComponent implements OnInit {
   oktaSignin: any;
 
-  constructor(private oktaAuthService: OktaAuthStateService) {
+  constructor(private oktaAuthService: OktaAuthService) {
     this.oktaSignin = new OktaSignIn({
       logo: 'assets/images/logo.png',
       baseUrl: myAppConfig.issuer.split('/oauth2')[0],
@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
       }, // this name should be same as div tag id in login.component.html
       (response: { status: string }) => {
         if (response.status === 'SUCCESS') {
-          // @ts-ignore
           this.oktaAuthService.signInWithRedirect();
         }
       },
