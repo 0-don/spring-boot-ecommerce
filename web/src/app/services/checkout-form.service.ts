@@ -10,8 +10,8 @@ import { State } from '../common/state';
   providedIn: 'root',
 })
 export class CheckoutFormService {
-  private countriesUrl = `${environment.shopUrl}/api/countries`;
-  private statesUrl = `${environment.shopUrl}/api/states`;
+  private countriesUrl = `${environment.serverUrl}/api/countries`;
+  private statesUrl = `${environment.serverUrl}/api/states`;
 
   constructor(private httpClient: HttpClient) {}
 

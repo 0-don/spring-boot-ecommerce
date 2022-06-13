@@ -10,9 +10,9 @@ import { ProductCategory } from '../common/product-category';
   providedIn: 'root',
 })
 export class ProductService {
-  private baseUrl = `${environment.shopUrl}/api/products`;
+  private baseUrl = `${environment.serverUrl}/api/products`;
 
-  private categoryUrl = `${environment.shopUrl}/api/product-category`;
+  private categoryUrl = `${environment.serverUrl}/api/product-category`;
 
   constructor(private httpClient: HttpClient) {}
 

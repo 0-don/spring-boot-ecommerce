@@ -8,7 +8,7 @@ import { OrderHistory } from '../common/order-history';
   providedIn: 'root',
 })
 export class OrderHistoryService {
-  private orderUrl = `${environment.shopUrl}/api/orders`;
+  private orderUrl = `${environment.serverUrl}/api/orders`;
 
   constructor(private httpClient: HttpClient) {}
 

@@ -4,9 +4,7 @@
 
 export const environment = {
   production: false,
-  shopUrl: `${
-    location.protocol.includes('https') ? 'https' : 'http'
-  }://localhost:8080`,
+  serverUrl: `https://localhost:8080`,
 };
 
 /*
