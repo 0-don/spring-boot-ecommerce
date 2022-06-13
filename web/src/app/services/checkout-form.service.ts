@@ -9,7 +9,6 @@ import { State } from '../common/state';
   providedIn: 'root',
 })
 export class CheckoutFormService {
-
   private countriesUrl = 'http://localhost:8080/api/countries';
   private statesUrl = 'http://localhost:8080/api/states';
 
@@ -23,7 +22,7 @@ export class CheckoutFormService {
 
   getStates(theCountryCode: string): Observable<State[]> {
     const searchStateUrl = `${this.statesUrl}/search/findByCountryCode?code=${theCountryCode}`;
-    console.log(searchStateUrl);
+
     return this.httpClient
       .get<GetResponseStates>(searchStateUrl)
       .pipe(map((response) => response._embedded.states));

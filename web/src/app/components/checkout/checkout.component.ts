@@ -36,6 +36,10 @@ export class CheckoutComponent implements OnInit {
   shippingAddressStates: State[] = [];
   billingAddressStates: State[] = [];
 
+  storage: Storage = sessionStorage;
+
+  userEmail: string = '';
+
   constructor(
     private formBuilder: FormBuilder,
     private checkoutFormService: CheckoutFormService,
@@ -46,6 +50,11 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.reviewCartDetails();
+
+    const userStorageEmail = this.storage.getItem('userEmail');
+    if (userStorageEmail) {
+      this.userEmail = JSON.parse(userStorageEmail);
+    }
 
     this.checkoutFormGroup = this.formBuilder.group({
       customer: this.formBuilder.group({
@@ -61,7 +70,7 @@ export class CheckoutComponent implements OnInit {
           CheckoutValidators.notOnlyWhitespace,
         ]),
 
-        email: new FormControl('', [
+        email: new FormControl(this.userEmail, [
           Validators.required,
           Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
         ]),
@@ -213,8 +222,6 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('Handling the submit button');
-
     if (this.checkoutFormGroup.invalid) {
       this.checkoutFormGroup.markAllAsTouched();
       return;
@@ -334,10 +341,8 @@ export class CheckoutComponent implements OnInit {
       .getStates(countryCode)
       .subscribe((data: State[]) => {
         if (formGroupName === 'shippingAddress') {
-          console.log('shipping');
           this.shippingAddressStates = data;
         } else {
-          console.log('billing', data);
           this.billingAddressStates = data;
         }
 
