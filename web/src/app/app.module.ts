@@ -19,16 +19,25 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import myAppConfig from './config/my-app-config';
 import {
+  OktaAuthGuard,
   OktaAuthModule,
   OktaCallbackComponent,
   OKTA_CONFIG,
 } from '@okta/okta-angular';
 import { LoginComponent } from './components/login/login.component';
 import { LoginStatusComponent } from './components/login-status/login-status.component';
+import { MembersPageComponent } from './components/members-page/members-page.component';
 
 const routes: Routes = [
+  {
+    path: 'members',
+    component: MembersPageComponent,
+    canActivate: [OktaAuthGuard],
+  },
+
   { path: 'login/callback', component: OktaCallbackComponent },
   { path: 'login', component: LoginComponent },
+
   { path: 'checkout', component: CheckoutComponent },
   { path: 'cart-details', component: CartDetailsComponent },
   { path: 'products/:id', component: ProductDetailsComponent },
@@ -42,7 +51,7 @@ const routes: Routes = [
 
 const oktaConfig = Object.assign(
   {
-    onAuthRequired: (injector: { get: (arg0: any) => any }) => {
+    onAuthRequired: (okatAuth: any, injector: { get: (arg0: any) => any }) => {
       const router = injector.get(Router);
 
       // Redirect the user to your custom login page
@@ -64,6 +73,7 @@ const oktaConfig = Object.assign(
     CheckoutComponent,
     LoginComponent,
     LoginStatusComponent,
+    MembersPageComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
