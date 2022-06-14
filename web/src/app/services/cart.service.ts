@@ -66,10 +66,10 @@ export class CartService {
     // log cart data just for debugging purposes
     this.logCartData(totalPriceValue, totalQuantityValue);
 
-    this.persistCartItem();
+    this.persistCartItems();
   }
 
-  persistCartItem() {
+  persistCartItems() {
     this.storage.setItem('cartItems', JSON.stringify(this.cartItems));
   }
 
