@@ -8,14 +8,17 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=full-stack-ecommerce
+      - MYSQL_USER=ecommerce
+      - MYSQL_PASSWORD=ecommerce
     ports:
       - 3306:3306
   ecommerce-server:
     container_name: ecommerce-server
     depends_on:
-      -  ecommerce-mysql
+      - ecommerce-mysql
     build: ./server
     restart: on-failure
-
+    environment:      
+      - spring.datasource.url=jdbc:mysql://ecommerce-mysql:3306/full-stack-ecommerce?useSSL=false&allowPublicKeyRetrieval=true&autoReconnect=true
     ports:
       - 8080:8080
