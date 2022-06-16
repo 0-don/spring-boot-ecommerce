@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  ecommerce-mysql:
+    image: mysql:8.0.29
+    container_name: ecommerce-mysql
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=full-stack-ecommerce
+    ports:
+      - 3306:3306
+  ecommerce-server:
+    container_name: ecommerce-server
+    depends_on:
+      -  ecommerce-mysql
+    build: ./server
+    restart: on-failure
+
+    ports:
+      - 8080:8080
