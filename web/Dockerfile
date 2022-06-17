@@ -9,5 +9,9 @@ RUN npm run build
 ### STAGE 2: Run ###
 FROM nginx:alpine
 
+
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 COPY --from=build /usr/src/app/dist/anuglar-ecommerce /usr/share/nginx/html
 EXPOSE 80
+
+
