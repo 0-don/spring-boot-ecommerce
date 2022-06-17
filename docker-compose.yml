@@ -28,10 +28,10 @@ services:
       - proxy
     labels:
       - 'traefik.enable=true'
-      - 'traefik.http.routers.palarm-server.rule=Host(`ecommerce.myngz.com`) && PathPrefix(`/api`)'
-      - 'traefik.http.routers.palarm-server.entrypoints=websecure'
-      - 'traefik.http.routers.palarm-server.tls.certresolver=letsencrypt'
-      - 'traefik.http.services.palarm-server.loadbalancer.server.port=8080'
+      - 'traefik.http.routers.ecommerce-server.rule=Host(`ecommerce.myngz.com`) && PathPrefix(`/api`)'
+      - 'traefik.http.routers.ecommerce-server.entrypoints=websecure'
+      - 'traefik.http.routers.ecommerce-server.tls.certresolver=letsencrypt'
+      - 'traefik.http.services.ecommerce-server.loadbalancer.server.port=8080'
     ports:
       - 8080
   ecommerce-web:
@@ -44,9 +44,9 @@ services:
       - proxy
     labels:
       - 'traefik.enable=true'
-      - 'traefik.http.routers.palarm-web.rule=Host(`ecommerce.myngz.com`)'
-      - 'traefik.http.routers.palarm-web.entrypoints=websecure'
-      - 'traefik.http.routers.palarm-web.tls.certresolver=letsencrypt'
+      - 'traefik.http.routers.ecommerce-web.rule=Host(`ecommerce.myngz.com`)'
+      - 'traefik.http.routers.ecommerce-web.entrypoints=websecure'
+      - 'traefik.http.routers.ecommerce-web.tls.certresolver=letsencrypt'
 
 networks:
   proxy:
