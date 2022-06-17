@@ -1,0 +1,35 @@
+name: Docker Prod
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Create env file
+        run: |
+          touch .env
+          echo LOCALHOST_WEB=${{ secrets.LOCALHOST_WEB }} >> .env
+          echo OKTA_OAUTH2_ID=${{ secrets.OKTA_OAUTH2_ID }} >> .env
+          echo OKTA_OAUTH2_ISSUER=${{ secrets.OKTA_OAUTH2_ISSUER }} >> .env
+          echo OKTA_OAUTH2_SECRET=${{ secrets.OKTA_OAUTH2_SECRET }} >> .env
+          echo PUBLIC_WEB=${{ secrets.PUBLIC_WEB }} >> .env
+          echo SMTP_PORT=${{ secrets.SMTP_PORT }} >> .env
+          echo SERVER_SSL_ENABLED=${{ secrets.SERVER_SSL_ENABLED }} >> .env
+          echo SPRING_DATASOURCE_DATABASE=${{ secrets.SPRING_DATASOURCE_DATABASE }} >> .env
+          echo SPRING_DATASOURCE_HOST=${{ secrets.SPRING_DATASOURCE_HOST }} >> .env
+          echo SPRING_DATASOURCE_PASSWORD=${{ secrets.SPRING_DATASOURCE_PASSWORD }} >> .env
+          echo SPRING_DATASOURCE_USERNAME=${{ secrets.SPRING_DATASOURCE_USERNAME }} >> .env
+          echo STRIPE_KEY_SECRET=${{ secrets.STRIPE_KEY_SECRET }} >> .env
+          cat .env
+
+      - name: Copy env to Server
+        run: mv .env ./server
+
+      - name: Docker run
+        run: docker-compose up -d --force-recreate --build
