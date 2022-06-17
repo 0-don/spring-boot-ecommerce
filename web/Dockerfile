@@ -10,3 +10,4 @@ RUN npm run build
 FROM nginx:alpine
 
 COPY --from=build /usr/src/app/dist/anuglar-ecommerce /usr/share/nginx/html
+EXPOSE 80
