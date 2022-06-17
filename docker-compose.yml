@@ -11,7 +11,7 @@ services:
       - MYSQL_USER=ecommerce
       - MYSQL_PASSWORD=ecommerce
     ports:
-      - 3306:3306
+      - 3306
   ecommerce-server:
     container_name: ecommerce-server
     depends_on:
@@ -23,10 +23,10 @@ services:
       - spring.datasource.username=ecommerce
       - spring.datasource.password=ecommerce
     ports:
-      - 8080:8080
+      - 8080
   ecommerce-web:
     container_name: ecommerce-web
     build: ./web
     restart: on-failure
     ports:
-      - 4200:80
+      - 80
