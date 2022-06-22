@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
         scopes: myAppConfig.scopes,
       },
     });
+    console.log(myAppConfig.redirectUri);
   }
 
   ngOnInit(): void {
