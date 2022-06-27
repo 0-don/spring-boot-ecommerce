@@ -4,7 +4,7 @@ services:
   ecommerce-mysql:
     image: mysql:8.0.29
     container_name: ecommerce-mysql
-    restart: unless-stopped
+    restart: always
     networks:
       - proxy
     environment:
@@ -19,8 +19,8 @@ services:
     depends_on:
       - ecommerce-mysql
     build: ./server
-    restart: on-failure
-    environment:      
+    restart: always
+    environment:
       - spring.datasource.url=jdbc:mysql://ecommerce-mysql:3306/full-stack-ecommerce?useSSL=false&allowPublicKeyRetrieval=true&autoReconnect=true
       - spring.datasource.username=ecommerce
       - spring.datasource.password=ecommerce
@@ -37,7 +37,7 @@ services:
   ecommerce-web:
     container_name: ecommerce-web
     build: ./web
-    restart: on-failure
+    restart: always
     ports:
       - 80
     networks:
