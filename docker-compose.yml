@@ -12,8 +12,6 @@ services:
       - MYSQL_DATABASE=full-stack-ecommerce
       - MYSQL_USER=ecommerce
       - MYSQL_PASSWORD=ecommerce
-    ports:
-      - 3306
   ecommerce-server:
     container_name: ecommerce-server
     depends_on:
@@ -32,14 +30,10 @@ services:
       - 'traefik.http.routers.ecommerce-server.entrypoints=websecure'
       - 'traefik.http.routers.ecommerce-server.tls.certresolver=letsencrypt'
       - 'traefik.http.services.ecommerce-server.loadbalancer.server.port=8080'
-    ports:
-      - 8080
   ecommerce-web:
     container_name: ecommerce-web
     build: ./web
     restart: always
-    ports:
-      - 80
     networks:
       - proxy
     labels:
