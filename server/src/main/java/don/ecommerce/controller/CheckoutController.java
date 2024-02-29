@@ -1,11 +1,9 @@
 package don.ecommerce.controller;
 
-import com.stripe.exception.StripeException;
-import com.stripe.model.PaymentIntent;
 import don.ecommerce.dto.PaymentInfo;
 import don.ecommerce.dto.Purchase;
 import don.ecommerce.dto.PurchaseResponse;
-import don.ecommerce.service.CheckoutService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,29 +13,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/checkout")
+@RequiredArgsConstructor
 public class CheckoutController {
 
-    private CheckoutService checkoutService;
-
-    public CheckoutController(CheckoutService checkoutService) {
-        this.checkoutService = checkoutService;
-    }
 
     @PostMapping("/purchase")
     public PurchaseResponse placeOrder(@RequestBody Purchase purchase) {
 
-        PurchaseResponse purchaseResponse = checkoutService.placeOrder(purchase);
-
-        return purchaseResponse;
+        return PurchaseResponse.builder()
+                .orderTrackingNumber("ABC123")
+                .build();
     }
 
     @PostMapping("/payment-intent")
-    public ResponseEntity<String> createPaymentIntent(@RequestBody PaymentInfo paymentInfo) throws StripeException {
-        PaymentIntent paymentIntent = checkoutService.createPaymentIntent(paymentInfo);
+    public ResponseEntity<String> createPaymentIntent(@RequestBody PaymentInfo paymentInfo) {
 
-        String paymentStr = paymentIntent.toJson();
-
-        return  new ResponseEntity<>(paymentStr, HttpStatus.OK);
+        return new ResponseEntity<>("paymentStr", HttpStatus.OK);
     }
 
 }
