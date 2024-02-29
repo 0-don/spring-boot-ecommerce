@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { CartItem } from '../common/cart-item';
 import { BehaviorSubject, Subject } from 'rxjs';
+import { CartItem } from '../common/cart-item';
 
 @Injectable({
   providedIn: 'root',
@@ -11,10 +11,11 @@ export class CartService {
   totalPrice: Subject<number> = new BehaviorSubject<number>(0);
   totalQuantity: Subject<number> = new BehaviorSubject<number>(0);
 
-  storage: Storage = sessionStorage;
+  storage?: Storage =
+    typeof window !== 'undefined' ? sessionStorage : undefined;
 
   constructor() {
-    const cartString = this.storage.getItem('cartItems');
+    const cartString = this.storage?.getItem('cartItems');
     if (cartString) {
       let data = JSON.parse(cartString);
       this.cartItems = data;
@@ -70,7 +71,7 @@ export class CartService {
   }
 
   persistCartItems() {
-    this.storage.setItem('cartItems', JSON.stringify(this.cartItems));
+    this.storage?.setItem('cartItems', JSON.stringify(this.cartItems));
   }
 
   logCartData(totalPriceValue: number, totalQuantityValue: number) {

@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginStatusComponent implements OnInit {
   isAuthenticated: boolean = false;
-  userFullName: string;
+  userFullName?: string;
 
-  storage: Storage = sessionStorage;
+  storage?: Storage =
+    typeof window !== 'undefined' ? sessionStorage : undefined;
 
   constructor() {}
 

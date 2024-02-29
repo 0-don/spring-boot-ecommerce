@@ -40,7 +40,8 @@ export class CheckoutComponent implements OnInit {
   shippingAddressStates: State[] = [];
   billingAddressStates: State[] = [];
 
-  storage: Storage = sessionStorage;
+  storage?: Storage =
+    typeof window !== 'undefined' ? sessionStorage : undefined;
 
   paymentInfo: PaymentInfo = new PaymentInfo();
   cardElement: any;
@@ -63,7 +64,7 @@ export class CheckoutComponent implements OnInit {
 
     this.reviewCartDetails();
 
-    const userStorageEmail = this.storage.getItem('userEmail');
+    const userStorageEmail = this.storage?.getItem('userEmail');
     if (userStorageEmail) {
       this.userEmail = JSON.parse(userStorageEmail);
     }

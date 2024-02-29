@@ -96,13 +96,13 @@ export class ProductListComponent implements OnInit {
     this.previousCategoryId = this.currentCategoryId;
 
     // now get the products for the given category id
-    this.productService
-      .getProductListPaginate(
-        this.thePageNumber - 1,
-        this.thePageSize,
-        this.currentCategoryId
-      )
-      .subscribe(this.processResult());
+    // this.productService
+    //   .getProductListPaginate(
+    //     this.thePageNumber - 1,
+    //     this.thePageSize,
+    //     this.currentCategoryId
+    //   )
+    //   .subscribe(this.processResult());
   }
 
   processResult() {

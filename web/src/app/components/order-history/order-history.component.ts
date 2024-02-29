@@ -12,7 +12,8 @@ import { OrderHistoryService } from '../../services/order-history.service';
 })
 export class OrderHistoryComponent implements OnInit {
   orderHistoryList: OrderHistory[] = [];
-  storage: Storage = sessionStorage;
+  storage?: Storage =
+    typeof window !== 'undefined' ? sessionStorage : undefined;
 
   constructor(private orderHistoryService: OrderHistoryService) {}
 
@@ -22,7 +23,7 @@ export class OrderHistoryComponent implements OnInit {
 
   handleOrderHistory() {
     // read the user's email address from browser storage
-    const userEmail = this.storage.getItem('userEmail');
+    const userEmail = this.storage?.getItem('userEmail');
     if (userEmail) {
       const theEmail = JSON.parse(userEmail);
 
