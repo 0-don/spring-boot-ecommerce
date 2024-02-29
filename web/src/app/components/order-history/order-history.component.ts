@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { OrderHistory } from '../../common/order-history';
 import { OrderHistoryService } from '../../services/order-history.service';
@@ -6,6 +7,8 @@ import { OrderHistoryService } from '../../services/order-history.service';
   selector: 'app-order-history',
   templateUrl: './order-history.component.html',
   styleUrls: ['./order-history.component.css'],
+  standalone: true,
+  imports: [CommonModule],
 })
 export class OrderHistoryComponent implements OnInit {
   orderHistoryList: OrderHistory[] = [];

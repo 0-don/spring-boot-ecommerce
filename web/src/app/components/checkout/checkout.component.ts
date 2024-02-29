@@ -1,9 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {
   FormGroup,
+  ReactiveFormsModule,
   UntypedFormBuilder,
   UntypedFormControl,
-  UntypedFormGroup,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -22,9 +23,11 @@ import { CheckoutValidators } from '../../validators/checkout-validators';
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css'],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
 })
 export class CheckoutComponent implements OnInit {
-  checkoutFormGroup: FormGroup = new UntypedFormGroup({});
+  checkoutFormGroup: FormGroup = new FormGroup<any>({});
 
   totalPrice: number = 0;
   totalQuantity: number = 0;

@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartItem } from '../../common/cart-item';
@@ -12,6 +13,8 @@ import {
   selector: 'app-product-list',
   templateUrl: './product-list-grid.component.html',
   styleUrls: ['./product-list.component.css'],
+  standalone: true,
+  imports: [CommonModule],
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];

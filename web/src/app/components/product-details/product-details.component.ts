@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartItem } from '../../common/cart-item';
@@ -9,6 +10,8 @@ import { ProductService } from '../../services/product.service';
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.css'],
+  standalone: true,
+  imports: [CommonModule],
 })
 export class ProductDetailsComponent implements OnInit {
   product: Product = new Product();
