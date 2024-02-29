@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  FormGroup,
-  FormBuilder,
-  FormControl,
+  UntypedFormGroup,
+  UntypedFormBuilder,
+  UntypedFormControl,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -25,7 +25,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./checkout.component.css'],
 })
 export class CheckoutComponent implements OnInit {
-  checkoutFormGroup: FormGroup;
+  checkoutFormGroup: UntypedFormGroup;
 
   totalPrice: number = 0;
   totalQuantity: number = 0;
@@ -52,7 +52,7 @@ export class CheckoutComponent implements OnInit {
   userEmail: string = '';
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private checkoutFormService: CheckoutFormService,
     private cartService: CartService,
     private checkoutService: CheckoutService,
@@ -71,56 +71,56 @@ export class CheckoutComponent implements OnInit {
 
     this.checkoutFormGroup = this.formBuilder.group({
       customer: this.formBuilder.group({
-        firstName: new FormControl('', [
+        firstName: new UntypedFormControl('', [
           Validators.required,
           Validators.minLength(2),
           CheckoutValidators.notOnlyWhitespace,
         ]),
 
-        lastName: new FormControl('', [
+        lastName: new UntypedFormControl('', [
           Validators.required,
           Validators.minLength(2),
           CheckoutValidators.notOnlyWhitespace,
         ]),
 
-        email: new FormControl(this.userEmail, [
+        email: new UntypedFormControl(this.userEmail, [
           Validators.required,
           Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
         ]),
       }),
       shippingAddress: this.formBuilder.group({
-        street: new FormControl('', [
+        street: new UntypedFormControl('', [
           Validators.required,
           Validators.minLength(2),
           CheckoutValidators.notOnlyWhitespace,
         ]),
-        city: new FormControl('', [
+        city: new UntypedFormControl('', [
           Validators.required,
           Validators.minLength(2),
           CheckoutValidators.notOnlyWhitespace,
         ]),
-        state: new FormControl('', [Validators.required]),
-        country: new FormControl('', [Validators.required]),
-        zipCode: new FormControl('', [
+        state: new UntypedFormControl('', [Validators.required]),
+        country: new UntypedFormControl('', [Validators.required]),
+        zipCode: new UntypedFormControl('', [
           Validators.required,
           Validators.minLength(2),
           CheckoutValidators.notOnlyWhitespace,
         ]),
       }),
       billingAddress: this.formBuilder.group({
-        street: new FormControl('', [
+        street: new UntypedFormControl('', [
           Validators.required,
           Validators.minLength(2),
           CheckoutValidators.notOnlyWhitespace,
         ]),
-        city: new FormControl('', [
+        city: new UntypedFormControl('', [
           Validators.required,
           Validators.minLength(2),
           CheckoutValidators.notOnlyWhitespace,
         ]),
-        state: new FormControl('', [Validators.required]),
-        country: new FormControl('', [Validators.required]),
-        zipCode: new FormControl('', [
+        state: new UntypedFormControl('', [Validators.required]),
+        country: new UntypedFormControl('', [Validators.required]),
+        zipCode: new UntypedFormControl('', [
           Validators.required,
           Validators.minLength(2),
           CheckoutValidators.notOnlyWhitespace,
