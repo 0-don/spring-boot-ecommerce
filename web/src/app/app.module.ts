@@ -1,18 +1,10 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { AppComponent } from './app.component';
-import { ProductListComponent } from './components/product-list/product-list.component';
-import { ProductService } from './services/product.service';
-
-import { Router, RouterModule, Routes } from '@angular/router';
-import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
-import { ProductDetailsComponent } from './components/product-details/product-details.component';
-import { SearchComponent } from './components/search/search.component';
-
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AppComponent } from './app.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
@@ -20,19 +12,20 @@ import { LoginStatusComponent } from './components/login-status/login-status.com
 import { LoginComponent } from './components/login/login.component';
 import { MembersPageComponent } from './components/members-page/members-page.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
-import myAppConfig from './config/my-app-config';
-import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { SearchComponent } from './components/search/search.component';
+import { ProductService } from './services/product.service';
 
 const routes: Routes = [
   {
     path: 'order-history',
     component: OrderHistoryComponent,
-
   },
   {
     path: 'members',
     component: MembersPageComponent,
-
   },
 
   // { path: 'login/callback', component: CallbackComponent },
@@ -73,7 +66,7 @@ const routes: Routes = [
   ],
   providers: [
     ProductService,
-  
+
     // {
     //   provide: HTTP_INTERCEPTORS,
     //   useClass: AuthInterceptorService,
