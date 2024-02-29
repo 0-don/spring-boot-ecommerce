@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  FormGroup,
   UntypedFormBuilder,
   UntypedFormControl,
   UntypedFormGroup,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Country } from 'src/app/common/country';
-import { Order } from 'src/app/common/order';
-import { OrderItem } from 'src/app/common/order-item';
-import { PaymentInfo } from 'src/app/common/payment-info';
-import { Purchase } from 'src/app/common/purchase';
-import { State } from 'src/app/common/state';
-import { CartService } from 'src/app/services/cart.service';
-import { CheckoutFormService } from 'src/app/services/checkout-form.service';
-import { CheckoutService } from 'src/app/services/checkout.service';
-
-import { CheckoutValidators } from 'src/app/validators/checkout-validators';
+import { Country } from '../../common/country';
+import { Order } from '../../common/order';
+import { OrderItem } from '../../common/order-item';
+import { PaymentInfo } from '../../common/payment-info';
+import { Purchase } from '../../common/purchase';
+import { State } from '../../common/state';
+import { CartService } from '../../services/cart.service';
+import { CheckoutFormService } from '../../services/checkout-form.service';
+import { CheckoutService } from '../../services/checkout.service';
+import { CheckoutValidators } from '../../validators/checkout-validators';
 
 @Component({
   selector: 'app-checkout',
@@ -24,7 +24,7 @@ import { CheckoutValidators } from 'src/app/validators/checkout-validators';
   styleUrls: ['./checkout.component.css'],
 })
 export class CheckoutComponent implements OnInit {
-  checkoutFormGroup: UntypedFormGroup;
+  checkoutFormGroup: FormGroup = new UntypedFormGroup({});
 
   totalPrice: number = 0;
   totalQuantity: number = 0;

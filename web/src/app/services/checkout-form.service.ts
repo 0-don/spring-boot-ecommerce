@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, of } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 import { Country } from '../common/country';
-import { Purchase } from '../common/purchase';
 import { State } from '../common/state';
 
 @Injectable({

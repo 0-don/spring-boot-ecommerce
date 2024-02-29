@@ -1,9 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
@@ -58,10 +58,10 @@ const routes: Routes = [
     OrderHistoryComponent,
   ],
   imports: [
+    CommonModule,
     RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
-    NgbModule,
     ReactiveFormsModule,
   ],
   providers: [
