@@ -33,12 +33,15 @@
     "@angular/localize": "^17.2.3",
     "@types/jasmine": "~5.1.4",
     "@types/node": "^20.11.24",
+    "autoprefixer": "^10.4.17",
     "jasmine-core": "~5.1.2",
     "karma": "~6.4.3",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.1",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
     "typescript": "~5.3.3"
   }
 }
