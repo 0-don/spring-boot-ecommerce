@@ -55,7 +55,7 @@ export class CartService {
     let totalQuantityValue: number = 0;
 
     for (let currentCartItem of this.cartItems) {
-      totalPriceValue += currentCartItem.quantity * currentCartItem.unitPrice;
+      totalPriceValue += currentCartItem.quantity * 0;
       totalQuantityValue += currentCartItem.quantity;
     }
 
@@ -75,7 +75,7 @@ export class CartService {
 
   logCartData(totalPriceValue: number, totalQuantityValue: number) {
     for (let tempCartItem of this.cartItems) {
-      const subTotalPrice = tempCartItem.quantity * tempCartItem.unitPrice;
+      // const subTotalPrice = tempCartItem.quantity * tempCartItem.unitPrice;
     }
   }
 

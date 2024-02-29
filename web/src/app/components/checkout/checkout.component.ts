@@ -285,25 +285,25 @@ export class CheckoutComponent implements OnInit {
     purchase.shippingAddress =
       this.checkoutFormGroup.controls['shippingAddress'].value;
     const shippingState: State = JSON.parse(
-      JSON.stringify(purchase.shippingAddress.state)
+      JSON.stringify(purchase.shippingAddress?.state)
     );
     const shippingCountry: Country = JSON.parse(
-      JSON.stringify(purchase.shippingAddress.country)
+      JSON.stringify(purchase.shippingAddress?.country)
     );
-    purchase.shippingAddress.state = shippingState.name;
-    purchase.shippingAddress.country = shippingCountry.name;
+    purchase.shippingAddress!.state = shippingState.name;
+    purchase.shippingAddress!.country = shippingCountry.name;
 
     // populate purchase - billing address
     purchase.billingAddress =
       this.checkoutFormGroup.controls['billingAddress'].value;
     const billingState: State = JSON.parse(
-      JSON.stringify(purchase.billingAddress.state)
+      JSON.stringify(purchase.billingAddress?.state)
     );
     const billingCountry: Country = JSON.parse(
-      JSON.stringify(purchase.billingAddress.country)
+      JSON.stringify(purchase.billingAddress?.country)
     );
-    purchase.billingAddress.state = billingState.name;
-    purchase.billingAddress.country = billingCountry.name;
+    purchase.billingAddress!.state = billingState.name;
+    purchase.billingAddress!.country = billingCountry.name;
 
     // populate purchase - order and orderItems
     purchase.order = order;
@@ -311,7 +311,7 @@ export class CheckoutComponent implements OnInit {
 
     this.paymentInfo.amount = Math.round(this.totalPrice * 100);
     this.paymentInfo.currency = 'USD';
-    this.paymentInfo.receiptEmail = purchase.customer.email;
+    this.paymentInfo.receiptEmail = purchase.customer?.email;
 
     // if valid form then
     // - create payment intent
