@@ -5,7 +5,6 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { OktaAuthService } from '@okta/okta-angular';
 import { from, lastValueFrom, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -13,7 +12,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class AuthInterceptorService implements HttpInterceptor {
-  constructor(private oktaAuth: OktaAuthService) {}
+  constructor() {}
 
   intercept(
     request: HttpRequest<any>,
@@ -31,12 +30,12 @@ export class AuthInterceptorService implements HttpInterceptor {
 
     if (securedEndpoints.some((url) => request.urlWithParams.includes(url))) {
       // get access token
-      const accessToken = await this.oktaAuth.getAccessToken();
+
 
       // clone the request and add new header with access token
       request = request.clone({
         setHeaders: {
-          Authorization: 'Bearer ' + accessToken,
+          Authorization: 'Bearer ' ,
         },
       });
     }

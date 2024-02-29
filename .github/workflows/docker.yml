@@ -15,9 +15,6 @@ jobs:
       - name: Create env file
         run: |
           touch .env
-          echo OKTA_OAUTH2_ID=${{ secrets.OKTA_OAUTH2_ID }} >> .env
-          echo OKTA_OAUTH2_ISSUER=${{ secrets.OKTA_OAUTH2_ISSUER }} >> .env
-          echo OKTA_OAUTH2_SECRET=${{ secrets.OKTA_OAUTH2_SECRET }} >> .env
           echo LOCALHOST_WEB=${{ secrets.LOCALHOST_WEB }} >> .env
           echo PUBLIC_WEB=${{ secrets.PUBLIC_WEB }} >> .env
           echo SERVER_SSL_ENABLED=${{ secrets.SERVER_SSL_ENABLED }} >> .env
