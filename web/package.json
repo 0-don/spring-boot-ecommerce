@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "spartan": "npx ng g @spartan-ng/cli:ui --directory src/libs/ui --verbose"
   },
   "private": true,
   "dependencies": {
