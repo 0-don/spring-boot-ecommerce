@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "dev": "ng serve",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "spartan": "npx ng g @spartan-ng/cli:ui --directory libs/ui",
