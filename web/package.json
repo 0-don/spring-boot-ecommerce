@@ -9,7 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "spartan": "npx ng g @spartan-ng/cli:ui --directory libs/ui",
-    "default": "ng config -g cli.packageManager yarn"
+    "default": "npx ng config -g cli.packageManager yarn"
   },
   "private": true,
   "dependencies": {
