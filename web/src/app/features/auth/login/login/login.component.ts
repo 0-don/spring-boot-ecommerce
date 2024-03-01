@@ -1,25 +1,26 @@
 import { Component } from '@angular/core';
+import { provideIcons } from '@ng-icons/core';
 import { lucideCheck, lucideChevronDown } from '@ng-icons/lucide';
-import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
-import {
-  HlmCardContentDirective,
-  HlmCardDescriptionDirective,
-  HlmCardDirective,
-  HlmCardFooterDirective,
-  HlmCardHeaderDirective,
-  HlmCardTitleDirective,
-} from '@spartan-ng/ui-card-helm';
 import { BrnCommandImports } from '@spartan-ng/ui-command-brain';
-import { HlmCommandImports } from '@spartan-ng/ui-command-helm';
-import { HlmIconComponent, provideIcons } from '@spartan-ng/ui-icon-helm';
-import { HlmInputDirective } from '@spartan-ng/ui-input-helm';
-import { HlmLabelDirective } from '@spartan-ng/ui-label-helm';
 import {
   BrnPopoverComponent,
-  BrnPopoverContentDirective,
   BrnPopoverTriggerDirective,
+  BrnPopoverContentDirective,
 } from '@spartan-ng/ui-popover-brain';
-import { HlmPopoverContentDirective } from '@spartan-ng/ui-popover-helm';
+import { HlmButtonDirective } from '../../../../../../libs/ui/ui-button-helm/src';
+import {
+  HlmCardDirective,
+  HlmCardHeaderDirective,
+  HlmCardTitleDirective,
+  HlmCardDescriptionDirective,
+  HlmCardContentDirective,
+  HlmCardFooterDirective,
+} from '../../../../../../libs/ui/ui-card-helm/src';
+import { HlmCommandImports } from '../../../../../../libs/ui/ui-command-helm/src';
+import { HlmIconComponent } from '../../../../../../libs/ui/ui-icon-helm/src';
+import { HlmInputDirective } from '../../../../../../libs/ui/ui-input-helm/src';
+import { HlmLabelDirective } from '../../../../../../libs/ui/ui-label-helm/src';
+import { HlmPopoverContentDirective } from '../../../../../../libs/ui/ui-popover-helm/src';
 
 @Component({
   selector: 'app-login',

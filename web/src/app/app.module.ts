@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-
-import { LoginComponent } from './features/auth/login/login/login.component';
 import { ProductService } from './services/product.service';
 
 @NgModule({
   declarations: [],
-  imports: [AppComponent, LoginComponent],
+  imports: [AppComponent],
   providers: [
     ProductService,
 
