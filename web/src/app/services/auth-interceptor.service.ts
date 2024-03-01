@@ -5,8 +5,8 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { from, lastValueFrom, Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { Observable, from, lastValueFrom } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -31,11 +31,10 @@ export class AuthInterceptorService implements HttpInterceptor {
     if (securedEndpoints.some((url) => request.urlWithParams.includes(url))) {
       // get access token
 
-
       // clone the request and add new header with access token
       request = request.clone({
         setHeaders: {
-          Authorization: 'Bearer ' ,
+          Authorization: 'Bearer ',
         },
       });
     }
