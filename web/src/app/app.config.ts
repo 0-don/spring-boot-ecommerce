@@ -1,19 +1,12 @@
-import { CommonModule } from '@angular/common';
 import {
-  HttpClientModule,
   provideHttpClient,
   withFetch,
   withInterceptorsFromDi,
 } from '@angular/common/http';
-import { ApplicationConfig, importProvidersFrom } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import {
-  BrowserModule,
-  provideClientHydration,
-} from '@angular/platform-browser';
+import { ApplicationConfig } from '@angular/core';
+import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import {
-  RouterModule,
   provideRouter,
   withInMemoryScrolling,
   withRouterConfig,
@@ -31,15 +24,6 @@ export const appConfig: ApplicationConfig = {
         scrollPositionRestoration: 'enabled',
       })
     ),
-    importProvidersFrom(
-      BrowserModule,
-      CommonModule,
-      RouterModule.forRoot(routes),
-      BrowserModule,
-      HttpClientModule,
-      ReactiveFormsModule
-    ),
-
     provideHttpClient(withFetch(), withInterceptorsFromDi()),
     provideAnimations(),
     provideClientHydration(),
