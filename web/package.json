@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "spartan": "npx ng g @spartan-ng/cli:ui --directory libs/ui"
+    "spartan": "npx ng g @spartan-ng/cli:ui --directory libs/ui",
+    "default": "ng config -g cli.packageManager yarn"
   },
   "private": true,
   "dependencies": {
@@ -30,6 +31,7 @@
     "@spartan-ng/ui-command-brain": "0.0.1-alpha.335",
     "@spartan-ng/ui-core": "^0.0.1-alpha.336",
     "@spartan-ng/ui-dialog-brain": "0.0.1-alpha.335",
+    "@spartan-ng/ui-label-brain": "0.0.1-alpha.335",
     "@spartan-ng/ui-popover-brain": "0.0.1-alpha.335",
     "class-variance-authority": "^0.6.0",
     "clsx": "^1.2.1",

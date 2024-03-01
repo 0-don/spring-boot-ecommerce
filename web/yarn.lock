@@ -2600,6 +2600,13 @@
   dependencies:
     tslib "^2.3.0"
 
+"@spartan-ng/ui-label-brain@0.0.1-alpha.335":
+  version "0.0.1-alpha.335"
+  resolved "https://registry.yarnpkg.com/@spartan-ng/ui-label-brain/-/ui-label-brain-0.0.1-alpha.335.tgz#871a6d393e3c30087612e773f84dce5d941b2364"
+  integrity sha512-pyqTq/B7bFnEyeoikyRwaTfBxrePAS9W20CZixi9xhqX+Ih0M+Z62mEbPuqD6844/omoo7aicHAUGsmqmtFd1w==
+  dependencies:
+    tslib "^2.3.0"
+
 "@spartan-ng/ui-popover-brain@0.0.1-alpha.335":
   version "0.0.1-alpha.335"
   resolved "https://registry.yarnpkg.com/@spartan-ng/ui-popover-brain/-/ui-popover-brain-0.0.1-alpha.335.tgz#79f804ba66e7d073bab6c70511a50182203e6ddc"
