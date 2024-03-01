@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "spartan": "npx ng g @spartan-ng/cli:ui --directory src/libs/ui --verbose"
+    "spartan": "npx ng g @spartan-ng/cli:ui --directory libs/ui"
   },
   "private": true,
   "dependencies": {
@@ -22,7 +22,12 @@
     "@angular/platform-server": "^17.2.3",
     "@angular/router": "^17.2.3",
     "@angular/ssr": "^17.2.2",
+    "@ng-icons/core": "^25.1.0",
+    "@ng-icons/lucide": "^26.3.0",
     "@spartan-ng/ui-core": "^0.0.1-alpha.336",
+    "@spartan-ng/ui-dialog-brain": "0.0.1-alpha.335",
+    "class-variance-authority": "^0.6.0",
+    "clsx": "^1.2.1",
     "rxjs": "~7.8.1",
     "tslib": "^2.6.2",
     "zone.js": "~0.14.4"
@@ -43,7 +48,9 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "postcss": "^8.4.35",
+    "tailwind-merge": "^2.2.0",
     "tailwindcss": "^3.4.1",
+    "tailwindcss-animate": "^1.0.6",
     "typescript": "~5.3.3"
   }
 }

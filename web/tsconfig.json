@@ -18,8 +18,18 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": ["ES2022", "dom"],
-    "paths": {}
+    "lib": [
+      "ES2022",
+      "dom"
+    ],
+    "paths": {
+      "@spartan-ng/ui-dialog-helm": [
+        "./libs/ui/ui-dialog-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-icon-helm": [
+        "./libs/ui/ui-icon-helm/src/index.ts"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

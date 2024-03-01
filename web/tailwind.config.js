@@ -1,10 +1,12 @@
+const { addDynamicIconSelectors } = require("@iconify/tailwind");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [require("@spartan-ng/ui-core/hlm-tailwind-preset")],
-  darkMode: 'class',
+  darkMode: "class",
   content: ["./src/**/*.{html,ts}"],
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [addDynamicIconSelectors()],
 };
