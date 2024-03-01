@@ -28,7 +28,7 @@
       ],
       "@spartan-ng/ui-icon-helm": [
         "./libs/ui/ui-icon-helm/src/index.ts"
-      ]
+      ],
     }
   },
   "angularCompilerOptions": {
