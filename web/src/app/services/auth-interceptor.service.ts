@@ -21,7 +21,7 @@ export class AuthInterceptorService implements HttpInterceptor {
     return from(this.handleAccess(request, next));
   }
 
-  private async handleAccess(
+  public async handleAccess(
     request: HttpRequest<any>,
     next: HttpHandler
   ): Promise<HttpEvent<any>> {

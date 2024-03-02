@@ -27,7 +27,7 @@ type Framework = { label: string; value: string };
   selector: 'app-login',
   standalone: true,
   imports: [
-    BrnCommandImports,
+    // BrnCommandImports,
     HlmCommandImports,
     HlmIconComponent,
     BrnPopoverComponent,

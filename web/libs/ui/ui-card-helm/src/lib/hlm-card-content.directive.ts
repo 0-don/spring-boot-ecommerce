@@ -4,19 +4,21 @@ import { cva, VariantProps } from 'class-variance-authority';
 import { ClassValue } from 'clsx';
 
 export const cardContentVariants = cva('p-6 pt-0', {
-	variants: {},
-	defaultVariants: {},
+  variants: {},
+  defaultVariants: {},
 });
 export type CardContentVariants = VariantProps<typeof cardContentVariants>;
 
 @Directive({
-	selector: '[hlmCardContent]',
-	standalone: true,
-	host: {
-		'[class]': '_computedClass()',
-	},
+  selector: '[hlmCardContent]',
+  standalone: true,
+  host: {
+    '[class]': '_computedClass()',
+  },
 })
 export class HlmCardContentDirective {
-	private readonly _userClass = input<ClassValue>('', { alias: 'class' });
-	protected _computedClass = computed(() => hlm(cardContentVariants(), this._userClass()));
+  public readonly _userClass = input<ClassValue>('', { alias: 'class' });
+  public _computedClass = computed(() =>
+    hlm(cardContentVariants(), this._userClass())
+  );
 }

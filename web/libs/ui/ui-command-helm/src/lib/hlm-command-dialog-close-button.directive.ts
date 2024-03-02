@@ -4,19 +4,21 @@ import { hlm } from '@spartan-ng/ui-core';
 import { ClassValue } from 'clsx';
 
 @Directive({
-	selector: '[hlmCmdDialogCloseBtn]',
-	standalone: true,
-	hostDirectives: [HlmButtonDirective],
-	host: {
-		'[class]': '_computedClass()',
-	},
+  selector: '[hlmCmdDialogCloseBtn]',
+  standalone: true,
+  hostDirectives: [HlmButtonDirective],
+  host: {
+    '[class]': '_computedClass()',
+  },
 })
 export class HlmCommandDialogCloseButtonDirective {
-	private _hlmBtn = inject(HlmButtonDirective, { host: true });
-	constructor() {
-		this._hlmBtn.variant = 'ghost';
-	}
+  public _hlmBtn = inject(HlmButtonDirective, { host: true });
+  constructor() {
+    this._hlmBtn.variant = 'ghost';
+  }
 
-	private readonly _userClass = input<ClassValue>('', { alias: 'class' });
-	protected _computedClass = computed(() => hlm('!p-1 !h-5 !w-5', this._userClass()));
+  public readonly _userClass = input<ClassValue>('', { alias: 'class' });
+  public _computedClass = computed(() =>
+    hlm('!p-1 !h-5 !w-5', this._userClass())
+  );
 }

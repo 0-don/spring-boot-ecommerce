@@ -3,18 +3,16 @@ import { hlm } from '@spartan-ng/ui-core';
 import { ClassValue } from 'clsx';
 
 @Component({
-	selector: 'hlm-dialog-header',
-	standalone: true,
-	template: `
-		<ng-content />
-	`,
-	host: {
-		'[class]': '_computedClass()',
-	},
+  selector: 'hlm-dialog-header',
+  standalone: true,
+  template: ` <ng-content /> `,
+  host: {
+    '[class]': '_computedClass()',
+  },
 })
 export class HlmDialogHeaderComponent {
-	private readonly _userClass = input<ClassValue>('', { alias: 'class' });
-	protected _computedClass = computed(() =>
-		hlm('flex flex-col space-y-1.5 text-center sm:text-left', this._userClass()),
-	);
+  public readonly _userClass = input<ClassValue>('', { alias: 'class' });
+  public _computedClass = computed(() =>
+    hlm('flex flex-col space-y-1.5 text-center sm:text-left', this._userClass())
+  );
 }

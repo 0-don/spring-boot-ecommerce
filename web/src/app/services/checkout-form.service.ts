@@ -9,10 +9,10 @@ import { State } from '../common/state';
   providedIn: 'root',
 })
 export class CheckoutFormService {
-  private countriesUrl = `${environment.serverUrl}/api/countries`;
-  private statesUrl = `${environment.serverUrl}/api/states`;
+  public countriesUrl = `${environment.serverUrl}/api/countries`;
+  public statesUrl = `${environment.serverUrl}/api/states`;
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(public httpClient: HttpClient) {}
 
   getCountries(): Observable<Country[]> {
     return this.httpClient

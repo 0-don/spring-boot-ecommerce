@@ -17,21 +17,21 @@ export class ThemeService implements OnDestroy {
   // (which can be used for server side rendering)
   // we will use the PLATFORM_ID to see if we are executing in the browser and
   // it is available
-  private _platformId = inject(PLATFORM_ID);
+  public _platformId = inject(PLATFORM_ID);
   // A.2 we use Angular's renderer to add/remove the dark class from the html element
-  private _renderer = inject(RendererFactory2).createRenderer(null, null);
+  public _renderer = inject(RendererFactory2).createRenderer(null, null);
   // A.3 we use Angular's DOCUMENT injection token to avoid directly accessing the document object
-  private _document = inject(DOCUMENT);
+  public _document = inject(DOCUMENT);
 
   // B. Initializing our in memory theme store
   // B.1 we want to give every subscriber the current value of our theme
   // even if they subscribe after the first value was emitted
-  private _theme$ = new ReplaySubject<'light' | 'dark'>(1);
+  public _theme$ = new ReplaySubject<'light' | 'dark'>(1);
   // B.2 we expose the current theme so our app can access it and e.g. show
   // a different icon for the button to toggle it
   public theme$ = this._theme$.asObservable();
   // B.3 this emits when the service is destroyed and used to clean up subscriptions
-  private _destroyed$ = new Subject<void>();
+  public _destroyed$ = new Subject<void>();
 
   // C. Sync and listen to theme changes on service creation
   constructor() {
@@ -44,7 +44,7 @@ export class ThemeService implements OnDestroy {
   }
 
   // C.1 sync with the theme set in the localStorage by our index.html script tag
-  private syncThemeFromLocalStorage(): void {
+  public syncThemeFromLocalStorage(): void {
     // if we are in the browser we know we have access to localstorage
     if (isPlatformBrowser(this._platformId)) {
       // we load the appropriate value from the localStorage into our _theme$ replaysubject
@@ -55,7 +55,7 @@ export class ThemeService implements OnDestroy {
   }
   // C.2 Subscribe to theme changes until the service is destroyed
   // and add/remove class from html element
-  private toggleClassOnThemeChanges(): void {
+  public toggleClassOnThemeChanges(): void {
     // until our service is destroyed we subscribe to all changes in the theme$ variable
     this.theme$.pipe(takeUntil(this._destroyed$)).subscribe((theme) => {
       // if it is dark we add the dark class to the html element

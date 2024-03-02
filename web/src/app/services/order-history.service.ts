@@ -1,16 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { OrderHistory } from '../common/order-history';
 import { environment } from '../../environments/environment';
+import { OrderHistory } from '../common/order-history';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OrderHistoryService {
-  private orderUrl = `${environment.serverUrl}/api/orders`;
+  public orderUrl = `${environment.serverUrl}/api/orders`;
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(public httpClient: HttpClient) {}
 
   getOrderHistory(theEmail: string): Observable<GetResponseOrderHistory> {
     // need to build URL based on the customer email
