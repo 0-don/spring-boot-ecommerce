@@ -25,7 +25,7 @@ export const appConfig: ApplicationConfig = {
         scrollPositionRestoration: 'enabled',
       })
     ),
-    importProvidersFrom(DynamicViewModule),
+    importProvidersFrom(),
 
     provideHttpClient(withFetch(), withInterceptorsFromDi()),
     provideAnimations(),
