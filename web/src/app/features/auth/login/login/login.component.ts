@@ -2,7 +2,6 @@ import { Component, signal } from '@angular/core';
 import { provideIcons } from '@ng-icons/core';
 import { lucideCheck, lucideChevronDown } from '@ng-icons/lucide';
 
-import { BrnCommandImports } from '@spartan-ng/ui-command-brain';
 import { HlmCommandImports } from '@spartan-ng/ui-command-helm';
 import {
   BrnPopoverComponent,
