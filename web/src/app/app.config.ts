@@ -11,7 +11,6 @@ import {
   withInMemoryScrolling,
   withRouterConfig,
 } from '@angular/router';
-import { DynamicViewModule } from '@ngneat/overview';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
