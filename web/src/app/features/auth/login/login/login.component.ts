@@ -1,24 +1,25 @@
 import { Component, signal } from '@angular/core';
-import { provideIcons } from '@ng-icons/core';
 import { lucideCheck, lucideChevronDown } from '@ng-icons/lucide';
-
+import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
+import {
+  HlmCardContentDirective,
+  HlmCardDescriptionDirective,
+  HlmCardDirective,
+  HlmCardFooterDirective,
+  HlmCardHeaderDirective,
+  HlmCardTitleDirective,
+} from '@spartan-ng/ui-card-helm';
+import { BrnCommandImports } from '@spartan-ng/ui-command-brain';
 import { HlmCommandImports } from '@spartan-ng/ui-command-helm';
+import { HlmIconComponent, provideIcons } from '@spartan-ng/ui-icon-helm';
+import { HlmInputDirective } from '@spartan-ng/ui-input-helm';
+import { HlmLabelDirective } from '@spartan-ng/ui-label-helm';
 import {
   BrnPopoverComponent,
   BrnPopoverContentDirective,
   BrnPopoverTriggerDirective,
 } from '@spartan-ng/ui-popover-brain';
-import { HlmButtonDirective } from '../../../../../../libs/ui/ui-button-helm/src/lib/hlm-button.directive';
-import { HlmCardContentDirective } from '../../../../../../libs/ui/ui-card-helm/src/lib/hlm-card-content.directive';
-import { HlmCardDescriptionDirective } from '../../../../../../libs/ui/ui-card-helm/src/lib/hlm-card-description.directive';
-import { HlmCardFooterDirective } from '../../../../../../libs/ui/ui-card-helm/src/lib/hlm-card-footer.directive';
-import { HlmCardHeaderDirective } from '../../../../../../libs/ui/ui-card-helm/src/lib/hlm-card-header.directive';
-import { HlmCardTitleDirective } from '../../../../../../libs/ui/ui-card-helm/src/lib/hlm-card-title.directive';
-import { HlmCardDirective } from '../../../../../../libs/ui/ui-card-helm/src/lib/hlm-card.directive';
-import { HlmIconComponent } from '../../../../../../libs/ui/ui-icon-helm/src/lib/hlm-icon.component';
-import { HlmInputDirective } from '../../../../../../libs/ui/ui-input-helm/src/lib/hlm-input.directive';
-import { HlmLabelDirective } from '../../../../../../libs/ui/ui-label-helm/src/lib/hlm-label.directive';
-import { HlmPopoverContentDirective } from '../../../../../../libs/ui/ui-popover-helm/src/lib/hlm-popover-content.directive';
+import { HlmPopoverContentDirective } from '@spartan-ng/ui-popover-helm';
 
 type Framework = { label: string; value: string };
 
