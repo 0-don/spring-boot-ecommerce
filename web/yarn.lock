@@ -150,7 +150,7 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/cdk@17.2.1":
+"@angular/cdk@17.2.1", "@angular/cdk@>=16.0.0":
   version "17.2.1"
   resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-17.2.1.tgz#0a00911f08d4cb837de93f33f35a688d73ca037b"
   integrity sha512-9cWV9MyWnpImns/WQApgoQBKblXA9Zx2CpCkDNipRgx9RyvGrvCLjpEfwQI4HjpPAQDI1trsbeJKihzgz4tFgw==
@@ -1844,6 +1844,30 @@
   dependencies:
     tslib "^2.2.0"
 
+"@ngneat/cmdk@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@ngneat/cmdk/-/cmdk-2.0.0.tgz#00f54e4fcd4496dc82d7f24dca556ba0f2d0702e"
+  integrity sha512-drGM1/iPlZx19i5x8lyPA/Thp0Znt+P5iOTHdL9ZEHLxkj+IKiPwmSMXuUIF2DuA0AOPGUIEhR6wGdicN9Fcyg==
+  dependencies:
+    "@angular/cdk" ">=16.0.0"
+    "@ngneat/overview" ">=5.0.0"
+    "@ngneat/until-destroy" ">=10.0.0"
+    tslib "^2.3.0"
+
+"@ngneat/overview@>=5.0.0", "@ngneat/overview@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@ngneat/overview/-/overview-6.0.0.tgz#344a843db7bd922014f6825efe1c8406e6d74be5"
+  integrity sha512-pm4bAEYtnUl8q82dwjh5NN9HF0WTFEI58VtR12izp9Oaa2dtseX82VUArfb4fadmlbHpPMUwXHrsm0ORyWii2A==
+  dependencies:
+    tslib "^2.0.0"
+
+"@ngneat/until-destroy@>=10.0.0", "@ngneat/until-destroy@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@ngneat/until-destroy/-/until-destroy-10.0.0.tgz#105db43d858bc1cec2f36272a296af68bed7bf43"
+  integrity sha512-xXFAabQ4YVJ82LYxdgUlaKZyR3dSbxqG3woSyaclzxfCgWMEDweCcM/GGYbNiHJa0WwklI98RXHvca+UyCxpeg==
+  dependencies:
+    tslib "^2.3.0"
+
 "@ngtools/webpack@17.2.2":
   version "17.2.2"
   resolved "https://registry.npmjs.org/@ngtools/webpack/-/webpack-17.2.2.tgz"
@@ -2431,10 +2455,38 @@
   dependencies:
     tslib "^2.3.0"
 
+"@spartan-ng/ui-command-brain@0.0.1-alpha.336":
+  version "0.0.1-alpha.336"
+  resolved "https://registry.yarnpkg.com/@spartan-ng/ui-command-brain/-/ui-command-brain-0.0.1-alpha.336.tgz#7d428e183f7e88721fbdecc49fd04b5a3897309c"
+  integrity sha512-0LgXJtxzuaicoMEMB6/FjJAa5xeVmjfJwWnKMTV1nIS7wv1Fa5AU4B695I57pHOUfrvjWa/EnFqvH8ym/AHgvA==
+  dependencies:
+    tslib "^2.3.0"
+
 "@spartan-ng/ui-core@0.0.1-alpha.336":
   version "0.0.1-alpha.336"
   resolved "https://registry.yarnpkg.com/@spartan-ng/ui-core/-/ui-core-0.0.1-alpha.336.tgz#f54c8abb7faa0866d9275533a74cb38c4b6585cc"
   integrity sha512-luYdk11ve2A0gdRS5DlQsz8mH1Qyjv5eYCB2pO+PomfRRJgNxueFMAEWLhHg6Uzl1ZD1LHC7PD+Z4QjDPWn8sQ==
+  dependencies:
+    tslib "^2.3.0"
+
+"@spartan-ng/ui-dialog-brain@0.0.1-alpha.336":
+  version "0.0.1-alpha.336"
+  resolved "https://registry.yarnpkg.com/@spartan-ng/ui-dialog-brain/-/ui-dialog-brain-0.0.1-alpha.336.tgz#2094b9d3998444dac8185f6cd2a3b6b205b69c25"
+  integrity sha512-CvrxpRImAhxrfhJj3ZNDusGQaX0BUelIO+YAJaKA3Dw1V5tmtgXHtxXXkHAsRmg9+pS6XWuRe7aHLQu6fWK7ZQ==
+  dependencies:
+    tslib "^2.3.0"
+
+"@spartan-ng/ui-label-brain@0.0.1-alpha.336":
+  version "0.0.1-alpha.336"
+  resolved "https://registry.yarnpkg.com/@spartan-ng/ui-label-brain/-/ui-label-brain-0.0.1-alpha.336.tgz#6169aeb137e485ef375af22b19879aa47375c982"
+  integrity sha512-AN0VxStVX9Pg8W+6EytCHB1KQ1XpkFLYxOEZLNwGgbTbhkeCRYNrVkubw5X1Aax0knc76kRX+FQC3aha6YYHmg==
+  dependencies:
+    tslib "^2.3.0"
+
+"@spartan-ng/ui-popover-brain@0.0.1-alpha.336":
+  version "0.0.1-alpha.336"
+  resolved "https://registry.yarnpkg.com/@spartan-ng/ui-popover-brain/-/ui-popover-brain-0.0.1-alpha.336.tgz#36cf66b5e8a98859d3bf43f36fdbb14ff16e0d84"
+  integrity sha512-JVNyy4JL2hpSk91wZ0T5iytBfbvR7SGjt8G7vCoEeCHPYNrafDH6+QblI1NImXDGq5Jnyu0IhsGzZb9gdKzo5A==
   dependencies:
     tslib "^2.3.0"
 
@@ -8839,7 +8891,7 @@ tsconfig-paths@^4.0.0, tsconfig-paths@^4.1.2:
     minimist "^1.2.6"
     strip-bom "^3.0.0"
 
-tslib@2.6.2, tslib@^2.1.0, tslib@^2.2.0, tslib@^2.3.0, tslib@^2.4.0, tslib@^2.6.2:
+tslib@2.6.2, tslib@^2.0.0, tslib@^2.1.0, tslib@^2.2.0, tslib@^2.3.0, tslib@^2.4.0, tslib@^2.6.2:
   version "2.6.2"
   resolved "https://registry.npmjs.org/tslib/-/tslib-2.6.2.tgz"
   integrity sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==

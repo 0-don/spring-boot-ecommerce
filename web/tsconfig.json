@@ -31,6 +31,21 @@
       ],
       "@spartan-ng/ui-icon-helm": [
         "./components/ui-icon-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-card-helm": [
+        "./components/ui-card-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-command-helm": [
+        "./components/ui-command-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-input-helm": [
+        "./components/ui-input-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-popover-helm": [
+        "./components/ui-popover-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-label-helm": [
+        "./components/ui-label-helm/src/index.ts"
       ]
     }
   },
