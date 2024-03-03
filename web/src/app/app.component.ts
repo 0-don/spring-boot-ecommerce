@@ -6,6 +6,6 @@ import { AccordionComponent } from './accordion.component';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, AccordionComponent],
-  template: ` <accordion></accordion> `,
+  template: `<accordion></accordion>`,
 })
 export class AppComponent {}
