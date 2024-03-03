@@ -17,9 +17,9 @@ import {
   HlmSheetContentComponent,
   HlmSheetOverlayDirective,
 } from '@spartan-ng/ui-sheet-helm';
+import { AppLogoComponent } from '../../lib/app-logo.component';
 import { SideNavContentComponent } from '../layout/side-nav/side-nav-content.component';
 import { SideNavLinkDirective } from '../layout/side-nav/side-nav-link.directive';
-import { SpartanLogoComponent } from '../../lib/spartan-logo.component';
 import { NavLinkDirective } from './spartan-nav-link.directive';
 
 @Component({
@@ -43,7 +43,7 @@ import { NavLinkDirective } from './spartan-nav-link.directive';
     RouterLink,
     NavLinkDirective,
     SideNavLinkDirective,
-    SpartanLogoComponent,
+    AppLogoComponent,
   ],
   providers: [provideIcons({ lucideMoreVertical, lucideX })],
   template: `
@@ -72,7 +72,7 @@ import { NavLinkDirective } from './spartan-nav-link.directive';
             class="mr-4 p-1.5"
             routerLink="/"
           >
-            <spartan-logo class="text-primary w-12" />
+            <app-logo class="text-primary w-12" />
           </a>
           <span>spartan/ui</span>
         </div>

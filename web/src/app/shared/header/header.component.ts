@@ -4,7 +4,7 @@ import { provideIcons } from '@ng-icons/core';
 import { lucideGithub, lucideTwitter } from '@ng-icons/lucide';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
-import { SpartanLogoComponent } from '../../lib/spartan-logo.component';
+import { AppLogoComponent } from '../../lib/app-logo.component';
 import { HeaderDarkModeComponent } from './header-dark-mode.component';
 import { HeaderMobileNavComponent } from './header-mobile-nav.component';
 import { HeaderThemePickerComponent } from './header-theme-picker.component';
@@ -21,7 +21,7 @@ import { NavLinkDirective } from './spartan-nav-link.directive';
     NavLinkDirective,
     HeaderMobileNavComponent,
     HeaderDarkModeComponent,
-    SpartanLogoComponent,
+    AppLogoComponent,
   ],
   providers: [provideIcons({ lucideTwitter, lucideGithub })],
   host: {
@@ -39,7 +39,7 @@ import { NavLinkDirective } from './spartan-nav-link.directive';
           class="mr-3 hidden p-1.5 sm:flex"
           routerLink="/"
         >
-          <spartan-logo class="w-14" />
+          <app-logo class="w-14" />
           <span class="sr-only">spartan</span>
         </a>
 
