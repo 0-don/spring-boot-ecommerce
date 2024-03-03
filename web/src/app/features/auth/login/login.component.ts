@@ -25,7 +25,7 @@ import {
 type Framework = { label: string; value: string };
 
 @Component({
-  selector: 'spartan-card-preview',
+  selector: 'login',
   standalone: true,
   imports: [
     BrnCommandImports,
@@ -101,7 +101,7 @@ type Framework = { label: string; value: string };
       </section>
   `,
 })
-export class CardPreviewComponent {
+export class LoginComponent {
   public frameworks = [
     {
       label: 'AnalogJs',

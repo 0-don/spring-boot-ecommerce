@@ -1854,10 +1854,17 @@
     "@ngneat/until-destroy" ">=10.0.0"
     tslib "^2.3.0"
 
-"@ngneat/overview@>=5.0.0", "@ngneat/overview@^6.0.0":
+"@ngneat/overview@>=5.0.0":
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/@ngneat/overview/-/overview-6.0.0.tgz#344a843db7bd922014f6825efe1c8406e6d74be5"
   integrity sha512-pm4bAEYtnUl8q82dwjh5NN9HF0WTFEI58VtR12izp9Oaa2dtseX82VUArfb4fadmlbHpPMUwXHrsm0ORyWii2A==
+  dependencies:
+    tslib "^2.0.0"
+
+"@ngneat/overview@^5.0.0":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@ngneat/overview/-/overview-5.1.1.tgz#0b7ff659c62078153dce0a300d47c65a233e0828"
+  integrity sha512-Dz7yylhS08Mo+A8SXo7KyJBJMxD18Oq/G5v/ndvd5C8Gi3uOrAiXUjxvqRCPMxrg03FlkvEsD5/4TvMKtrUfAQ==
   dependencies:
     tslib "^2.0.0"
 
@@ -2448,45 +2455,45 @@
     enquirer "2.3.6"
     semver "7.5.4"
 
-"@spartan-ng/ui-accordion-brain@0.0.1-alpha.336":
-  version "0.0.1-alpha.336"
-  resolved "https://registry.yarnpkg.com/@spartan-ng/ui-accordion-brain/-/ui-accordion-brain-0.0.1-alpha.336.tgz#a76de9a364dfc399998d2533f892ee3c6381c949"
-  integrity sha512-E59JrCr2HiL16oDEaqX4t4oHH9wXkl2sVgaL1dkhrL7EwVUtDkBBN7h6HWlzULioyfBHe5IPq8pulSOpI7pVjA==
+"@spartan-ng/ui-accordion-brain@0.0.1-alpha.335":
+  version "0.0.1-alpha.335"
+  resolved "https://registry.yarnpkg.com/@spartan-ng/ui-accordion-brain/-/ui-accordion-brain-0.0.1-alpha.335.tgz#ba5c5b5772bf87fd7da70769ab7a28adcfe8a245"
+  integrity sha512-uFYYcZryyYni5iEqsfXXty7jJTQrThUu859Tu51o7u2n4R0Vu1+jliinHsL40QjShut4Ii7lratbm2yI5L5dZw==
   dependencies:
     tslib "^2.3.0"
 
-"@spartan-ng/ui-command-brain@0.0.1-alpha.336":
-  version "0.0.1-alpha.336"
-  resolved "https://registry.yarnpkg.com/@spartan-ng/ui-command-brain/-/ui-command-brain-0.0.1-alpha.336.tgz#7d428e183f7e88721fbdecc49fd04b5a3897309c"
-  integrity sha512-0LgXJtxzuaicoMEMB6/FjJAa5xeVmjfJwWnKMTV1nIS7wv1Fa5AU4B695I57pHOUfrvjWa/EnFqvH8ym/AHgvA==
+"@spartan-ng/ui-command-brain@0.0.1-alpha.335":
+  version "0.0.1-alpha.335"
+  resolved "https://registry.yarnpkg.com/@spartan-ng/ui-command-brain/-/ui-command-brain-0.0.1-alpha.335.tgz#255d8d0450b4a4eff72222b1dd72ded0ac00b58e"
+  integrity sha512-RGXrTFhoJiq4DvX2uP9kQk2d3gI06MDYSe5Xe+zWYw5haRqxXQka7LMoMawnLc9hSkvNplIogpf+7IJAQyo+MQ==
   dependencies:
     tslib "^2.3.0"
 
-"@spartan-ng/ui-core@0.0.1-alpha.336":
-  version "0.0.1-alpha.336"
-  resolved "https://registry.yarnpkg.com/@spartan-ng/ui-core/-/ui-core-0.0.1-alpha.336.tgz#f54c8abb7faa0866d9275533a74cb38c4b6585cc"
-  integrity sha512-luYdk11ve2A0gdRS5DlQsz8mH1Qyjv5eYCB2pO+PomfRRJgNxueFMAEWLhHg6Uzl1ZD1LHC7PD+Z4QjDPWn8sQ==
+"@spartan-ng/ui-core@0.0.1-alpha.335":
+  version "0.0.1-alpha.335"
+  resolved "https://registry.yarnpkg.com/@spartan-ng/ui-core/-/ui-core-0.0.1-alpha.335.tgz#04c8e3c61ea61a33814faed49a4d9380857205ee"
+  integrity sha512-/iNdzxvfDp5ZWoNbr41+XExmDBmPTJQjaSWqjf3Rk82nvxPYo3U0OIHYJSV89/dSjuISbIQReI5goJg/isCeag==
   dependencies:
     tslib "^2.3.0"
 
-"@spartan-ng/ui-dialog-brain@0.0.1-alpha.336":
-  version "0.0.1-alpha.336"
-  resolved "https://registry.yarnpkg.com/@spartan-ng/ui-dialog-brain/-/ui-dialog-brain-0.0.1-alpha.336.tgz#2094b9d3998444dac8185f6cd2a3b6b205b69c25"
-  integrity sha512-CvrxpRImAhxrfhJj3ZNDusGQaX0BUelIO+YAJaKA3Dw1V5tmtgXHtxXXkHAsRmg9+pS6XWuRe7aHLQu6fWK7ZQ==
+"@spartan-ng/ui-dialog-brain@0.0.1-alpha.335":
+  version "0.0.1-alpha.335"
+  resolved "https://registry.yarnpkg.com/@spartan-ng/ui-dialog-brain/-/ui-dialog-brain-0.0.1-alpha.335.tgz#69895204337ab7ffe36ebf04a2766f49b3764425"
+  integrity sha512-gOtomcHgcY3ZwyhurizKu9PXNf4Qjpe2LPAEJesd4JcCRTLer2ZkvJ4UZ5dFnLXUT6EysugJfY51Nn6Blts5IQ==
   dependencies:
     tslib "^2.3.0"
 
-"@spartan-ng/ui-label-brain@0.0.1-alpha.336":
-  version "0.0.1-alpha.336"
-  resolved "https://registry.yarnpkg.com/@spartan-ng/ui-label-brain/-/ui-label-brain-0.0.1-alpha.336.tgz#6169aeb137e485ef375af22b19879aa47375c982"
-  integrity sha512-AN0VxStVX9Pg8W+6EytCHB1KQ1XpkFLYxOEZLNwGgbTbhkeCRYNrVkubw5X1Aax0knc76kRX+FQC3aha6YYHmg==
+"@spartan-ng/ui-label-brain@0.0.1-alpha.335":
+  version "0.0.1-alpha.335"
+  resolved "https://registry.yarnpkg.com/@spartan-ng/ui-label-brain/-/ui-label-brain-0.0.1-alpha.335.tgz#871a6d393e3c30087612e773f84dce5d941b2364"
+  integrity sha512-pyqTq/B7bFnEyeoikyRwaTfBxrePAS9W20CZixi9xhqX+Ih0M+Z62mEbPuqD6844/omoo7aicHAUGsmqmtFd1w==
   dependencies:
     tslib "^2.3.0"
 
-"@spartan-ng/ui-popover-brain@0.0.1-alpha.336":
-  version "0.0.1-alpha.336"
-  resolved "https://registry.yarnpkg.com/@spartan-ng/ui-popover-brain/-/ui-popover-brain-0.0.1-alpha.336.tgz#36cf66b5e8a98859d3bf43f36fdbb14ff16e0d84"
-  integrity sha512-JVNyy4JL2hpSk91wZ0T5iytBfbvR7SGjt8G7vCoEeCHPYNrafDH6+QblI1NImXDGq5Jnyu0IhsGzZb9gdKzo5A==
+"@spartan-ng/ui-popover-brain@0.0.1-alpha.335":
+  version "0.0.1-alpha.335"
+  resolved "https://registry.yarnpkg.com/@spartan-ng/ui-popover-brain/-/ui-popover-brain-0.0.1-alpha.335.tgz#79f804ba66e7d073bab6c70511a50182203e6ddc"
+  integrity sha512-wJfs3ITu0+bJ78ywf73HiDGbXMb179pCF5DTV9Z4r0xMVehOKdH+D3tCnht2vE+ovZTQvHFPbd4RKSqMWbPEmA==
   dependencies:
     tslib "^2.3.0"
 
