@@ -4,10 +4,9 @@ import { provideIcons } from '@ng-icons/core';
 import { lucideGithub, lucideTwitter } from '@ng-icons/lucide';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
-import { HeaderDarkModeComponent } from './header-dark-mode.component';
-import { HeaderMobileNavComponent } from './header-mobile-nav.component';
-import { HeaderThemePickerComponent } from './header-theme-picker.component';
 import { SpartanLogoComponent } from '../../lib/spartan-logo.component';
+import { HeaderDarkModeComponent } from './header-dark-mode.component';
+import { HeaderThemePickerComponent } from './header-theme-picker.component';
 import { NavLinkDirective } from './spartan-nav-link.directive';
 
 @Component({
@@ -19,7 +18,7 @@ import { NavLinkDirective } from './spartan-nav-link.directive';
     HlmIconComponent,
     HeaderThemePickerComponent,
     NavLinkDirective,
-    HeaderMobileNavComponent,
+    // HeaderMobileNavComponent,
     HeaderDarkModeComponent,
     SpartanLogoComponent,
   ],
@@ -43,7 +42,7 @@ import { NavLinkDirective } from './spartan-nav-link.directive';
           <span class="sr-only">spartan</span>
         </a>
 
-        <spartan-mobile-nav class="sm:hidden" />
+        <!-- <spartan-mobile-nav class="sm:hidden" /> -->
 
         <div class="hidden sm:flex sm:space-x-2">
           <a spartanNavLink="/documentation">Documentation</a>
