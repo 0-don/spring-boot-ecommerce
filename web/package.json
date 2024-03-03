@@ -8,7 +8,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "sparta": "npx ng g @spartan-ng/cli:ui --directory components"
+    "sparta": "npx ng g @spartan-ng/cli:ui --directory components",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -43,11 +44,19 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.2.2",
+    "@angular-eslint/builder": "17.2.1",
+    "@angular-eslint/eslint-plugin": "17.2.1",
+    "@angular-eslint/eslint-plugin-template": "17.2.1",
+    "@angular-eslint/schematics": "17.2.1",
+    "@angular-eslint/template-parser": "17.2.1",
     "@angular/cli": "^17.2.2",
     "@angular/compiler-cli": "^17.2.3",
     "@spartan-ng/cli": "^0.0.1-alpha.337",
     "@types/jasmine": "~5.1.4",
+    "@typescript-eslint/eslint-plugin": "6.19.0",
+    "@typescript-eslint/parser": "6.19.0",
     "autoprefixer": "^10.4.18",
+    "eslint": "^8.56.0",
     "jasmine-core": "~5.1.2",
     "karma": "~6.4.3",
     "karma-chrome-launcher": "~3.2.0",
