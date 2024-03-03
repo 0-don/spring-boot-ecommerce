@@ -12,11 +12,6 @@ import {
 import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
 import { ThreeHundredComponent } from '../../../lib/three-hundred.component';
 
-const container = 'mx-auto flex flex-col items-center gap-4 text-center';
-const subHeading =
-  'font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl';
-const lead = 'leading-normal text-muted-foreground sm:text-xl sm:leading-8';
-
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -37,7 +32,7 @@ const lead = 'leading-normal text-muted-foreground sm:text-xl sm:leading-8';
   },
   template: `
     <section class="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
-      <div class="${container} max-w-[64rem]">
+      <div class="app-container max-w-[64rem]">
         <a
           target="_blank"
           href="https://github.com/goetzrobin/spartan"
@@ -49,7 +44,7 @@ const lead = 'leading-normal text-muted-foreground sm:text-xl sm:leading-8';
         <h1 class="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
           Cutting-edge tools powering Angular full-stack development.
         </h1>
-        <p class="${lead} max-w-[42rem]">
+        <p class="app-lead max-w-[42rem]">
           Build next-level, full-stack applications with AnalogJs and the
           spartan/stack. Make them accessible and look incredible with
           spartan/ui.
@@ -72,9 +67,9 @@ const lead = 'leading-normal text-muted-foreground sm:text-xl sm:leading-8';
     </section>
 
     <section id="tools" class="space-y-6 py-8 md:py-12 lg:py-24">
-      <div class="${container} max-w-[58rem]">
-        <h2 class="${subHeading}">The Tools</h2>
-        <p class="${lead} max-w-[42rem]">
+      <div class="app-container max-w-[58rem]">
+        <h2 class="app-subHeading">The Tools</h2>
+        <p class="app-lead max-w-[42rem]">
           spartan provides you with an opinionated stack set up with a single
           command and a set of accessible UI primitives.
         </p>
@@ -114,16 +109,16 @@ const lead = 'leading-normal text-muted-foreground sm:text-xl sm:leading-8';
     </section>
 
     <section id="tools" class="space-y-6 py-8 md:py-12 lg:py-24">
-      <div class="${container} max-w-[58rem]">
-        <h2 class="${subHeading}">The 300</h2>
-        <p class="${lead} max-w-[42rem]">
+      <div class="app-container max-w-[58rem]">
+        <h2 class="app-subHeading">The 300</h2>
+        <p class="app-lead max-w-[42rem]">
           Ready to make a difference? Join the first 300 and help shape the
           future of UI development with Angular & spartan.
         </p>
       </div>
       <div class="mx-auto space-y-12 text-center md:max-w-[64rem]">
         <spartan-three-hundred class="mt-12" />
-        <p class="${lead} mx-auto max-w-[42rem]">
+        <p class="app-lead mx-auto max-w-[42rem]">
           Contribute code, share insights, or sponsor on GitHub. Let's build
           something extraordinary together!
         </p>
