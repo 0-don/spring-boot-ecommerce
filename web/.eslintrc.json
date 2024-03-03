@@ -29,12 +29,11 @@
             "prefix": "app",
             "style": "kebab-case"
           }
-        ],
-        "prettier/prettier": ["error", { "parser": "angular" }]
+        ]
       }
     },
     {
-      "files": ["*.ts"],
+      "files": ["*.html"],
       "extends": [
         "plugin:@angular-eslint/template/recommended",
         "plugin:@angular-eslint/template/accessibility"
