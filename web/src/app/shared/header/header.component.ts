@@ -60,7 +60,7 @@ import { NavLinkDirective } from './spartan-nav-link.directive';
           <hlm-icon name="lucideGithub" size="sm" />
         </a>
 
-        <spartan-dark-mode />
+        <app-dark-mode />
       </div>
     </div>
   `,

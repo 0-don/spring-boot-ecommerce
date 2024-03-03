@@ -6,10 +6,10 @@ import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
 import { BrnMenuTriggerDirective } from '@spartan-ng/ui-menu-brain';
 import { HlmMenuComponent, HlmMenuImports } from '@spartan-ng/ui-menu-helm';
-import { ThemeService, DarkMode } from '../service/theme.service';
+import { DarkMode, ThemeService } from '../service/theme.service';
 
 @Component({
-  selector: 'spartan-dark-mode',
+  selector: 'app-dark-mode',
   standalone: true,
   imports: [
     BrnMenuTriggerDirective,
