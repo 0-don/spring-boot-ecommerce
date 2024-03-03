@@ -74,7 +74,7 @@ import { NavLinkDirective } from './spartan-nav-link.directive';
           >
             <app-logo class="text-primary w-12" />
           </a>
-          <span>spartan/ui</span>
+          <span>Spring Boot Ecommerce</span>
         </div>
         <hlm-scroll-area class="h-[calc(100vh-8rem)]">
           <div class="flex flex-col space-y-1 p-2 pb-4">
@@ -83,30 +83,22 @@ import { NavLinkDirective } from './spartan-nav-link.directive';
               class="text-foreground px-2 py-1 hover:underline"
               routerLink="/documentation"
             >
-              Documentation
+              Home
             </a>
             <a
               (click)="ctx.close()"
               class="text-foreground px-2 py-1 hover:underline"
               routerLink="/stack"
-              >Stack</a
+              >Register</a
             >
             <a
               (click)="ctx.close()"
               class="text-foreground px-2 py-1 hover:underline"
               routerLink="/components"
             >
-              Components
-            </a>
-            <a
-              (click)="ctx.close()"
-              class="text-foreground px-2 py-1 hover:underline"
-              routerLink="/examples"
-            >
-              Examples
+              Login
             </a>
           </div>
-          <spartan-side-nav-content (linkClicked)="ctx.close()" />
         </hlm-scroll-area>
       </div>
     </brn-sheet>

@@ -7,7 +7,6 @@ import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
 import { AppLogoComponent } from '../../lib/app-logo.component';
 import { HeaderDarkModeComponent } from './header-dark-mode.component';
 import { HeaderMobileNavComponent } from './header-mobile-nav.component';
-import { HeaderThemePickerComponent } from './header-theme-picker.component';
 import { NavLinkDirective } from './spartan-nav-link.directive';
 
 @Component({
@@ -17,7 +16,6 @@ import { NavLinkDirective } from './spartan-nav-link.directive';
     HlmButtonDirective,
     RouterLink,
     HlmIconComponent,
-    HeaderThemePickerComponent,
     NavLinkDirective,
     HeaderMobileNavComponent,
     HeaderDarkModeComponent,
@@ -61,7 +59,7 @@ import { NavLinkDirective } from './spartan-nav-link.directive';
           <span class="sr-only">Github</span>
           <hlm-icon name="lucideGithub" size="sm" />
         </a>
-        <spartan-theme-picker />
+
         <spartan-dark-mode />
       </div>
     </div>
