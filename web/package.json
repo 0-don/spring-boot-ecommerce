@@ -8,7 +8,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "spartan": "npx ng g @spartan-ng/cli:ui --directory components"
+    "sparta": "npx ng g @spartan-ng/cli:ui --directory components"
   },
   "private": true,
   "dependencies": {
@@ -33,8 +33,10 @@
     "@spartan-ng/ui-label-brain": "0.0.1-alpha.336",
     "@spartan-ng/ui-menu-brain": "0.0.1-alpha.336",
     "@spartan-ng/ui-popover-brain": "0.0.1-alpha.336",
+    "@spartan-ng/ui-sheet-brain": "0.0.1-alpha.335",
     "class-variance-authority": "^0.7.0",
     "clsx": "^1.2.1",
+    "ngx-scrollbar": "^13.0.1",
     "rxjs": "~7.8.1",
     "tslib": "^2.6.2",
     "zone.js": "~0.14.4"
