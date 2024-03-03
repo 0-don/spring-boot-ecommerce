@@ -8,9 +8,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "spartan": "npx ng g @spartan-ng/cli:ui --directory components",
-    "default": "npx ng config -g cli.packageManager yarn",
-    "postinstall": "npm run default"
+    "spartan": "npx ng g @spartan-ng/cli:ui --directory components"
   },
   "private": true,
   "dependencies": {
