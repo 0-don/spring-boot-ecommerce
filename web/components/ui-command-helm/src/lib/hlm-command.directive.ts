@@ -14,7 +14,7 @@ export class HlmCommandDirective {
   protected _computedClass = computed(() =>
     hlm(
       'flex h-full w-full flex-col overflow-hidden rounded-md border border-border bg-popover text-popover-foreground',
-      this._userClass()
-    )
+      this._userClass(),
+    ),
   );
 }

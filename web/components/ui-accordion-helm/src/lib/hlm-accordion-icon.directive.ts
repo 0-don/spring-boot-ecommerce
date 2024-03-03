@@ -19,8 +19,8 @@ export class HlmAccordionIconDirective {
   protected _computedClass = computed(() =>
     hlm(
       'inline-block h-4 w-4 transition-transform duration-200',
-      this._userClass()
-    )
+      this._userClass(),
+    ),
   );
 
   constructor() {

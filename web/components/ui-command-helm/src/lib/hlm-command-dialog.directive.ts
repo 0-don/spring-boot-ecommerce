@@ -30,8 +30,8 @@ export class HlmCommandDialogDirective {
   protected _computedClass = computed(() =>
     hlm(
       'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-top-[2%]  data-[state=open]:slide-in-from-top-[2%]',
-      this._userClass()
-    )
+      this._userClass(),
+    ),
   );
 
   constructor() {
@@ -39,7 +39,7 @@ export class HlmCommandDialogDirective {
       this._renderer.setAttribute(
         this._element.nativeElement,
         'data-state',
-        this.state()
+        this.state(),
       );
     });
   }

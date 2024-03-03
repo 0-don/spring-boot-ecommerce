@@ -15,7 +15,7 @@ export class HlmCommandInputDirective {
   protected _computedClass = computed(() =>
     hlm(
       'h-11 w-full bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50',
-      this._userClass()
-    )
+      this._userClass(),
+    ),
   );
 }

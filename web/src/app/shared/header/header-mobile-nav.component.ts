@@ -68,7 +68,7 @@ import { AppLogoComponent } from '../app-logo.component';
             class="mr-4 p-1.5"
             routerLink="/"
           >
-            <app-logo class="text-primary w-12" />
+            <app-logo class="w-12 text-primary" />
           </a>
           <span>Spring Boot Ecommerce</span>
         </div>
@@ -76,20 +76,20 @@ import { AppLogoComponent } from '../app-logo.component';
           <div class="flex flex-col space-y-1 p-2 pb-4">
             <a
               (click)="ctx.close()"
-              class="text-foreground px-2 py-1 hover:underline"
+              class="px-2 py-1 text-foreground hover:underline"
               routerLink="/documentation"
             >
               Home
             </a>
             <a
               (click)="ctx.close()"
-              class="text-foreground px-2 py-1 hover:underline"
+              class="px-2 py-1 text-foreground hover:underline"
               routerLink="/stack"
               >Register</a
             >
             <a
               (click)="ctx.close()"
-              class="text-foreground px-2 py-1 hover:underline"
+              class="px-2 py-1 text-foreground hover:underline"
               routerLink="/components"
             >
               Login

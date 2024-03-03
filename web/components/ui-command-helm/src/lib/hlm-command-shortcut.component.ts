@@ -15,7 +15,7 @@ export class HlmCommandShortcutComponent {
   protected _computedClass = computed(() =>
     hlm(
       'ml-auto font-light text-xs tracking-widest opacity-60',
-      this._userClass()
-    )
+      this._userClass(),
+    ),
   );
 }

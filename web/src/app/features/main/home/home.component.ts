@@ -23,7 +23,7 @@ import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
           target="_blank"
           href="https://github.com/0-don/spring-boot-ecommerce"
           hlmBadge
-          class="!bg-primary !text-foreground-primary !hover:bg-primary/90"
+          class="!text-foreground-primary !hover:bg-primary/90 !bg-primary"
         >
           Explore the E-commerce Revolution. Welcome to Spartan Commerce.
         </a>

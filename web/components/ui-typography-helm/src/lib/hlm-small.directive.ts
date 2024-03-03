@@ -5,13 +5,13 @@ import { ClassValue } from 'clsx';
 export const hlmSmall = 'text-sm font-medium leading-none';
 
 @Directive({
-	selector: '[hlmSmall]',
-	standalone: true,
-	host: {
-		'[class]': '_computedClass()',
-	},
+  selector: '[hlmSmall]',
+  standalone: true,
+  host: {
+    '[class]': '_computedClass()',
+  },
 })
 export class HlmSmallDirective {
-	private readonly _userClass = input<ClassValue>('', { alias: 'class' });
-	protected _computedClass = computed(() => hlm(hlmSmall, this._userClass()));
+  private readonly _userClass = input<ClassValue>('', { alias: 'class' });
+  protected _computedClass = computed(() => hlm(hlmSmall, this._userClass()));
 }

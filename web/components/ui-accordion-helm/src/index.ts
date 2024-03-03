@@ -13,15 +13,15 @@ export * from './lib/hlm-accordion-trigger.directive';
 export * from './lib/hlm-accordion.directive';
 
 export const HlmAccordionImports = [
-	HlmAccordionDirective,
-	HlmAccordionItemDirective,
-	HlmAccordionTriggerDirective,
-	HlmAccordionContentDirective,
-	HlmAccordionIconDirective,
+  HlmAccordionDirective,
+  HlmAccordionItemDirective,
+  HlmAccordionTriggerDirective,
+  HlmAccordionContentDirective,
+  HlmAccordionIconDirective,
 ] as const;
 
 @NgModule({
-	imports: [...HlmAccordionImports],
-	exports: [...HlmAccordionImports],
+  imports: [...HlmAccordionImports],
+  exports: [...HlmAccordionImports],
 })
 export class HlmAccordionModule {}

@@ -21,7 +21,7 @@ export const inputVariants = cva(
       size: 'default',
       error: 'auto',
     },
-  }
+  },
 );
 type InputVariants = VariantProps<typeof inputVariants>;
 
@@ -49,7 +49,7 @@ export class HlmInputDirective {
   protected _computedClass = computed(() =>
     hlm(
       inputVariants({ size: this._size(), error: this._error() }),
-      this._userClass()
-    )
+      this._userClass(),
+    ),
   );
 }
