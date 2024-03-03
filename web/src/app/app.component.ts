@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { AccordionComponent } from './accordion.component';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, AccordionComponent],
+  template: ` <accordion></accordion> `,
 })
-export class AppComponent {
-  title = 'anuglar-ecommerce';
-}
+export class AppComponent {}
