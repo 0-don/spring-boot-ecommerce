@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CmdkModule } from '@ngxpert/cmdk';
+
+import { CmdkModule } from '@ngneat/cmdk';
 import { BrnCommandEmptyDirective } from './lib/brn-command-empty.directive';
 import { BrnCommandGroupComponent } from './lib/brn-command-group.component';
 import { BrnCommandInputDirective } from './lib/brn-command-input.directive';
@@ -19,7 +20,7 @@ export * from './lib/brn-command-separator.component';
 export * from './lib/brn-command.component';
 
 export const BrnCommandImports = [
-  // CmdkModule,
+  CmdkModule,
   BrnCommandComponent,
   BrnCommandEmptyDirective,
   BrnCommandGroupComponent,
