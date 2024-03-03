@@ -1,5 +1,3 @@
-/* eslint-disable @angular-eslint/directive-selector */
-/* eslint-disable @angular-eslint/no-host-metadata-property */
 import { computed, Directive, input, Input, signal } from '@angular/core';
 import { hlm } from '@spartan-ng/ui-core';
 import { cva, VariantProps } from 'class-variance-authority';
