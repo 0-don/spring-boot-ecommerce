@@ -21,22 +21,22 @@ import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
       <div class="app-container max-w-[64rem]">
         <a
           target="_blank"
-          href="https://github.com/goetzrobin/spartan"
+          href="https://github.com/0-don/spring-boot-ecommerce"
           hlmBadge
           class="!bg-primary !text-foreground-primary !hover:bg-primary/90"
         >
-          This is madness. This is spartan.
+          Explore the E-commerce Revolution. Welcome to Spartan Commerce.
         </a>
         <h1 class="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
-          Cutting-edge tools powering Angular full-stack development.
+          Secure and Scalable E-commerce Solutions.
         </h1>
         <p class="app-lead max-w-[42rem]">
-          Build next-level, full-stack applications with AnalogJs and the
-          spartan/stack. Make them accessible and look incredible with
-          spartan/ui.
+          Elevate your online store with our Spring Boot e-commerce template,
+          featuring secure Keycloak authentication and the sleek Spartan UI.
+          Tailored for performance and scalability.
         </p>
         <div class="flex flex-wrap justify-center gap-4">
-          <a hlmBtn size="lg" routerLink="/documentation">Login</a>
+          <a hlmBtn size="lg" routerLink="/login">Get Started</a>
           <a
             hlmBtn
             size="lg"
