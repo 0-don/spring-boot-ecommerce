@@ -49,6 +49,9 @@
       ],
       "@spartan-ng/ui-badge-helm": [
         "./components/ui-badge-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-typography-helm": [
+        "./components/ui-typography-helm/src/index.ts"
       ]
     }
   },
