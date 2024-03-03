@@ -18,7 +18,7 @@ import { hlmMuted } from '@spartan-ng/ui-typography-helm';
         href="https://github.com/0-don"
         target="_blank"
         variant="link"
-        >mihajm.</a
+        >don.</a
       >
       Open source and available on
       <a

@@ -40,32 +40,19 @@ import { NavLinkDirective } from './spartan-nav-link.directive';
           routerLink="/"
         >
           <app-logo class="w-14" />
-          <span class="sr-only">spartan</span>
+          <span class="sr-only">app</span>
         </a>
 
         <spartan-mobile-nav class="sm:hidden" />
 
         <div class="hidden sm:flex sm:space-x-2">
-          <a spartanNavLink="/documentation">Documentation</a>
-          <a spartanNavLink="/stack">Stack</a>
-          <a spartanNavLink="/components">Components</a>
-          <a spartanNavLink="/examples">Examples</a>
+          <a spartanNavLink="/home">Home</a>
         </div>
       </nav>
 
       <div class="flex space-x-2">
         <a
-          href="https://twitter.com/goetzrobin"
-          target="_blank"
-          size="sm"
-          variant="ghost"
-          hlmBtn
-        >
-          <span class="sr-only">Twitter</span>
-          <hlm-icon name="lucideTwitter" size="sm" />
-        </a>
-        <a
-          href="https://github.com/goetzrobin/spartan"
+          href="https://github.com/0-don/spring-boot-ecommerce"
           target="_blank"
           size="sm"
           variant="ghost"
