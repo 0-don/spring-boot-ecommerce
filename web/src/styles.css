@@ -43,7 +43,7 @@ app-root {
 }
 
 .app-subHeading {
-  @apply font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl;
+  @apply text-3xl sm:text-3xl leading-[1.1] md:text-6xl;
 }
 
 .app-lead {
