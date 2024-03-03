@@ -17,7 +17,7 @@ import {
   HlmSheetContentComponent,
   HlmSheetOverlayDirective,
 } from '@spartan-ng/ui-sheet-helm';
-import { AppLogoComponent } from '../../lib/app-logo.component';
+import { AppLogoComponent } from '../app-logo.component';
 
 @Component({
   selector: 'app-mobile-nav',
@@ -28,7 +28,7 @@ import { AppLogoComponent } from '../../lib/app-logo.component';
     BrnSheetTriggerDirective,
     BrnSheetContentDirective,
     BrnSheetCloseDirective,
-    
+
     HlmSheetCloseDirective,
     HlmSheetOverlayDirective,
     HlmSheetContentComponent,

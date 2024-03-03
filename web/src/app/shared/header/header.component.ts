@@ -4,7 +4,7 @@ import { provideIcons } from '@ng-icons/core';
 import { lucideGithub, lucideTwitter } from '@ng-icons/lucide';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
-import { AppLogoComponent } from '../../lib/app-logo.component';
+import { AppLogoComponent } from '../app-logo.component';
 import { HeaderDarkModeComponent } from './header-dark-mode.component';
 import { HeaderMobileNavComponent } from './header-mobile-nav.component';
 import { NavLinkDirective } from './spartan-nav-link.directive';
