@@ -1,13 +1,13 @@
 {
-  "name": "cli-test",
-  "version": "0.0.0",
+  "name": "web",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "spartan": "npx ng g @spartan-ng/cli:ui --directory libs/ui",
+    "spartan": "npx ng g @spartan-ng/cli:ui --directory components",
     "default": "npx ng config -g cli.packageManager yarn"
   },
   "private": true,
