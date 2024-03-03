@@ -32,13 +32,15 @@ import { AppLogoComponent } from '../app-logo.component';
     HlmSheetCloseDirective,
     HlmSheetOverlayDirective,
     HlmSheetContentComponent,
+
     HlmButtonDirective,
     HlmIconComponent,
-    HlmScrollAreaComponent,
 
+    HlmScrollAreaComponent,
     RouterLink,
     AppLogoComponent,
   ],
+
   providers: [provideIcons({ lucideMoreVertical, lucideX })],
   template: `
     <brn-sheet side="left" closeDelay="100">
@@ -75,20 +77,20 @@ import { AppLogoComponent } from '../app-logo.component';
             <a
               (click)="ctx.close()"
               class="text-foreground px-2 py-1 hover:underline"
-              routerLink="/home"
+              routerLink="/documentation"
             >
               Home
             </a>
             <a
               (click)="ctx.close()"
               class="text-foreground px-2 py-1 hover:underline"
-              routerLink="/register"
+              routerLink="/stack"
               >Register</a
             >
             <a
               (click)="ctx.close()"
               class="text-foreground px-2 py-1 hover:underline"
-              routerLink="/login"
+              routerLink="/components"
             >
               Login
             </a>

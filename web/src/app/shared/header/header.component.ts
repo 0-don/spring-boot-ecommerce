@@ -7,7 +7,7 @@ import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
 import { AppLogoComponent } from '../app-logo.component';
 import { HeaderDarkModeComponent } from './header-dark-mode.component';
 import { HeaderMobileNavComponent } from './header-mobile-nav.component';
-import { NavLinkDirective } from './spartan-nav-link.directive';
+import { NavLinkDirective } from './nav-link.directive';
 
 @Component({
   selector: 'app-header',
