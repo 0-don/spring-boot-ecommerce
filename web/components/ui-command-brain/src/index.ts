@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
-
-import { CmdkModule } from '@ngneat/cmdk';
+import { CmdkModule } from '@ngxpert/cmdk';
 import { BrnCommandEmptyDirective } from './lib/brn-command-empty.directive';
 import { BrnCommandGroupComponent } from './lib/brn-command-group.component';
 import { BrnCommandInputDirective } from './lib/brn-command-input.directive';
@@ -20,20 +19,20 @@ export * from './lib/brn-command-separator.component';
 export * from './lib/brn-command.component';
 
 export const BrnCommandImports = [
-	CmdkModule,
-	BrnCommandComponent,
-	BrnCommandEmptyDirective,
-	BrnCommandGroupComponent,
-	BrnCommandInputDirective,
-	BrnCommandItemDirective,
-	BrnCommandListComponent,
-	BrnCommandLoaderDirective,
-	BrnCommandSeparatorComponent,
-	BrnCommandSeparatorComponent,
+  CmdkModule,
+  BrnCommandComponent,
+  BrnCommandEmptyDirective,
+  BrnCommandGroupComponent,
+  BrnCommandInputDirective,
+  BrnCommandItemDirective,
+  BrnCommandListComponent,
+  BrnCommandLoaderDirective,
+  BrnCommandSeparatorComponent,
+  BrnCommandSeparatorComponent,
 ] as const;
 
 @NgModule({
-	imports: [...BrnCommandImports],
-	exports: [...BrnCommandImports],
+  imports: [...BrnCommandImports],
+  exports: [...BrnCommandImports],
 })
 export class BrnCommandModule {}
