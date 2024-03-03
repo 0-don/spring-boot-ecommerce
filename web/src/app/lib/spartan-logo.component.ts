@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 
 @Component({
-	selector: 'spartan-logo',
-	standalone: true,
-	host: {
-		class: 'flex items-center justify-center',
-	},
-	template: `
-		<svg class="w-full" viewBox="0 0 630 268" fill="none" xmlns="http://www.w3.org/2000/svg">
+  selector: 'spartan-logo',
+  standalone: true,
+  host: {
+    class: 'flex items-center justify-center',
+  },
+  template: `
+    <img src="/favicon.ico" width="25px" />
+    <!-- <svg class="w-full" viewBox="0 0 630 268" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path
 				d="M191.5 244.5L560 135L191.5 23.5L126.5 98.5L69.5 62L24 137.5L64.5 211L131 174.5L191.5 244.5Z"
 				fill="#DD0031"
@@ -26,7 +27,7 @@ import { Component } from '@angular/core';
 				d="M260.533 136L260.533 101.14L199 84.6265L199 54L474 135.859L473.527 136L384.145 136L384.651 135.859L298.463 111.866L298.463 136L260.533 136Z"
 				fill="#75011D"
 			/>
-		</svg>
-	`,
+		</svg> -->
+  `,
 })
 export class SpartanLogoComponent {}
