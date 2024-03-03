@@ -6,9 +6,9 @@ import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
   standalone: true,
   imports: [HlmButtonDirective],
   template: `<button hlmBtn variant="secondary">Button</button>`,
-
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
   title = 'anuglar-ecommerce';
 }
+         

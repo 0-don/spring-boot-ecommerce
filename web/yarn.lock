@@ -2584,13 +2584,6 @@
     enquirer "2.3.6"
     semver "7.5.4"
 
-"@spartan-ng/ui-command-brain@0.0.1-alpha.336":
-  version "0.0.1-alpha.336"
-  resolved "https://registry.yarnpkg.com/@spartan-ng/ui-command-brain/-/ui-command-brain-0.0.1-alpha.336.tgz#7d428e183f7e88721fbdecc49fd04b5a3897309c"
-  integrity sha512-0LgXJtxzuaicoMEMB6/FjJAa5xeVmjfJwWnKMTV1nIS7wv1Fa5AU4B695I57pHOUfrvjWa/EnFqvH8ym/AHgvA==
-  dependencies:
-    tslib "^2.3.0"
-
 "@spartan-ng/ui-core@^0.0.1-alpha.336":
   version "0.0.1-alpha.336"
   resolved "https://registry.yarnpkg.com/@spartan-ng/ui-core/-/ui-core-0.0.1-alpha.336.tgz#f54c8abb7faa0866d9275533a74cb38c4b6585cc"

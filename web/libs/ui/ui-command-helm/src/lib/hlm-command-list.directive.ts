@@ -3,15 +3,13 @@ import { hlm } from '@spartan-ng/ui-core';
 import { ClassValue } from 'clsx';
 
 @Directive({
-  selector: 'cmdk-list[hlm],brn-cmd-list[hlm]',
-  standalone: true,
-  host: {
-    '[class]': '_computedClass()',
-  },
+	selector: 'cmdk-list[hlm],brn-cmd-list[hlm]',
+	standalone: true,
+	host: {
+		'[class]': '_computedClass()',
+	},
 })
 export class HlmCommandListDirective {
-  public readonly _userClass = input<ClassValue>('', { alias: 'class' });
-  public _computedClass = computed(() =>
-    hlm('max-h-[300px] overflow-y-auto overflow-x-hidden', this._userClass())
-  );
+	private readonly _userClass = input<ClassValue>('', { alias: 'class' });
+	protected _computedClass = computed(() => hlm('max-h-[300px] overflow-y-auto overflow-x-hidden', this._userClass()));
 }
