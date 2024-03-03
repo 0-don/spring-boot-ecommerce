@@ -9,7 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "prettier": "npx prettier --write .",
-    "lint": "ng lint",
+    "lint": "ng lint --fix",
     "sparta": "npx ng g @spartan-ng/cli:ui --directory components"
   },
   "private": true,
