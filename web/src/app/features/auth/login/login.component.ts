@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { lucideCheck, lucideChevronDown } from '@ng-icons/lucide';
+import { CmdkModule } from '@ngneat/cmdk';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import {
   HlmCardContentDirective,
@@ -27,7 +28,7 @@ type Framework = { label: string; value: string };
   selector: 'login',
   standalone: true,
   imports: [
-    // CmdkModule,
+
     BrnCommandImports,
     HlmCommandImports,
     HlmIconComponent,

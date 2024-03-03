@@ -4,22 +4,26 @@ import { hlm } from '@spartan-ng/ui-core';
 import { ClassValue } from 'clsx';
 
 @Directive({
-	selector: '[hlmAccordionContent],brn-accordion-content [hlm], hlm-accordion-content:not(notHlm)',
-	standalone: true,
-	host: {
-		'[class]': '_computedClass()',
-	},
+  selector:
+    '[hlmAccordionContent],brn-accordion-content [hlm], hlm-accordion-content:not(notHlm)',
+  standalone: true,
+  host: {
+    '[class]': '_computedClass()',
+  },
 })
 export class HlmAccordionContentDirective {
-	private readonly _brn = inject(BrnAccordionContentComponent, { optional: true });
+  private readonly _brn = inject(BrnAccordionContentComponent, {
+    optional: true,
+  });
 
-	private readonly _userClass = input<ClassValue>('', { alias: 'class' });
-	protected readonly _computedClass = computed(() => {
-		const gridRows = this._brn?.state() === 'open' ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]';
-		return hlm('text-sm transition-all grid', gridRows, this._userClass());
-	});
+  public readonly _userClass = input<ClassValue>('', { alias: 'class' });
+  protected readonly _computedClass = computed(() => {
+    const gridRows =
+      this._brn?.state() === 'open' ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]';
+    return hlm('text-sm transition-all grid', gridRows, this._userClass());
+  });
 
-	constructor() {
-		this._brn?.setClassToCustomElement('pt-1 pb-4');
-	}
+  constructor() {
+    this._brn?.setClassToCustomElement('pt-1 pb-4');
+  }
 }
