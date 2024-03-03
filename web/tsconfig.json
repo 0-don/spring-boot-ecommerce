@@ -18,7 +18,10 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": ["ES2022", "dom"],
+    "lib": [
+      "ES2022",
+      "dom"
+    ],
     "paths": {
       "@spartan-ng/ui-accordion-helm": [
         "./components/ui-accordion-helm/src/index.ts"
@@ -26,19 +29,27 @@
       "@spartan-ng/ui-button-helm": [
         "./components/ui-button-helm/src/index.ts"
       ],
-      "@spartan-ng/ui-icon-helm": ["./components/ui-icon-helm/src/index.ts"],
-      "@spartan-ng/ui-card-helm": ["./components/ui-card-helm/src/index.ts"],
+      "@spartan-ng/ui-icon-helm": [
+        "./components/ui-icon-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-card-helm": [
+        "./components/ui-card-helm/src/index.ts"
+      ],
       "@spartan-ng/ui-command-helm": [
         "./components/ui-command-helm/src/index.ts"
       ],
-      "@spartan-ng/ui-input-helm": ["./components/ui-input-helm/src/index.ts"],
+      "@spartan-ng/ui-input-helm": [
+        "./components/ui-input-helm/src/index.ts"
+      ],
       "@spartan-ng/ui-popover-helm": [
         "./components/ui-popover-helm/src/index.ts"
       ],
-      "@spartan-ng/ui-label-helm": ["./components/ui-label-helm/src/index.ts"],
-      // "@spartan-ng/ui-command-brain": [
-      //   "./components/ui-command-brain/src/index.ts"
-      // ]
+      "@spartan-ng/ui-label-helm": [
+        "./components/ui-label-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-badge-helm": [
+        "./components/ui-badge-helm/src/index.ts"
+      ]
     }
   },
   "angularCompilerOptions": {
