@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   host: {
     class: 'flex items-center justify-center',
   },
-  template: `<img src="/favicon.ico" width="25px" />`,
+  template: `<img alt="logo" src="/favicon.ico" width="25px" />`,
 })
 export class AppLogoComponent {}

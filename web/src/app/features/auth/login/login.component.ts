@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { lucideCheck, lucideChevronDown } from '@ng-icons/lucide';
-import { CmdkModule } from '@ngneat/cmdk';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import {
   HlmCardContentDirective,
@@ -25,7 +25,7 @@ import { HlmPopoverContentDirective } from '@spartan-ng/ui-popover-helm';
 type Framework = { label: string; value: string };
 
 @Component({
-  selector: 'login',
+  selector: 'app-login',
   standalone: true,
   imports: [
     BrnCommandImports,
@@ -47,7 +47,7 @@ type Framework = { label: string; value: string };
   ],
   providers: [provideIcons({ lucideCheck, lucideChevronDown })],
   template: `
-    <section class="w-80" hlmCard>
+    <form (formdata)="(form)" class="w-80" hlmCard>
       <div hlmCardHeader>
         <h3 hlmCardTitle>Create new project</h3>
         <p hlmCardDescription>Deploy your new project in one-click.</p>
@@ -62,7 +62,7 @@ type Framework = { label: string; value: string };
           />
         </label>
 
-        <label class="my-4 mb-1.5 block" hlmLabel>
+        <label class="my-4 mb-1.5 block" hlmLabel for="">
           Framework
 
           <brn-popover
@@ -118,10 +118,12 @@ type Framework = { label: string; value: string };
         <button hlmBtn variant="ghost">Cancel</button>
         <button hlmBtn>Create</button>
       </div>
-    </section>
+    </form>
   `,
 })
 export class LoginComponent {
+  form: FormGroup = new FormGroup({});
+
   public frameworks = [
     {
       label: 'AnalogJs',
