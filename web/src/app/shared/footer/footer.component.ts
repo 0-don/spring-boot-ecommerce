@@ -24,7 +24,7 @@ import { hlmMuted } from '@spartan-ng/ui-typography-helm';
       <a
         class="h-6 px-0.5 text-sm"
         hlmBtn
-        href="hhttps://github.com/0-don/spring-boot-ecommerce"
+        href="https://github.com/0-don/spring-boot-ecommerce"
         target="_blank"
         variant="link"
       >
