@@ -23,7 +23,7 @@ import { SideNavLinkDirective } from '../layout/side-nav/side-nav-link.directive
 import { NavLinkDirective } from './spartan-nav-link.directive';
 
 @Component({
-  selector: 'spartan-mobile-nav',
+  selector: 'app-mobile-nav',
   standalone: true,
   imports: [
     BrnSheetComponent,

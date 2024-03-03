@@ -41,7 +41,7 @@ import { NavLinkDirective } from './spartan-nav-link.directive';
           <span class="sr-only">app</span>
         </a>
 
-        <spartan-mobile-nav class="sm:hidden" />
+        <app-mobile-nav class="sm:hidden" />
 
         <div class="hidden sm:flex sm:space-x-2">
           <a spartanNavLink="/home">Home</a>
