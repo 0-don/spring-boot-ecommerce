@@ -15,17 +15,7 @@ import { hlmMuted } from '@spartan-ng/ui-typography-helm';
       <a
         class="h-6 px-0.5 text-sm"
         hlmBtn
-        href="https://twitter.com/goetzrobin"
-        target="_blank"
-        variant="link"
-      >
-        goetzrobin
-      </a>
-      &
-      <a
-        class="h-6 px-0.5 text-sm"
-        hlmBtn
-        href="https://github.com/mihajm"
+        href="https://github.com/0-don"
         target="_blank"
         variant="link"
         >mihajm.</a
@@ -34,7 +24,7 @@ import { hlmMuted } from '@spartan-ng/ui-typography-helm';
       <a
         class="h-6 px-0.5 text-sm"
         hlmBtn
-        href="https://github.com/goetzrobin/spartan"
+        href="hhttps://github.com/0-don/spring-boot-ecommerce"
         target="_blank"
         variant="link"
       >
