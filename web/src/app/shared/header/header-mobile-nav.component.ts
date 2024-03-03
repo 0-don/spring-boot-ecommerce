@@ -18,9 +18,6 @@ import {
   HlmSheetOverlayDirective,
 } from '@spartan-ng/ui-sheet-helm';
 import { AppLogoComponent } from '../../lib/app-logo.component';
-import { SideNavContentComponent } from '../layout/side-nav/side-nav-content.component';
-import { SideNavLinkDirective } from '../layout/side-nav/side-nav-link.directive';
-import { NavLinkDirective } from './spartan-nav-link.directive';
 
 @Component({
   selector: 'app-mobile-nav',
@@ -31,18 +28,15 @@ import { NavLinkDirective } from './spartan-nav-link.directive';
     BrnSheetTriggerDirective,
     BrnSheetContentDirective,
     BrnSheetCloseDirective,
-
+    
     HlmSheetCloseDirective,
     HlmSheetOverlayDirective,
     HlmSheetContentComponent,
-
     HlmButtonDirective,
     HlmIconComponent,
-    SideNavContentComponent,
     HlmScrollAreaComponent,
+
     RouterLink,
-    NavLinkDirective,
-    SideNavLinkDirective,
     AppLogoComponent,
   ],
   providers: [provideIcons({ lucideMoreVertical, lucideX })],
@@ -81,20 +75,20 @@ import { NavLinkDirective } from './spartan-nav-link.directive';
             <a
               (click)="ctx.close()"
               class="text-foreground px-2 py-1 hover:underline"
-              routerLink="/documentation"
+              routerLink="/home"
             >
               Home
             </a>
             <a
               (click)="ctx.close()"
               class="text-foreground px-2 py-1 hover:underline"
-              routerLink="/stack"
+              routerLink="/register"
               >Register</a
             >
             <a
               (click)="ctx.close()"
               class="text-foreground px-2 py-1 hover:underline"
-              routerLink="/components"
+              routerLink="/login"
             >
               Login
             </a>
