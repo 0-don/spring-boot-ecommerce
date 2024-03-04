@@ -2,24 +2,24 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { provideIcons } from '@ng-icons/core';
 import { lucideGithub, lucideTwitter } from '@ng-icons/lucide';
-import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
 import { AppLogoComponent } from '../app-logo.component';
 import { HeaderDarkModeComponent } from './header-dark-mode.component';
 import { HeaderMobileNavComponent } from './header-mobile-nav.component';
 import { NavLinkDirective } from './nav-link.directive';
+import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
-    HlmButtonDirective,
     RouterLink,
     HlmIconComponent,
     NavLinkDirective,
     HeaderMobileNavComponent,
     HeaderDarkModeComponent,
     AppLogoComponent,
+    HlmButtonDirective,
   ],
   providers: [provideIcons({ lucideTwitter, lucideGithub })],
   host: {

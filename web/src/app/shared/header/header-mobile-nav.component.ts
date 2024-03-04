@@ -27,7 +27,7 @@ import { AppLogoComponent } from '../app-logo.component';
     BrnSheetOverlayComponent,
     BrnSheetTriggerDirective,
     BrnSheetContentDirective,
-    BrnSheetCloseDirective,
+
 
     HlmSheetCloseDirective,
     HlmSheetOverlayDirective,
@@ -49,12 +49,13 @@ import { AppLogoComponent } from '../app-logo.component';
         id="menu-trigger"
         variant="ghost"
         brnSheetTrigger
+        class="text-green-[#fff]"
         hlmBtn
       >
         <hlm-icon name="lucideMoreVertical" size="sm" />
         <span class="sr-only">Open menu</span>
       </button>
-      <brn-sheet-overlay hlm />
+      <brn-sheet-overlay hlmSheetOverlay />
       <div hlmSheetContent class="pb-0 pr-0" *brnSheetContent="let ctx">
         <button brnSheetClose hlm>
           <span class="sr-only">Close</span>

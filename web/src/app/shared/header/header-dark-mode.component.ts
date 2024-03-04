@@ -5,7 +5,11 @@ import { lucideMoon } from '@ng-icons/lucide';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
 import { BrnMenuTriggerDirective } from '@spartan-ng/ui-menu-brain';
-import { HlmMenuComponent, HlmMenuImports } from '@spartan-ng/ui-menu-helm';
+import {
+  HlmMenuComponent,
+  HlmMenuItemCheckboxDirective,
+  HlmMenuItemCheckComponent,
+} from '@spartan-ng/ui-menu-helm';
 import { DarkMode, ThemeService } from '../service/theme.service';
 
 @Component({
@@ -13,11 +17,12 @@ import { DarkMode, ThemeService } from '../service/theme.service';
   standalone: true,
   imports: [
     BrnMenuTriggerDirective,
-    HlmMenuImports,
     HlmButtonDirective,
     HlmIconComponent,
     AsyncPipe,
     HlmMenuComponent,
+    HlmMenuItemCheckboxDirective,
+    HlmMenuItemCheckComponent,
   ],
   providers: [provideIcons({ lucideMoon })],
   template: `
@@ -64,6 +69,7 @@ import { DarkMode, ThemeService } from '../service/theme.service';
 export class HeaderDarkModeComponent {
   private _themeService = inject(ThemeService);
   theme$ = this._themeService.darkMode$;
+
   public setTheme(theme: DarkMode) {
     this._themeService.setDarkMode(theme);
   }

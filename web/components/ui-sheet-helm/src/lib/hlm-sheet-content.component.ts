@@ -1,11 +1,11 @@
 import {
   Component,
-  ElementRef,
-  Renderer2,
   computed,
   effect,
+  ElementRef,
   inject,
   input,
+  Renderer2,
   signal,
 } from '@angular/core';
 import { lucideX } from '@ng-icons/lucide';
@@ -51,15 +51,19 @@ export const sheetVariants = cva(
   template: `
     <ng-content />
     <button brnSheetClose hlm>
-      <span class="sr-only">Close</span>
+      <span class="sr-only ">Close</span>
       <hlm-icon class="flex h-4 w-4" size="100%" name="lucideX" />
     </button>
   `,
 })
 export class HlmSheetContentComponent {
+  public readonly _userClass = input<ClassValue>('', { alias: 'class' });
   private _stateProvider = injectExposesStateProvider({ host: true });
-  private _sideProvider = injectExposedSideProvider({ host: true });
   public state = this._stateProvider.state ?? signal('closed');
+  private _sideProvider = injectExposedSideProvider({ host: true });
+  protected _computedClass = computed(() =>
+    hlm(sheetVariants({ side: this._sideProvider.side() }), this._userClass()),
+  );
   private _renderer = inject(Renderer2);
   private _element = inject(ElementRef);
 
@@ -72,9 +76,4 @@ export class HlmSheetContentComponent {
       );
     });
   }
-
-  public readonly _userClass = input<ClassValue>('', { alias: 'class' });
-  protected _computedClass = computed(() =>
-    hlm(sheetVariants({ side: this._sideProvider.side() }), this._userClass()),
-  );
 }
