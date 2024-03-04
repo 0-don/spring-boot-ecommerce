@@ -1,0 +1,3 @@
+{
+  "reject": ["@ngneat/overview", "clsx"]
+}

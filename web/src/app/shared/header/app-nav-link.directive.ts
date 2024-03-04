@@ -14,7 +14,7 @@ import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
     RouterLinkActive,
   ],
 })
-export class NavLinkDirective {
+export class AppNavLinkDirective {
   private _hlmBtn = inject(HlmButtonDirective);
   private _rlActive = inject(RouterLinkActive);
 

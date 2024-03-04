@@ -47,78 +47,39 @@ type Framework = { label: string; value: string };
   ],
   providers: [provideIcons({ lucideCheck, lucideChevronDown })],
   template: `
-    <form (formdata)="(form)" class="w-80" hlmCard>
-      <div hlmCardHeader>
-        <h3 hlmCardTitle>Create new project</h3>
-        <p hlmCardDescription>Deploy your new project in one-click.</p>
-      </div>
-      <p hlmCardContent>
-        <label class="block" hlmLabel>
-          Name
-          <input
-            class="mt-1.5 w-full"
-            placeholder="Name of your project"
-            hlmInput
-          />
-        </label>
+    <main class="flex min-h-[calc(100svh-10rem)]">
+      <div class="m-auto max-w-[500px] md:w-2/5">
+        <form (formdata)="(form)" hlmCard>
+          <div hlmCardHeader>
+            <h3 hlmCardTitle>Login</h3>
+            <p hlmCardDescription>Sign in to your Account</p>
+          </div>
+          <p hlmCardContent>
+            <label class="block" hlmLabel>
+              Username
+              <input
+                class="mt-1.5 w-full"
+                placeholder="Name of your project"
+                hlmInput
+              />
+            </label>
 
-        <label class="my-4 mb-1.5 block" hlmLabel for="">
-          Framework
-
-          <brn-popover
-            [state]="state()"
-            (stateChanged)="stateChanged($event)"
-            sideOffset="5"
-            closeDelay="100"
-          >
-            <button
-              class="mt-1.5 w-full justify-between"
-              id="edit-profile"
-              variant="outline"
-              brnPopoverTrigger
-              (click)="state.set('open')"
-              hlmBtn
-            >
-              {{ currentFramework() ? currentFramework()?.label : 'Select' }}
-              <hlm-icon size="sm" name="lucideChevronDown" />
-            </button>
-            <brn-cmd
-              *brnPopoverContent="let ctx"
-              hlmPopoverContent
-              hlm
-              class="w-[270px] p-0"
-            >
-              <div *brnCmdEmpty hlmCmdEmpty>No results found.</div>
-              <brn-cmd-list hlm>
-                <brn-cmd-group hlm>
-                  @for (framework of frameworks; track framework) {
-                    <button
-                      brnCmdItem
-                      [value]="framework.value"
-                      (selected)="commandSelected(framework)"
-                      hlm
-                    >
-                      <hlm-icon
-                        [class.opacity-0]="
-                          currentFramework()?.value !== framework.value
-                        "
-                        name="lucideCheck"
-                        hlmCmdIcon
-                      />
-                      {{ framework.label }}
-                    </button>
-                  }
-                </brn-cmd-group>
-              </brn-cmd-list>
-            </brn-cmd>
-          </brn-popover>
-        </label>
-      </p>
-      <div hlmCardFooter class="justify-between">
-        <button hlmBtn variant="ghost">Cancel</button>
-        <button hlmBtn>Create</button>
+            <label class="block" hlmLabel>
+              Password
+              <input
+                class="mt-1.5 w-full"
+                placeholder="Name of your project"
+                hlmInput
+              />
+            </label>
+          </p>
+          <div hlmCardFooter class="justify-between">
+            <a hlmBtn variant="ghost">Register</a>
+            <button hlmBtn>Login</button>
+          </div>
+        </form>
       </div>
-    </form>
+    </main>
   `,
 })
 export class LoginComponent {

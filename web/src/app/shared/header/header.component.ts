@@ -6,7 +6,7 @@ import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
 import { AppLogoComponent } from '../app-logo.component';
 import { HeaderDarkModeComponent } from './header-dark-mode.component';
 import { HeaderMobileNavComponent } from './header-mobile-nav.component';
-import { NavLinkDirective } from './nav-link.directive';
+import { AppNavLinkDirective } from './app-nav-link.directive';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 
 @Component({
@@ -15,7 +15,7 @@ import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
   imports: [
     RouterLink,
     HlmIconComponent,
-    NavLinkDirective,
+    AppNavLinkDirective,
     HeaderMobileNavComponent,
     HeaderDarkModeComponent,
     AppLogoComponent,
