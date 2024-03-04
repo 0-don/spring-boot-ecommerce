@@ -1,4 +1,26 @@
 {
+	"auth": {
+		"login": {
+			"description": "Sign in to your Account",
+			"passwordLabel": "Password",
+			"passwordPlaceholder": "Enter your password",
+			"title": "Login",
+			"usernameLabel": "Username",
+			"usernamePlaceholder": "Enter your username"
+		},
+		"loginButton": "Login",
+		"register": {
+			"description": "Sign up a new Account",
+			"passwordLabel": "Password",
+			"passwordPlaceholder": "Enter your password",
+			"passwordRepeatLabel": "Repeat Password",
+			"passwordRepeatPlaceholder": "Enter your password again",
+			"title": "Register",
+			"usernameLabel": "Username",
+			"usernamePlaceholder": "Enter your username"
+		},
+		"registerButton": "Register"
+	},
 	"footer": {
 		"description": ""
 	},

@@ -76,14 +76,14 @@ import { AppLogoComponent } from '../app-logo.component';
             <a
               (click)="ctx.close()"
               class="px-2 py-1 text-foreground hover:underline"
-              routerLink="/documentation"
+              routerLink="/"
             >
               Home
             </a>
             <a
               (click)="ctx.close()"
               class="px-2 py-1 text-foreground hover:underline"
-              routerLink="/stack"
+              routerLink="/register"
               >Register</a
             >
             <a
