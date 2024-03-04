@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { lucideStar } from '@ng-icons/lucide';
 import { HlmBadgeDirective } from '@spartan-ng/ui-badge-helm';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
-import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
+import { HlmIconComponent, provideIcons } from '@spartan-ng/ui-icon-helm';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,7 @@ import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
     HlmBadgeDirective,
     HlmIconComponent,
   ],
+  providers: [provideIcons({ lucideStar })],
   host: {
     class: 'block p-4 pb-12 pt-6 sm:pb-24 sm:pt-12',
   },
