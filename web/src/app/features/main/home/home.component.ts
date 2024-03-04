@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { lucideStar } from '@ng-icons/lucide';
+import { lucideLogIn, lucideMoonStar, lucideStar } from '@ng-icons/lucide';
 import { HlmBadgeDirective } from '@spartan-ng/ui-badge-helm';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { HlmIconComponent, provideIcons } from '@spartan-ng/ui-icon-helm';
 import { TranslateModule } from '@ngx-translate/core';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -16,9 +15,8 @@ import { CommonModule } from '@angular/common';
     HlmBadgeDirective,
     HlmIconComponent,
     TranslateModule,
-    CommonModule,
   ],
-  providers: [provideIcons({ lucideStar })],
+  providers: [provideIcons({ lucideStar, lucideLogIn, lucideMoonStar })],
   host: {
     class: 'block p-4 pb-12 pt-6 sm:pb-24 sm:pt-12',
   },
@@ -32,17 +30,19 @@ import { CommonModule } from '@angular/common';
           class="!text-foreground-primary !hover:bg-primary/90 !bg-primary"
         >
           {{ 'home.badge' | translate }}
+          <hlm-icon class="ml-2 h-4 w-4" name="lucideMoonStar" />
         </a>
         <h1 class="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
-          Secure and Scalable E-commerce Solutions.
+          {{ 'home.title' | translate }}
         </h1>
         <p class="app-lead max-w-[42rem]">
-          Elevate your online store with our Spring Boot e-commerce template,
-          featuring secure Keycloak authentication and the sleek Spartan UI.
-          Tailored for performance and scalability.
+          {{ 'home.description' | translate }}
         </p>
         <div class="flex flex-wrap justify-center gap-4">
-          <a hlmBtn size="lg" routerLink="/login">Get Started</a>
+          <a hlmBtn size="lg" routerLink="/login"
+            >{{ 'home.login' | translate }}
+            <hlm-icon class="ml-2 h-4 w-4" name="lucideLogIn"
+          /></a>
           <a
             hlmBtn
             size="lg"
@@ -51,7 +51,7 @@ import { CommonModule } from '@angular/common';
             rel="noreferrer"
             href="https://github.com/0-don/spring-boot-ecommerce"
           >
-            Star on GitHub
+            {{ 'home.starOnGithub' | translate }}
             <hlm-icon class="ml-2 h-4 w-4" name="lucideStar" />
           </a>
         </div>

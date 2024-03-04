@@ -6,7 +6,6 @@ import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
 import { HlmScrollAreaComponent } from '@spartan-ng/ui-scrollarea-helm';
 import {
-  BrnSheetCloseDirective,
   BrnSheetComponent,
   BrnSheetContentDirective,
   BrnSheetOverlayComponent,
@@ -27,7 +26,6 @@ import { AppLogoComponent } from '../app-logo.component';
     BrnSheetOverlayComponent,
     BrnSheetTriggerDirective,
     BrnSheetContentDirective,
-
 
     HlmSheetCloseDirective,
     HlmSheetOverlayDirective,
