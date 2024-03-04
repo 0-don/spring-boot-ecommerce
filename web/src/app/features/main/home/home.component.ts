@@ -5,6 +5,7 @@ import { HlmBadgeDirective } from '@spartan-ng/ui-badge-helm';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { HlmIconComponent, provideIcons } from '@spartan-ng/ui-icon-helm';
 import { TranslateModule } from '@ngx-translate/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,7 @@ import { TranslateModule } from '@ngx-translate/core';
     HlmBadgeDirective,
     HlmIconComponent,
     TranslateModule,
+    CommonModule,
   ],
   providers: [provideIcons({ lucideStar })],
   host: {
