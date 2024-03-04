@@ -4,6 +4,7 @@ import { lucideStar } from '@ng-icons/lucide';
 import { HlmBadgeDirective } from '@spartan-ng/ui-badge-helm';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { HlmIconComponent, provideIcons } from '@spartan-ng/ui-icon-helm';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,7 @@ import { HlmIconComponent, provideIcons } from '@spartan-ng/ui-icon-helm';
     RouterLink,
     HlmBadgeDirective,
     HlmIconComponent,
+    TranslateModule,
   ],
   providers: [provideIcons({ lucideStar })],
   host: {
@@ -27,7 +29,7 @@ import { HlmIconComponent, provideIcons } from '@spartan-ng/ui-icon-helm';
           hlmBadge
           class="!text-foreground-primary !hover:bg-primary/90 !bg-primary"
         >
-          Explore the E-commerce Revolution. Welcome to Spartan Commerce.
+          {{ 'home.badge' | translate }}
         </a>
         <h1 class="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
           Secure and Scalable E-commerce Solutions.

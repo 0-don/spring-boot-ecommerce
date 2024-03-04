@@ -12,14 +12,189 @@
 	<preset_collections/>
 	<framework>ngx-translate</framework>
 	<filename>web.babel</filename>
-	<source_root_dir>../MEGA/Projects/spring-boot-ecommerce/web</source_root_dir>
-	<folder_node>
+	<source_root_dir>web</source_root_dir>
 	<folder_node>
 		<name/>
 		<children>
 			<package_node>
 				<name>main</name>
-				<children/>
+				<children>
+					<folder_node>
+						<name>footer</name>
+						<children>
+							<concept_node>
+								<name>description</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>de-DE</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>en-US</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+						</children>
+					</folder_node>
+					<folder_node>
+						<name>header</name>
+						<children>
+							<folder_node>
+								<name>navbar</name>
+								<children>
+									<concept_node>
+										<name>home</name>
+										<description/>
+										<comment/>
+										<translations>
+											<translation>
+												<language>de-DE</language>
+												<approved>false</approved>
+											</translation>
+											<translation>
+												<language>en-US</language>
+												<approved>false</approved>
+											</translation>
+										</translations>
+									</concept_node>
+								</children>
+							</folder_node>
+							<folder_node>
+								<name>theme</name>
+								<children>
+									<concept_node>
+										<name>dark</name>
+										<description/>
+										<comment/>
+										<translations>
+											<translation>
+												<language>de-DE</language>
+												<approved>false</approved>
+											</translation>
+											<translation>
+												<language>en-US</language>
+												<approved>false</approved>
+											</translation>
+										</translations>
+									</concept_node>
+									<concept_node>
+										<name>light</name>
+										<description/>
+										<comment/>
+										<translations>
+											<translation>
+												<language>de-DE</language>
+												<approved>false</approved>
+											</translation>
+											<translation>
+												<language>en-US</language>
+												<approved>false</approved>
+											</translation>
+										</translations>
+									</concept_node>
+									<concept_node>
+										<name>system</name>
+										<description/>
+										<comment/>
+										<translations>
+											<translation>
+												<language>de-DE</language>
+												<approved>false</approved>
+											</translation>
+											<translation>
+												<language>en-US</language>
+												<approved>false</approved>
+											</translation>
+										</translations>
+									</concept_node>
+								</children>
+							</folder_node>
+						</children>
+					</folder_node>
+					<folder_node>
+						<name>home</name>
+						<children>
+							<concept_node>
+								<name>badge</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>de-DE</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>en-US</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+							<concept_node>
+								<name>description</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>de-DE</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>en-US</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+							<concept_node>
+								<name>login</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>de-DE</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>en-US</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+							<concept_node>
+								<name>starOnGithub</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>de-DE</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>en-US</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+							<concept_node>
+								<name>title</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>de-DE</language>
+										<approved>false</approved>
+									</translation>
+									<translation>
+										<language>en-US</language>
+										<approved>false</approved>
+									</translation>
+								</translations>
+							</concept_node>
+						</children>
+					</folder_node>
+				</children>
 			</package_node>
 		</children>
 	</folder_node>
@@ -37,11 +212,11 @@
 			<name>main</name>
 			<translation_urls>
 				<translation_url>
-					<path>../MEGA/Projects/spring-boot-ecommerce/web/src/assets/i18n/de.json</path>
+					<path>web/src/assets/i18n/de.json</path>
 					<language>de-DE</language>
 				</translation_url>
 				<translation_url>
-					<path>../MEGA/Projects/spring-boot-ecommerce/web/src/assets/i18n/en.json</path>
+					<path>web/src/assets/i18n/en.json</path>
 					<language>en-US</language>
 				</translation_url>
 			</translation_urls>
@@ -60,7 +235,7 @@
 	<primary_language>en-US</primary_language>
 	<configuration>
 		<indent>tab</indent>
-		<format>json</format>
+		<format>namespaced-json</format>
 		<support_arrays>true</support_arrays>
 	</configuration>
 </babeledit_project>

@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 export const HttpLoaderFactory = (httpClient: HttpClient) =>
-  new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
+  new TranslateHttpLoader(httpClient, '../assets/i18n/', '.json');
 
 bootstrapApplication(AppComponent, appConfig).catch((err) =>
   console.error(err),

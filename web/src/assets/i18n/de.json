@@ -1,1 +1,22 @@
-{}
+{
+	"footer": {
+		"description": ""
+	},
+	"header": {
+		"navbar": {
+			"home": ""
+		},
+		"theme": {
+			"dark": "",
+			"light": "",
+			"system": ""
+		}
+	},
+	"home": {
+		"badge": "Entdecken Sie die E-Commerce-Revolution. Willkommen bei Spartan Commerce.",
+		"description": "Werten Sie Ihren Online-Shop mit unserer Spring Boot-E-Commerce-Vorlage mit sicherer Keycloak-Authentifizierung und der eleganten Spartan-Benutzeroberfläche auf. Maßgeschneidert für Leistung und Skalierbarkeit.",
+		"login": "Anmeldung",
+		"starOnGithub": "Stern auf Github",
+		"title": "Sichere und skalierbare E-Commerce-Lösungen."
+	}
+}
