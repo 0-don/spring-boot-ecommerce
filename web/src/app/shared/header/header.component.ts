@@ -4,22 +4,28 @@ import { provideIcons } from '@ng-icons/core';
 import { lucideGithub, lucideTwitter } from '@ng-icons/lucide';
 import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
 import { AppLogoComponent } from '../app-logo.component';
-import { HeaderDarkModeComponent } from './header-dark-mode.component';
+import { ThemeComponent } from './theme.component';
 import { HeaderMobileNavComponent } from './header-mobile-nav.component';
 import { AppNavLinkDirective } from './app-nav-link.directive';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
+import { TranslateModule } from '@ngx-translate/core';
+import { LanguageComponent } from './language.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
-    RouterLink,
     HlmIconComponent,
     AppNavLinkDirective,
-    HeaderMobileNavComponent,
-    HeaderDarkModeComponent,
-    AppLogoComponent,
     HlmButtonDirective,
+
+    RouterLink,
+    TranslateModule,
+
+    HeaderMobileNavComponent,
+    ThemeComponent,
+    LanguageComponent,
+    AppLogoComponent,
   ],
   providers: [provideIcons({ lucideTwitter, lucideGithub })],
   host: {
@@ -38,13 +44,13 @@ import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
           routerLink="/"
         >
           <app-logo class="w-14" />
-          <span class="sr-only">app</span>
+          <span class="sr-only">{{ 'header.navbar.app' | translate }}</span>
         </a>
 
         <app-mobile-nav class="sm:hidden" />
 
         <div class="hidden sm:flex sm:space-x-2">
-          <a appNavLink="/home">Home</a>
+          <a appNavLink="/home">{{ 'header.navbar.home' | translate }}</a>
         </div>
       </nav>
 
@@ -56,11 +62,11 @@ import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
           variant="ghost"
           hlmBtn
         >
-          <span class="sr-only">Github</span>
+          <span class="sr-only">{{ 'header.navbar.github' | translate }}</span>
           <hlm-icon name="lucideGithub" size="sm" />
         </a>
-
-        <app-dark-mode />
+        <app-theme />
+        <app-language />
       </div>
     </div>
   `,

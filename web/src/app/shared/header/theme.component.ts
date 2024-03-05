@@ -11,9 +11,10 @@ import {
   HlmMenuItemCheckComponent,
 } from '@spartan-ng/ui-menu-helm';
 import { DarkMode, ThemeService } from '../service/theme.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-dark-mode',
+  selector: 'app-theme',
   standalone: true,
   imports: [
     BrnMenuTriggerDirective,
@@ -23,6 +24,7 @@ import { DarkMode, ThemeService } from '../service/theme.service';
     HlmMenuComponent,
     HlmMenuItemCheckboxDirective,
     HlmMenuItemCheckComponent,
+    TranslateModule,
   ],
   providers: [provideIcons({ lucideMoon })],
   template: `
@@ -34,7 +36,7 @@ import { DarkMode, ThemeService } from '../service/theme.service';
       hlmBtn
     >
       <hlm-icon name="lucideMoon" size="sm" />
-      <span class="sr-only">Open menu to change theme</span>
+      <span class="sr-only">{{ 'header.theme.changeTheme' | translate }}</span>
     </button>
     <ng-template #theme>
       <hlm-menu class="w-40">
@@ -44,7 +46,7 @@ import { DarkMode, ThemeService } from '../service/theme.service';
           (click)="setTheme('light')"
         >
           <hlm-menu-item-check />
-          Light
+          {{ 'header.theme.light' | translate }}
         </button>
         <button
           hlmMenuItemCheckbox
@@ -52,7 +54,7 @@ import { DarkMode, ThemeService } from '../service/theme.service';
           (click)="setTheme('dark')"
         >
           <hlm-menu-item-check />
-          Dark
+          {{ 'header.theme.dark' | translate }}
         </button>
         <button
           hlmMenuItemCheckbox
@@ -60,13 +62,13 @@ import { DarkMode, ThemeService } from '../service/theme.service';
           (click)="setTheme('system')"
         >
           <hlm-menu-item-check />
-          System
+          {{ 'header.theme.system' | translate }}
         </button>
       </hlm-menu>
     </ng-template>
   `,
 })
-export class HeaderDarkModeComponent {
+export class ThemeComponent {
   private _themeService = inject(ThemeService);
   theme$ = this._themeService.darkMode$;
 

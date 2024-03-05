@@ -17,6 +17,7 @@ import {
   HlmSheetOverlayDirective,
 } from '@spartan-ng/ui-sheet-helm';
 import { AppLogoComponent } from '../app-logo.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-mobile-nav',
@@ -37,6 +38,7 @@ import { AppLogoComponent } from '../app-logo.component';
     HlmScrollAreaComponent,
     RouterLink,
     AppLogoComponent,
+    TranslateModule,
   ],
 
   providers: [provideIcons({ lucideMoreVertical, lucideX })],
@@ -51,12 +53,12 @@ import { AppLogoComponent } from '../app-logo.component';
         hlmBtn
       >
         <hlm-icon name="lucideMoreVertical" size="sm" />
-        <span class="sr-only">Open menu</span>
+        <span class="sr-only">{{ 'header.navbar.openMenu' | translate }}</span>
       </button>
       <brn-sheet-overlay hlmSheetOverlay />
       <div hlmSheetContent class="pb-0 pr-0" *brnSheetContent="let ctx">
         <button brnSheetClose hlm>
-          <span class="sr-only">Close</span>
+          <span class="sr-only">{{ 'header.navbar.close' | translate }}</span>
           <hlm-icon class="flex h-4 w-4" name="lucideX" />
         </button>
         <div class="flex items-center pb-2">
@@ -69,7 +71,7 @@ import { AppLogoComponent } from '../app-logo.component';
           >
             <app-logo class="w-12 text-primary" />
           </a>
-          <span>Spring Boot Ecommerce</span>
+          <span>{{ 'header.navbar.app' | translate }}</span>
         </div>
         <hlm-scroll-area class="h-[calc(100vh-8rem)]">
           <div class="flex flex-col space-y-1 p-2 pb-4">
@@ -78,20 +80,20 @@ import { AppLogoComponent } from '../app-logo.component';
               class="px-2 py-1 text-foreground hover:underline"
               routerLink="/"
             >
-              Home
+              {{ 'header.navbar.home' | translate }}
             </a>
             <a
               (click)="ctx.close()"
               class="px-2 py-1 text-foreground hover:underline"
               routerLink="/register"
-              >Register</a
+              >{{ 'header.navbar.register' | translate }}</a
             >
             <a
               (click)="ctx.close()"
               class="px-2 py-1 text-foreground hover:underline"
-              routerLink="/components"
+              routerLink="/login"
             >
-              Login
+              {{ 'header.navbar.login' | translate }}
             </a>
           </div>
         </hlm-scroll-area>
