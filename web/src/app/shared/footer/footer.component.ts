@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { hlmMuted } from '@spartan-ng/ui-typography-helm';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [HlmButtonDirective],
+  imports: [HlmButtonDirective, TranslateModule],
   host: {
     class: 'block border-t bg-background/95 bg-blur-lg border-border px-4 py-8',
   },
   template: `
     <footer class="${hlmMuted} mx-auto max-w-screen-xl text-sm">
-      Built by
+      {{ 'footer.builtBy' | translate }}
       <a
         class="h-6 px-0.5 text-sm"
         hlmBtn
@@ -20,7 +21,7 @@ import { hlmMuted } from '@spartan-ng/ui-typography-helm';
         variant="link"
         >don.</a
       >
-      Open source and available on
+      {{ 'footer.openSource' | translate }}
       <a
         class="h-6 px-0.5 text-sm"
         hlmBtn
@@ -28,7 +29,7 @@ import { hlmMuted } from '@spartan-ng/ui-typography-helm';
         target="_blank"
         variant="link"
       >
-        GitHub.
+        {{ 'footer.github' | translate }}.
       </a>
     </footer>
   `,

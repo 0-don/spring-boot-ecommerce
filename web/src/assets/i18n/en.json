@@ -22,7 +22,9 @@
 		"registerButton": "Register"
 	},
 	"footer": {
-		"description": ""
+		"builtBy": "Built by",
+		"github": "Github",
+		"openSource": "Open source and available on"
 	},
 	"header": {
 		"language": {

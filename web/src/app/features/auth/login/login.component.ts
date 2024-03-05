@@ -74,17 +74,6 @@ import { TranslateModule } from '@ngx-translate/core';
                 hlmInput
               />
             </label>
-
-            <label class="block" hlmLabel>
-              {{ 'auth.login.passwordRepeatLabel' | translate }}
-              <input
-                class="mt-1.5 w-full"
-                [placeholder]="
-                  'auth.login.passwordRepeatPlaceholder' | translate
-                "
-                hlmInput
-              />
-            </label>
           </p>
           <div hlmCardFooter class="justify-between">
             <a hlmBtn variant="ghost" routerLink="/register">
