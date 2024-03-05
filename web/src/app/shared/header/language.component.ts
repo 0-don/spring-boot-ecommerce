@@ -1,6 +1,5 @@
-import { AsyncPipe, NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { provideIcons } from '@ng-icons/core';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
 import { BrnMenuTriggerDirective } from '@spartan-ng/ui-menu-brain';
@@ -20,14 +19,12 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     BrnMenuTriggerDirective,
     HlmButtonDirective,
     HlmIconComponent,
-    AsyncPipe,
     HlmMenuComponent,
     HlmMenuItemCheckboxDirective,
     HlmMenuItemCheckComponent,
     TranslateModule,
     NgOptimizedImage,
   ],
-  providers: [provideIcons({})],
   template: `
     <button
       size="sm"
@@ -39,10 +36,9 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
       <img
         ngSrc="assets/flags/{{ lang }}.svg"
         alt="{{ lang }}"
-        width="50"
-        height="50"
+        width="25"
+        height="10"
       />
-      <hlm-icon name="lucideMoon" size="sm" />
       <span class="sr-only">{{
         'header.language.changeLanguage' | translate
       }}</span>
@@ -51,39 +47,55 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
       <hlm-menu class="w-40">
         <button
           hlmMenuItemCheckbox
-          [checked]="lang === 'EN'"
-          (click)="setLang('EN')"
+          [checked]="lang === 'en'"
+          (click)="setLang('en')"
         >
           <hlm-menu-item-check />
-          {{ 'header.language.EN' | translate }}
+          {{ 'header.language.en' | translate }}
         </button>
         <button
           hlmMenuItemCheckbox
-          [checked]="lang === 'DE'"
-          (click)="setLang('DE')"
+          [checked]="lang === 'de'"
+          (click)="setLang('de')"
         >
           <hlm-menu-item-check />
-          {{ 'header.language.DE' | translate }}
+          {{ 'header.language.de' | translate }}
         </button>
       </hlm-menu>
     </ng-template>
   `,
 })
 export class LanguageComponent {
-  private translateService = inject(TranslateService);
+  private _locale = 'locale';
+  private translate = inject(TranslateService);
+  lang: keyof typeof LanguageEnum = LanguageEnum.en;
 
-  lang: keyof typeof LanguageEnum = LanguageEnum.EN;
   constructor() {
+    this.initLanguage();
     this.toggleLanguageChanges();
   }
-  private toggleLanguageChanges(): void {
-    this.translateService.onLangChange
-      .pipe(takeUntilDestroyed())
-      .subscribe(
-        (language) => (this.lang = language.lang as keyof typeof LanguageEnum),
-      );
+
+  initLanguage(): void {
+    const locale = localStorage?.getItem(this._locale);
+    if (locale) {
+      this.lang = locale as keyof typeof LanguageEnum;
+      this.translate.setDefaultLang(locale);
+      this.translate.use(locale);
+    } else {
+      this.translate.setDefaultLang(this.lang);
+      this.translate.use(this.lang);
+      localStorage.setItem(this._locale, this.lang);
+    }
   }
-  setLang(lang: keyof typeof LanguageEnum) {
-    this.translateService.use(lang);
+
+  private toggleLanguageChanges(): void {
+    this.translate.onLangChange
+      .pipe(takeUntilDestroyed())
+      .subscribe(({ lang }) => (this.lang = lang as keyof typeof LanguageEnum));
+  }
+
+  setLang(lang: keyof typeof LanguageEnum): void {
+    this.translate.use(lang);
+    localStorage.setItem(this._locale, lang);
   }
 }

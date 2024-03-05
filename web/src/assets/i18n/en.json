@@ -26,8 +26,8 @@
 	},
 	"header": {
 		"language": {
-			"DE": "German",
-			"EN": "English"
+			"de": "German",
+			"en": "English"
 		},
 		"navbar": {
 			"app": "Spring Boot Ecommerce",

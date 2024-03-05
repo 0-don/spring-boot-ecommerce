@@ -301,13 +301,13 @@
 								<name>language</name>
 								<children>
 									<concept_node>
-										<name>DE</name>
+										<name>de</name>
 										<description/>
 										<comment/>
 										<translations>
 											<translation>
 												<language>de-DE</language>
-												<approved>false</approved>
+												<approved>true</approved>
 											</translation>
 											<translation>
 												<language>en-US</language>
@@ -316,7 +316,7 @@
 										</translations>
 									</concept_node>
 									<concept_node>
-										<name>EN</name>
+										<name>en</name>
 										<description/>
 										<comment/>
 										<translations>
