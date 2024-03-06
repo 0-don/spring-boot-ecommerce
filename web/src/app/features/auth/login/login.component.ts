@@ -82,7 +82,7 @@ type FormType = ReturnType<LoginComponent['prepareForm']>;
               {{ 'auth.login.description' | translate }}
             </p>
           </div>
-          <div hlmCardContent class="py-0" *ngIf="form?.controls">
+          <div hlmCardContent class="py-0" *ngIf="form">
             <label class="block" hlmLabel>
               {{ 'auth.input.usernameLabel' | translate }}
               <input
@@ -144,7 +144,7 @@ export class LoginComponent {
 
   public loading = computed(() => this.state().status === 'loading');
 
-  protected form!: FormType;
+  protected form?: FormType;
 
   constructor() {
     this._translate.onDefaultLangChange
