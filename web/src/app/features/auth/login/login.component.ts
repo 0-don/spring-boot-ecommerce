@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   lucideCheck,
@@ -133,7 +133,7 @@ type FormType = ReturnType<LoginComponent['prepareForm']>;
     </main>
   `,
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   private _sfb = inject(SignalFormBuilder);
   private _translate = inject(TranslateService);
 
@@ -146,10 +146,15 @@ export class LoginComponent {
 
   protected form?: FormType;
 
-  constructor() {
-    this._translate.onDefaultLangChange
-      .pipe(take(1))
-      .subscribe((_) => (this.form = this.prepareForm()));
+  ngOnInit() {
+    if (this._translate.store.translations[this._translate.currentLang]) {
+      console.log(this._translate.store.translations, this.form);
+      this.form = this.prepareForm();
+    } else {
+      this._translate.onDefaultLangChange
+        .pipe(take(1))
+        .subscribe((_) => (this.form = this.prepareForm()));
+    }
   }
 
   prepareForm() {
