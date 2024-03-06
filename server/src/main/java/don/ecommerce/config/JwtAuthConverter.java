@@ -3,10 +3,12 @@ package don.ecommerce.config;
 
 import java.util.Collection;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.NonNull;
@@ -20,6 +22,7 @@ import org.springframework.security.oauth2.server.resource.authentication.JwtGra
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationToken> {
 
     private final JwtGrantedAuthoritiesConverter jwtGrantedAuthoritiesConverter =
@@ -53,25 +56,18 @@ public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationTo
     }
 
     private Collection<? extends GrantedAuthority> extractResourceRoles(Jwt jwt) {
-        Object resourceAccessObj = jwt.getClaim("resource_access");
-        if (!(resourceAccessObj instanceof Map<?, ?> resourceAccess)) {
+        Map<String, Object> resourceAccess = jwt.getClaim("resource_access");
+        Map<String, Object> resource;
+        Collection<String> resourceRoles;
+
+        if (resourceAccess == null
+                || (resource = (Map<String, Object>) resourceAccess.get(resourceId)) == null
+                || (resourceRoles = (Collection<String>) resource.get("roles")) == null) {
             return Set.of();
         }
 
-        Object resourceObj = resourceAccess.get(resourceId);
-
-        if (!(resourceObj instanceof Map<?, ?> resource)) {
-            return Set.of();
-        }
-
-        Object rolesObj = resource.get("roles");
-
-        if (!(rolesObj instanceof Collection<?> rolesCollection)) {
-            return Set.of();
-        }
-
-        return rolesCollection.stream()
-                .filter(role -> role instanceof String)
+        return resourceRoles.stream()
+                .filter(Objects::nonNull)
                 .map(role -> new SimpleGrantedAuthority("ROLE_" + role))
                 .collect(Collectors.toSet());
     }

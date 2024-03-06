@@ -10,9 +10,6 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.oauth2.jose.jws.SignatureAlgorithm;
-import org.springframework.security.oauth2.jwt.JwtDecoder;
-import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.web.cors.CorsConfiguration;
@@ -46,7 +43,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(authz -> authz.anyRequest().authenticated())
                 // Configure OAuth2 Resource Server
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt(
-                        jwt -> jwt.decoder(jwtDecoder())
+                        jwt -> jwt
                                 .jwtAuthenticationConverter(jwtAuthConverter)
                 ))
                 // Configure session management
@@ -56,11 +53,6 @@ public class SecurityConfiguration {
         return http.build();
     }
 
-    @Bean
-    public JwtDecoder jwtDecoder() {
-        return NimbusJwtDecoder.withJwkSetUri(jwkSetUri).jwsAlgorithm(SignatureAlgorithm.RS512)
-                .build();
-    }
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
