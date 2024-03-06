@@ -32,6 +32,9 @@ import {
   withErrorComponent,
 } from 'ng-signal-forms';
 import { HlmSpinnerComponent } from '@spartan-ng/ui-spinner-helm';
+import { take } from 'rxjs';
+
+type FormType = ReturnType<LoginComponent['prepareForm']>;
 
 @Component({
   selector: 'app-login',
@@ -79,7 +82,7 @@ import { HlmSpinnerComponent } from '@spartan-ng/ui-spinner-helm';
               {{ 'auth.login.description' | translate }}
             </p>
           </div>
-          <div hlmCardContent class="py-0">
+          <div hlmCardContent class="py-0" *ngIf="form?.controls">
             <label class="block" hlmLabel>
               {{ 'auth.input.usernameLabel' | translate }}
               <input
@@ -111,7 +114,7 @@ import { HlmSpinnerComponent } from '@spartan-ng/ui-spinner-helm';
               {{ 'auth.registerButton' | translate }}
               <hlm-icon class="ml-1 h-4 w-4" name="lucideDoorOpen" />
             </a>
-            <button hlmBtn [disabled]="loading() || !form.valid" type="submit">
+            <button hlmBtn [disabled]="loading() || !form?.valid" type="submit">
               <span
                 >{{
                   (loading() ? 'auth.login.loggingIn' : 'auth.loginButton')
@@ -141,54 +144,64 @@ export class LoginComponent {
 
   public loading = computed(() => this.state().status === 'loading');
 
-  form = this._sfb.createFormGroup(() => ({
-    username: this._sfb.createFormField<string>('', {
-      validators: [
-        {
-          validator: V.required(),
-          message: () =>
-            this._translate.instant('auth.validate.usernameRequired'),
-        },
-        {
-          validator: V.minLength(4),
-          message: ({ minLength }) =>
-            this._translate.instant('auth.validate.usernameMin', {
-              length: minLength,
-            }),
-        },
-        {
-          validator: V.maxLength(64),
-          message: ({ maxLength }) =>
-            this._translate.instant('auth.validate.usernameMax', {
-              length: maxLength,
-            }),
-        },
-      ],
-    }),
-    password: this._sfb.createFormField<string>('', {
-      validators: [
-        {
-          validator: V.required(),
-          message: () =>
-            this._translate.instant('auth.validate.passwordRequired'),
-        },
-        {
-          validator: V.minLength(6),
-          message: ({ minLength }) =>
-            this._translate.instant('auth.validate.passwordMin', {
-              length: minLength,
-            }),
-        },
-        {
-          validator: V.maxLength(128),
-          message: ({ maxLength }) =>
-            this._translate.instant('auth.validate.passwordMax', {
-              length: maxLength,
-            }),
-        },
-      ],
-    }),
-  }));
+  protected form!: FormType;
+
+  constructor() {
+    this._translate.onDefaultLangChange
+      .pipe(take(1))
+      .subscribe((_) => (this.form = this.prepareForm()));
+  }
+
+  prepareForm() {
+    return this._sfb.createFormGroup(() => ({
+      username: this._sfb.createFormField<string>('', {
+        validators: [
+          {
+            validator: V.required(),
+            message: () =>
+              this._translate.instant('auth.validate.usernameRequired'),
+          },
+          {
+            validator: V.minLength(4),
+            message: ({ minLength }) =>
+              this._translate.instant('auth.validate.usernameMin', {
+                length: minLength,
+              }),
+          },
+          {
+            validator: V.maxLength(64),
+            message: ({ maxLength }) =>
+              this._translate.instant('auth.validate.usernameMax', {
+                length: maxLength,
+              }),
+          },
+        ],
+      }),
+      password: this._sfb.createFormField<string>('', {
+        validators: [
+          {
+            validator: V.required(),
+            message: () =>
+              this._translate.instant('auth.validate.passwordRequired'),
+          },
+          {
+            validator: V.minLength(6),
+            message: ({ minLength }) =>
+              this._translate.instant('auth.validate.passwordMin', {
+                length: minLength,
+              }),
+          },
+          {
+            validator: V.maxLength(128),
+            message: ({ maxLength }) =>
+              this._translate.instant('auth.validate.passwordMax', {
+                length: maxLength,
+              }),
+          },
+        ],
+      }),
+    }));
+  }
 
   submit(): void {
     this.state.update((state) => ({ ...state, status: 'loading' }));
