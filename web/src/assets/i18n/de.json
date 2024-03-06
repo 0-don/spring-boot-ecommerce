@@ -1,25 +1,37 @@
 {
 	"auth": {
-		"login": {
-			"description": "Melden Sie sich bei Ihrem Konto an",
-			"passwordLabel": "Passwort",
-			"passwordPlaceholder": "Gib dein Passwort ein",
-			"title": "Anmeldung",
-			"usernameLabel": "Nutzername",
-			"usernamePlaceholder": "Geben Sie Ihren Benutzernamen ein"
-		},
-		"loginButton": "Anmeldung",
-		"register": {
-			"description": "Eröffnen Sie ein neues Konto",
+		"input": {
 			"passwordLabel": "Passwort",
 			"passwordPlaceholder": "Gib dein Passwort ein",
 			"passwordRepeatLabel": "Wiederhole das Passwort",
 			"passwordRepeatPlaceholder": "Geben Sie Ihr Passwort erneut ein",
-			"title": "Registrieren",
 			"usernameLabel": "Nutzername",
 			"usernamePlaceholder": "Geben Sie Ihren Benutzernamen ein"
 		},
-		"registerButton": "Registrieren"
+		"login": {
+			"description": "Melden Sie sich bei Ihrem Konto an",
+			"loggingIn": "Anmeldung läuft...",
+			"title": "Anmeldung"
+		},
+		"loginButton": "Anmeldung",
+		"register": {
+			"description": "Eröffnen Sie ein neues Konto",
+			"registering": "Registrierung läuft...",
+			"title": "Registrieren"
+		},
+		"registerButton": "Registrieren",
+		"validate": {
+			"passwordMax": "Das Passwort darf höchstens {{length}} Zeichen lang sein.",
+			"passwordMin": "Das Passwort muss mindestens {{length}} Zeichen lang sein",
+			"passwordRequired": "Passwort wird benötigt",
+			"repeatPasswordMax": "Das Wiederholungskennwort darf höchstens {{length}} Zeichen lang sein.",
+			"repeatPasswordMin": "Das Wiederholungskennwort muss mindestens {{length}} Zeichen lang sein",
+			"repeatPasswordNoMatch": "Passwörter stimmen nicht überein",
+			"repeatPasswordRequired": "Passwort wiederholen ist erforderlich",
+			"usernameMax": "Der Benutzername darf höchstens {{length}} Zeichen lang sein.",
+			"usernameMin": "Der Benutzername muss mindestens {{length}} Zeichen lang sein",
+			"usernameRequired": "Ein Benutzername ist erforderlich"
+		}
 	},
 	"footer": {
 		"builtBy": "Gebaut von",

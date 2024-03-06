@@ -1,25 +1,37 @@
 {
 	"auth": {
-		"login": {
-			"description": "Sign in to your Account",
-			"passwordLabel": "Password",
-			"passwordPlaceholder": "Enter your password",
-			"title": "Login",
-			"usernameLabel": "Username",
-			"usernamePlaceholder": "Enter your username"
-		},
-		"loginButton": "Login",
-		"register": {
-			"description": "Sign up a new Account",
+		"input": {
 			"passwordLabel": "Password",
 			"passwordPlaceholder": "Enter your password",
 			"passwordRepeatLabel": "Repeat Password",
 			"passwordRepeatPlaceholder": "Enter your password again",
-			"title": "Register",
 			"usernameLabel": "Username",
 			"usernamePlaceholder": "Enter your username"
 		},
-		"registerButton": "Register"
+		"login": {
+			"description": "Sign in to your Account",
+			"loggingIn": "Logging In...",
+			"title": "Login"
+		},
+		"loginButton": "Login",
+		"register": {
+			"description": "Sign up a new Account",
+			"registering": "Registering...",
+			"title": "Register"
+		},
+		"registerButton": "Register",
+		"validate": {
+			"passwordMax": "Password must be at most {{length}} characters long.",
+			"passwordMin": "Password must be at least {{length}} characters long",
+			"passwordRequired": "Password is required",
+			"repeatPasswordMax": "Repeat password must be at most {{length}} characters long.",
+			"repeatPasswordMin": "Repeat password must be at least {{length}} characters long",
+			"repeatPasswordNoMatch": "Passwords do not match",
+			"repeatPasswordRequired": "Repeat password is required",
+			"usernameMax": "Username must be at most {{length}} characters long.",
+			"usernameMin": "Username must be at least {{length}} characters long",
+			"usernameRequired": "Username is required"
+		}
 	},
 	"footer": {
 		"builtBy": "Built by",
