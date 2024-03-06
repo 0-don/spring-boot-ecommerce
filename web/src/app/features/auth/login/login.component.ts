@@ -32,7 +32,7 @@ import {
   withErrorComponent,
 } from 'ng-signal-forms';
 import { HlmSpinnerComponent } from '@spartan-ng/ui-spinner-helm';
-import { take } from 'rxjs';
+import { TranslateLoaderService } from '../../../shared/service/translate-loader.service';
 
 type FormType = ReturnType<LoginComponent['prepareForm']>;
 
@@ -136,6 +136,7 @@ type FormType = ReturnType<LoginComponent['prepareForm']>;
 export class LoginComponent implements OnInit {
   private _sfb = inject(SignalFormBuilder);
   private _translate = inject(TranslateService);
+  private _translateLoader = inject(TranslateLoaderService);
 
   public state = signal({
     status: 'idle' as 'idle' | 'loading' | 'success' | 'error',
@@ -147,14 +148,9 @@ export class LoginComponent implements OnInit {
   protected form?: FormType;
 
   ngOnInit() {
-    if (this._translate.store.translations[this._translate.currentLang]) {
-      console.log(this._translate.store.translations, this.form);
-      this.form = this.prepareForm();
-    } else {
-      this._translate.onDefaultLangChange
-        .pipe(take(1))
-        .subscribe((_) => (this.form = this.prepareForm()));
-    }
+    this._translateLoader.loadTranslations(
+      () => (this.form = this.prepareForm()),
+    );
   }
 
   prepareForm() {
