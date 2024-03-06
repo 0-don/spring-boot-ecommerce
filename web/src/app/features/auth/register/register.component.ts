@@ -121,7 +121,7 @@ type FormType = ReturnType<RegisterComponent['prepareForm']>;
           }
 
           <div hlmCardFooter class="justify-between">
-            <a hlmBtn variant="ghost" routerLink="/register">
+            <a hlmBtn variant="ghost" routerLink="/login">
               {{ 'auth.loginButton' | translate }}
               <hlm-icon class="ml-1 h-4 w-4" name="lucideLogIn" />
             </a>
@@ -236,6 +236,11 @@ export class RegisterComponent {
               this._translate.instant('auth.validate.repeatPasswordMax', {
                 length: maxLength,
               }),
+          },
+          {
+            validator: V.equalsTo('password'),
+            message: () =>
+              this._translate.instant('auth.validate.repeatPasswordNoMatch'),
           },
         ],
       }),
