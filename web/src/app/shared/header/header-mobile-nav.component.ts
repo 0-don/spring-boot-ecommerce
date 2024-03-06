@@ -16,7 +16,7 @@ import {
   HlmSheetContentComponent,
   HlmSheetOverlayDirective,
 } from '@spartan-ng/ui-sheet-helm';
-import { AppLogoComponent } from '../app-logo.component';
+import { AppLogoComponent } from './app-logo.component';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({

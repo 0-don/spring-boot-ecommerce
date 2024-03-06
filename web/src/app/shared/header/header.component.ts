@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router';
 import { provideIcons } from '@ng-icons/core';
 import { lucideGithub, lucideTwitter } from '@ng-icons/lucide';
 import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
-import { AppLogoComponent } from '../app-logo.component';
+import { AppLogoComponent } from './app-logo.component';
 import { ThemeComponent } from './theme.component';
 import { HeaderMobileNavComponent } from './header-mobile-nav.component';
 import { AppNavLinkDirective } from './app-nav-link.directive';

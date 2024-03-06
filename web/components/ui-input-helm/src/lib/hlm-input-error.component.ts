@@ -14,7 +14,7 @@ import { injectErrorField } from 'ng-signal-forms';
   },
   template: ` <p *ngFor="let message of errorMessages()">{{ message }}</p> `,
 })
-export class InputErrorComponent {
+export class HlmInputErrorComponent {
   private _formField = injectErrorField();
   public touchedState = this._formField.touchedState;
   public errors = this._formField.errors;
