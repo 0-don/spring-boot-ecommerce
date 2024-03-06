@@ -37,7 +37,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
         ngSrc="assets/flags/{{ lang }}.svg"
         alt="{{ lang }}"
         width="25"
-        height="10"
+        height="12"
       />
       <span class="sr-only">{{
         'header.language.changeLanguage' | translate
