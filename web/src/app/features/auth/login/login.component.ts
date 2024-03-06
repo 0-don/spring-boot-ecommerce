@@ -16,11 +16,7 @@ import {
   HlmCardTitleDirective,
 } from '@spartan-ng/ui-card-helm';
 import { HlmIconComponent, provideIcons } from '@spartan-ng/ui-icon-helm';
-import {
-  HlmInputDirective,
-  HlmInputErrorComponent,
-  HlmInputErrorDirective,
-} from '@spartan-ng/ui-input-helm';
+import { HlmInputDirective } from '@spartan-ng/ui-input-helm';
 import { HlmLabelDirective } from '@spartan-ng/ui-label-helm';
 import { RouterLink } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -32,6 +28,8 @@ import {
   withErrorComponent,
 } from 'ng-signal-forms';
 import { HlmSpinnerComponent } from '@spartan-ng/ui-spinner-helm';
+import { SpartanInputErrorDirective } from '../../../shared/input-error/input-error.directive';
+import { InputErrorComponent } from '../../../shared/input-error/input-error.component';
 
 @Component({
   selector: 'app-login',
@@ -54,7 +52,7 @@ import { HlmSpinnerComponent } from '@spartan-ng/ui-spinner-helm';
     NgIf,
     RouterLink,
     SignalInputDirective,
-    HlmInputErrorDirective,
+    SpartanInputErrorDirective,
     HlmButtonDirective,
     HlmLabelDirective,
     HlmInputDirective,
@@ -67,7 +65,7 @@ import { HlmSpinnerComponent } from '@spartan-ng/ui-spinner-helm';
       lucideDoorOpen,
       lucideLogIn,
     }),
-    withErrorComponent(HlmInputErrorComponent),
+    withErrorComponent(InputErrorComponent),
   ],
   template: `
     <main class="flex min-h-[calc(100svh-10rem)]">

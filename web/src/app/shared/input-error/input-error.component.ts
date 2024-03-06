@@ -4,17 +4,18 @@ import { HlmInputErrorDirective } from '@spartan-ng/ui-input-helm';
 import { injectErrorField } from 'ng-signal-forms';
 
 @Component({
-  selector: 'app-input-error',
+  selector: 'spartan-input-error',
   standalone: true,
   imports: [NgIf, NgFor, HlmInputErrorDirective],
   hostDirectives: [HlmInputErrorDirective],
   host: {
     class: 'block mt-1 min-h-[20px] mb-4',
+
     '[class.invisible]': "touchedState() === 'UNTOUCHED'",
   },
   template: ` <p *ngFor="let message of errorMessages()">{{ message }}</p> `,
 })
-export class HlmInputErrorComponent {
+export class InputErrorComponent {
   private _formField = injectErrorField();
   public touchedState = this._formField.touchedState;
   public errors = this._formField.errors;
