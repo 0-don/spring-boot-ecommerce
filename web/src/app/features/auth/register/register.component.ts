@@ -76,7 +76,7 @@ type FormType = ReturnType<RegisterComponent['prepareForm']>;
             </p>
           </div>
           @if (form) {
-            <div hlmCardContent class="flex flex-col">
+            <div hlmCardContent class="flex flex-col py-0">
               <label class="block" hlmLabel>
                 {{ 'auth.input.usernameLabel' | translate }}
                 <input
