@@ -19,6 +19,7 @@ import { HlmIconComponent, provideIcons } from '@spartan-ng/ui-icon-helm';
 import {
   HlmInputDirective,
   HlmInputErrorComponent,
+  HlmInputFormErrorDirective,
 } from '@spartan-ng/ui-input-helm';
 import { HlmLabelDirective } from '@spartan-ng/ui-label-helm';
 import { RouterLink } from '@angular/router';
@@ -31,7 +32,6 @@ import {
   withErrorComponent,
 } from 'ng-signal-forms';
 import { HlmSpinnerComponent } from '@spartan-ng/ui-spinner-helm';
-import { SpartanInputErrorDirective } from '../../../shared/input-error/input-error.directive';
 
 @Component({
   selector: 'app-login',
@@ -54,7 +54,7 @@ import { SpartanInputErrorDirective } from '../../../shared/input-error/input-er
     NgIf,
     RouterLink,
     SignalInputDirective,
-    SpartanInputErrorDirective,
+    HlmInputFormErrorDirective,
     HlmButtonDirective,
     HlmLabelDirective,
     HlmInputDirective,

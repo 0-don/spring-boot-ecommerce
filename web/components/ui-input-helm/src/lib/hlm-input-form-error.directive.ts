@@ -6,12 +6,11 @@ import {
 } from 'ng-signal-forms';
 
 @Directive({
-  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: '[ngModel][formField]',
   hostDirectives: [SignalInputErrorDirective],
   standalone: true,
 })
-export class SpartanInputErrorDirective implements OnInit {
+export class HlmInputFormErrorDirective implements OnInit {
   private _injector = inject(Injector);
   private _label = inject(HlmLabelDirective, {
     skipSelf: true,
