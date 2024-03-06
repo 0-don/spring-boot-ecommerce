@@ -1,5 +1,5 @@
 import { Component, computed, inject, signal } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import {
   lucideCheck,
   lucideChevronDown,
@@ -24,7 +24,6 @@ import {
 import { HlmLabelDirective } from '@spartan-ng/ui-label-helm';
 import { RouterLink } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { NgIf } from '@angular/common';
 import {
   SignalFormBuilder,
   SignalInputDirective,
@@ -52,15 +51,9 @@ type FormType = ReturnType<LoginComponent['prepareForm']>;
     HlmButtonDirective,
     RouterLink,
     TranslateModule,
-    ReactiveFormsModule,
     FormsModule,
-    NgIf,
-    RouterLink,
     SignalInputDirective,
     HlmInputFormErrorDirective,
-    HlmButtonDirective,
-    HlmLabelDirective,
-    HlmInputDirective,
     HlmSpinnerComponent,
   ],
   providers: [
@@ -82,39 +75,47 @@ type FormType = ReturnType<LoginComponent['prepareForm']>;
               {{ 'auth.login.description' | translate }}
             </p>
           </div>
-          <div hlmCardContent class="py-0" *ngIf="form">
-            <label class="block" hlmLabel>
-              {{ 'auth.input.usernameLabel' | translate }}
-              <input
-                class="w-full"
-                [placeholder]="'auth.input.usernamePlaceholder' | translate"
-                hlmInput
-                autocomplete="off"
-                name="username"
-                ngModel
-                [formField]="form.controls.username"
-              />
-            </label>
 
-            <label class="block" hlmLabel>
-              {{ 'auth.input.passwordLabel' | translate }}
-              <input
-                class="w-full"
-                [placeholder]="'auth.input.passwordPlaceholder' | translate"
-                hlmInput
-                autocomplete="off"
-                name="password"
-                ngModel
-                [formField]="form.controls.password"
-              />
-            </label>
-          </div>
+          @if (form) {
+            <div hlmCardContent class="py-0">
+              <label class="block" hlmLabel>
+                {{ 'auth.input.usernameLabel' | translate }}
+                <input
+                  class="w-full"
+                  [placeholder]="'auth.input.usernamePlaceholder' | translate"
+                  hlmInput
+                  autocomplete="off"
+                  name="username"
+                  ngModel
+                  [formField]="form.controls.username"
+                />
+              </label>
+
+              <label class="block" hlmLabel>
+                {{ 'auth.input.passwordLabel' | translate }}
+                <input
+                  class="w-full"
+                  [placeholder]="'auth.input.passwordPlaceholder' | translate"
+                  hlmInput
+                  autocomplete="off"
+                  name="password"
+                  ngModel
+                  [formField]="form.controls.password"
+                />
+              </label>
+            </div>
+          }
+
           <div hlmCardFooter class="justify-between">
             <a hlmBtn variant="ghost" routerLink="/register">
               {{ 'auth.registerButton' | translate }}
               <hlm-icon class="ml-1 h-4 w-4" name="lucideDoorOpen" />
             </a>
-            <button hlmBtn [disabled]="loading() || !form?.valid" type="submit">
+            <button
+              hlmBtn
+              [disabled]="loading() || !form?.valid()"
+              type="submit"
+            >
               <span
                 >{{
                   (loading() ? 'auth.login.loggingIn' : 'auth.loginButton')
