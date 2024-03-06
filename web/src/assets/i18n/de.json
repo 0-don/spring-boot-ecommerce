@@ -3,8 +3,8 @@
 		"input": {
 			"passwordLabel": "Passwort",
 			"passwordPlaceholder": "Gib dein Passwort ein",
-			"passwordRepeatLabel": "Wiederhole das Passwort",
-			"passwordRepeatPlaceholder": "Geben Sie Ihr Passwort erneut ein",
+			"repeatPasswordLabel": "Wiederhole das Passwort",
+			"repeatPasswordPlaceholder": "Geben Sie Ihr Passwort erneut ein",
 			"usernameLabel": "Nutzername",
 			"usernamePlaceholder": "Geben Sie Ihren Benutzernamen ein"
 		},

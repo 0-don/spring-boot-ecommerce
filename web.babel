@@ -56,7 +56,7 @@
 										</translations>
 									</concept_node>
 									<concept_node>
-										<name>passwordRepeatLabel</name>
+										<name>repeatPasswordLabel</name>
 										<description/>
 										<comment/>
 										<translations>
@@ -71,7 +71,7 @@
 										</translations>
 									</concept_node>
 									<concept_node>
-										<name>passwordRepeatPlaceholder</name>
+										<name>repeatPasswordPlaceholder</name>
 										<description/>
 										<comment/>
 										<translations>

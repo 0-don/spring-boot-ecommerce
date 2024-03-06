@@ -32,9 +32,8 @@ import {
 } from 'ng-signal-forms';
 import { HlmSpinnerComponent } from '@spartan-ng/ui-spinner-helm';
 import { TranslateLoaderService } from '../../../shared/service/translate-loader.service';
-import { LoginComponent } from '../login/login.component';
 
-type FormType = ReturnType<LoginComponent['prepareForm']>;
+type FormType = ReturnType<RegisterComponent['prepareForm']>;
 
 @Component({
   selector: 'app-register',
@@ -105,11 +104,11 @@ type FormType = ReturnType<LoginComponent['prepareForm']>;
               </label>
 
               <label class="block" hlmLabel>
-                {{ 'auth.input.passwordRepeatLabel' | translate }}
+                {{ 'auth.input.repeatPasswordLabel' | translate }}
                 <input
                   class="w-full"
                   [placeholder]="
-                    'auth.input.passwordRepeatPlaceholder' | translate
+                    'auth.input.repeatPasswordPlaceholder' | translate
                   "
                   hlmInput
                   autocomplete="off"
@@ -222,19 +221,19 @@ export class RegisterComponent {
           {
             validator: V.required(),
             message: () =>
-              this._translate.instant('auth.validate.passwordRepeatRequired'),
+              this._translate.instant('auth.validate.repeatPasswordRequired'),
           },
           {
             validator: V.minLength(6),
             message: ({ minLength }) =>
-              this._translate.instant('auth.validate.passwordRepeatMin', {
+              this._translate.instant('auth.validate.repeatPasswordMin', {
                 length: minLength,
               }),
           },
           {
             validator: V.maxLength(128),
             message: ({ maxLength }) =>
-              this._translate.instant('auth.validate.passwordRepeatMax', {
+              this._translate.instant('auth.validate.repeatPasswordMax', {
                 length: maxLength,
               }),
           },
