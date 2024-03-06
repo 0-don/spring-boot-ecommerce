@@ -12,31 +12,30 @@ import lombok.Getter;
 import lombok.Setter;
 
 
-
 @Entity
-@Table(name="address")
+@Table(name = "address")
 @Getter
 @Setter
 public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private Long id;
 
-    @Column(name="street")
+    @Column(name = "street")
     private String street;
 
-    @Column(name="city")
+    @Column(name = "city")
     private String city;
 
-    @Column(name="state")
+    @Column(name = "state")
     private String state;
 
-    @Column(name="country")
+    @Column(name = "country")
     private String country;
 
-    @Column(name="zip_code")
+    @Column(name = "zip_code")
     private String zipCode;
 
     @OneToOne
