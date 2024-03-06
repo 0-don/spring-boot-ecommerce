@@ -1,4 +1,4 @@
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   lucideCheck,
@@ -133,21 +133,19 @@ type FormType = ReturnType<LoginComponent['prepareForm']>;
     </main>
   `,
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   private _sfb = inject(SignalFormBuilder);
   private _translate = inject(TranslateService);
   private _translateLoader = inject(TranslateLoaderService);
 
+  protected form?: FormType;
   public state = signal({
     status: 'idle' as 'idle' | 'loading' | 'success' | 'error',
     error: null as unknown | null,
   });
-
   public loading = computed(() => this.state().status === 'loading');
 
-  protected form?: FormType;
-
-  ngOnInit() {
+  constructor() {
     this._translateLoader.loadTranslations(
       () => (this.form = this.prepareForm()),
     );
