@@ -2,8 +2,8 @@ package don.ecommerce.config;
 
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -45,18 +45,17 @@ public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationTo
 
 
     private Collection<? extends GrantedAuthority> extractResourceRoles(Jwt jwt) {
-        Map<String, Object> resourceAccess = jwt.getClaim("resource_access");
-        Map<String, Object> resource;
-        Collection<String> resourceRoles;
-
-        if (resourceAccess == null
-                || (resource = (Map<String, Object>) resourceAccess.get(resourceId)) == null
-                || (resourceRoles = (Collection<String>) resource.get("roles")) == null) {
-            return Set.of();
+        if (jwt.getClaim("resource_access") instanceof Map<?, ?> resourceAccess) {
+            if (resourceAccess.get(resourceId) instanceof Map<?, ?> resource) {
+                if (resource.get("roles") instanceof Collection<?> roles) {
+                    return roles.stream()
+                            .filter(String.class::isInstance)
+                            .map(String.class::cast)
+                            .map(SimpleGrantedAuthority::new)
+                            .collect(Collectors.toSet());
+                }
+            }
         }
-
-        return resourceRoles.stream()
-                .map(SimpleGrantedAuthority::new)
-                .collect(Collectors.toSet());
+        return Collections.emptySet();
     }
 }
