@@ -43,8 +43,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(authz -> authz.anyRequest().authenticated())
                 // Configure OAuth2 Resource Server
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt(
-                        jwt -> jwt
-                                .jwtAuthenticationConverter(jwtAuthConverter)
+                        jwt -> jwt.jwtAuthenticationConverter(jwtAuthConverter)
                 ))
                 // Configure session management
                 .sessionManagement(

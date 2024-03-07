@@ -24,29 +24,34 @@ public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationTo
     private final JwtGrantedAuthoritiesConverter jwtGrantedAuthoritiesConverter =
             new JwtGrantedAuthoritiesConverter();
 
-    @Value("${jwt.auth.converter.resource-id}")
-    private String resourceId;
+    //    @Value("${jwt.auth.converter.resource-id}")
+    //    private String resourceId;
     @Value("${jwt.auth.converter.principle-attribute}")
     private String principleAttribute;
 
     @Override
     public AbstractAuthenticationToken convert(@NonNull Jwt jwt) {
+        Collection<GrantedAuthority> grantedAuthorities =
+                jwtGrantedAuthoritiesConverter.convert(jwt);
+        var resourceRoles = extractResourceRoles(jwt);
+        String username = jwt.getClaim(principleAttribute);
+
         Collection<GrantedAuthority> authorities = Stream.concat(
-                jwtGrantedAuthoritiesConverter.convert(jwt).stream(),
-                extractResourceRoles(jwt).stream()
+                grantedAuthorities.stream(),
+                resourceRoles.stream()
         ).collect(Collectors.toSet());
 
         return new JwtAuthenticationToken(
                 jwt,
                 authorities,
-                jwt.getClaim(principleAttribute)
+                username
         );
     }
 
 
     private Collection<? extends GrantedAuthority> extractResourceRoles(Jwt jwt) {
         if (jwt.getClaim("resource_access") instanceof Map<?, ?> resourceAccess) {
-            if (resourceAccess.get(resourceId) instanceof Map<?, ?> resource) {
+            if (resourceAccess.get("account") instanceof Map<?, ?> resource) {
                 if (resource.get("roles") instanceof Collection<?> roles) {
                     return roles.stream()
                             .filter(String.class::isInstance)
