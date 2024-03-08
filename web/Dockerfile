@@ -1,5 +1,5 @@
 ## STAGE 1: Build ###
-FROM node:16-alpine AS build
+FROM node:20-alpine AS build
 WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 RUN npm install
@@ -8,10 +8,8 @@ RUN npm run build
 
 
 FROM nginx:alpine
-
-
 COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /usr/src/app/dist/anuglar-ecommerce /usr/share/nginx/html
+COPY --from=build /usr/src/app/dist/browser /usr/share/nginx/html
 EXPOSE 80
 
 

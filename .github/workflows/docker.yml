@@ -1,34 +1,30 @@
 name: Docker Prod
 
 on:
-  workflow_dispatch:
-  push:
-    branches: [master]
+    workflow_dispatch:
+    push:
+        branches: [ master ]
 concurrency:
-  group: ${{ github.ref }}
-  cancel-in-progress: true
+    group: ${{ github.ref }}
+    cancel-in-progress: true
 jobs:
-  build:
-    runs-on: self-hosted
+    build:
+        runs-on: self-hosted
 
-    steps:
-      - uses: actions/checkout@v4
+        steps:
+            -   uses: actions/checkout@v4
 
-      - name: Create env file
-        run: |
-          touch .env
-          echo LOCALHOST_WEB=${{ secrets.LOCALHOST_WEB }} >> .env
-          echo PUBLIC_WEB=${{ secrets.PUBLIC_WEB }} >> .env
-          echo SERVER_SSL_ENABLED=${{ secrets.SERVER_SSL_ENABLED }} >> .env
-          echo SPRING_DATASOURCE_DATABASE=${{ secrets.SPRING_DATASOURCE_DATABASE }} >> .env
-          echo SPRING_DATASOURCE_HOST=${{ secrets.SPRING_DATASOURCE_HOST }} >> .env
-          echo SPRING_DATASOURCE_PASSWORD=${{ secrets.SPRING_DATASOURCE_PASSWORD }} >> .env
-          echo SPRING_DATASOURCE_USERNAME=${{ secrets.SPRING_DATASOURCE_USERNAME }} >> .env
-          echo STRIPE_KEY_SECRET=${{ secrets.STRIPE_KEY_SECRET }} >> .env
-          cat .env
+            -   name: Create env file
+                run: |
+                    echo KEYCLOAK_URL=${{ secrets.KEYCLOAK_URL }} > .env
+                    echo KEYCLOAK_URL=${{ secrets.KEYCLOAK_URL }} >> .env
+                    echo LOCALHOST_WEB=${{ secrets.LOCALHOST_WEB }} >> .env
+                    echo PUBLIC_WEB=${{ secrets.PUBLIC_WEB }} >> .env
+                    echo SERVER_SSL_ENABLED=${{ secrets.SERVER_SSL_ENABLED }} >> .env
+                    echo SPRING_DATASOURCE_DATABASE=${{ secrets.SPRING_DATASOURCE_DATABASE }} >> .env
+                    echo SPRING_DATASOURCE_HOST=${{ secrets.SPRING_DATASOURCE_HOST }} >> .env
+                    echo SPRING_DATASOURCE_PASSWORD=${{ secrets.SPRING_DATASOURCE_PASSWORD }} >> .env
+                    echo SPRING_DATASOURCE_USERNAME=${{ secrets.SPRING_DATASOURCE_USERNAME }} >> .env
 
-      - name: Copy env to Server
-        run: mv .env ./server
-
-      - name: Docker run
-        run: docker-compose up -d --force-recreate --build
+            -   name: Docker run
+                run: docker-compose up -d --force-recreate --build

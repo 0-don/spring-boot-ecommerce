@@ -1,7 +1,32 @@
-FROM maven:3-amazoncorretto-11
+# Build stage
+FROM maven:3-openjdk-17-slim AS build
+WORKDIR /build
+COPY src ./src
+COPY pom.xml .
+RUN mvn clean package -DskipTests
 
-WORKDIR /server
-COPY . .
-RUN mvn clean install
+# Package stage
+FROM amazoncorretto:17
+WORKDIR /app
+COPY --from=build /build/target/*.jar app.jar
 EXPOSE 8080
-CMD mvn spring-boot:run
+
+ARG KEYCLOAK_URL=https://auth.coding.global
+ARG KEYCLOAK_REALM=ecommerce
+ARG LOCALHOST_URL=ecommerce-web
+ARG PUBLIC_URL=ecommerce.coding.global
+ARG SPRING_DATASOURCE_USERNAME=postgres
+ARG SPRING_DATASOURCE_PASSWORD=mgnDzqJvjwfRMmzCY6T8G3DbNrNKGSWz
+ARG SPRING_DATASOURCE_HOST=ecommerce-postgres:5432
+ARG SPRING_DATASOURCE_DATABASE=ecommerce
+
+ENV KEYCLOAK_URL=${KEYCLOAK_URL}
+ENV KEYCLOAK_REALM=${KEYCLOAK_REALM}
+ENV LOCALHOST_URL=${LOCALHOST_URL}
+ENV PUBLIC_URL=${PUBLIC_URL}
+ENV SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME}
+ENV SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
+ENV SPRING_DATASOURCE_HOST=${SPRING_DATASOURCE_HOST}
+ENV SPRING_DATASOURCE_DATABASE=${SPRING_DATASOURCE_DATABASE}
+
+CMD ["java", "-jar", "app.jar"]
