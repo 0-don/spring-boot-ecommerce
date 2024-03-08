@@ -9,7 +9,7 @@ import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
-import { environment } from '../enviroments/environment';
+import { environment } from '../environments/environment';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
