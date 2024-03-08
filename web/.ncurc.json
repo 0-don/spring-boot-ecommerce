@@ -1,3 +1,7 @@
 {
-  "reject": ["@ngneat/overview", "clsx"]
+  "reject": [
+    "@ngneat/overview",
+    "clsx",
+    "typescript"
+  ]
 }
