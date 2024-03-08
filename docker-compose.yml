@@ -52,6 +52,8 @@ services:
         container_name: ecommerce-keycloak
         image: quay.io/keycloak/keycloak:latest
         restart: always
+        networks:
+            - proxy
         command:
             - start-dev
             - --import-realm
