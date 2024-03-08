@@ -1,48 +1,73 @@
 version: "3.8"
 
 services:
-  ecommerce-mysql:
-    image: mysql:8.0.29
-    container_name: ecommerce-mysql
-    restart: always
-    networks:
-      - proxy
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=full-stack-ecommerce
-      - MYSQL_USER=ecommerce
-      - MYSQL_PASSWORD=ecommerce
-  ecommerce-server:
-    container_name: ecommerce-server
-    depends_on:
-      - ecommerce-mysql
-    build: ./server
-    restart: always
-    environment:
-      - spring.datasource.url=jdbc:mysql://ecommerce-mysql:3306/full-stack-ecommerce?useSSL=false&allowPublicKeyRetrieval=true&autoReconnect=true
-      - spring.datasource.username=ecommerce
-      - spring.datasource.password=ecommerce
-    networks:
-      - proxy
-    labels:
-      - 'traefik.enable=true'
-      - 'traefik.http.routers.ecommerce-server.rule=Host(`ecommerce.myngz.com`) && PathPrefix(`/api`)'
-      - 'traefik.http.routers.ecommerce-server.entrypoints=websecure'
-      - 'traefik.http.routers.ecommerce-server.tls.certresolver=letsencrypt'
-      - 'traefik.http.services.ecommerce-server.loadbalancer.server.port=8080'
-  ecommerce-web:
-    container_name: ecommerce-web
-    build: ./web
-    restart: always
-    networks:
-      - proxy
-    labels:
-      - 'traefik.enable=true'
-      - 'traefik.http.routers.ecommerce-web.rule=Host(`ecommerce.myngz.com`)'
-      - 'traefik.http.routers.ecommerce-web.entrypoints=websecure'
-      - 'traefik.http.routers.ecommerce-web.tls.certresolver=letsencrypt'
+    ecommerce-postgres:
+        container_name: ecommerce-postgres
+        image: postgres:latest
+        restart: always
+        networks:
+            - proxy
+        environment:
+            - POSTGRES_DB=${SPRING_DATASOURCE_DATABASE:-ecommerce}
+            - POSTGRES_USER=${SPRING_DATASOURCE_USERNAME:-postgres}
+            - POSTGRES_PASSWORD=${SPRING_DATASOURCE_PASSWORD:-postgres}
+    ecommerce-server:
+        container_name: ecommerce-server
+        depends_on:
+            - ecommerce-mysql
+        build:
+            context: ./server
+            dockerfile: Dockerfile
+            args:
+                - KEYCLOAK_URL=${KEYCLOAK_URL:-http://localhost:8081}
+                - KEYCLOAK_REALM=${KEYCLOAK_REALM:-ecommerce}
+                - LOCALHOST_URL=${LOCALHOST_URL:-localhost:4200}
+                - PUBLIC_URL=${PUBLIC_URL:-ecommerce.coding.global}
+                - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME:-postgres}
+                - SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD:-postgres}
+                - SPRING_DATASOURCE_HOST=${SPRING_DATASOURCE_HOST:-localhost:5432}
+                - SPRING_DATASOURCE_DATABASE=${SPRING_DATASOURCE_DATABASE:-ecommerce}
+        networks:
+            - proxy
+        labels:
+            - 'traefik.enable=true'
+            - 'traefik.http.routers.ecommerce-server.rule=Host(`${PUBLIC_URL:-ecommerce.coding.global}`) && PathPrefix(`/api`)'
+            - 'traefik.http.routers.ecommerce-server.entrypoints=websecure'
+            - 'traefik.http.routers.ecommerce-server.tls.certresolver=letsencrypt'
+            - 'traefik.http.services.ecommerce-server.loadbalancer.server.port=8080'
+    ecommerce-web:
+        container_name: ecommerce-web
+        build: ./web
+        restart: always
+        networks:
+            - proxy
+        labels:
+            - 'traefik.enable=true'
+            - 'traefik.http.routers.ecommerce-web.rule=Host(`${PUBLIC_URL:-ecommerce.coding.global}`)'
+            - 'traefik.http.routers.ecommerce-web.entrypoints=websecure'
+            - 'traefik.http.routers.ecommerce-web.tls.certresolver=letsencrypt'
+    ecommerce-keycloak:
+        container_name: ecommerce-keycloak
+        image: quay.io/keycloak/keycloak:latest
+        restart: always
+        ports:
+            - 8081:8080
+        command:
+            - start-dev
+            - --import-realm
+        volumes:
+            - ./keycloak/:/opt/keycloak/data/import:ro
+        labels:
+            - 'traefik.enable=true'
+            - 'traefik.http.routers.ecommerce-keycloak.rule=Host(`auth.coding.global`)'
+            - 'traefik.http.routers.ecommerce-keycloak.entrypoints=websecure'
+            - 'traefik.http.routers.ecommerce-keycloak.tls.certresolver=letsencrypt'
+            - 'traefik.http.services.ecommerce-keycloak.loadbalancer.server.port=8081'
+        environment:
+            KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN:-admin}
+            KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD:-admin}
 
 networks:
-  proxy:
-    external: false
-    name: proxy
+    proxy:
+        external: false
+        name: proxy
