@@ -14,7 +14,9 @@ services:
     ecommerce-server:
         container_name: ecommerce-server
         depends_on:
-            - ecommerce-mysql
+            - ecommerce-postgres
+            - ecommerce-keycloak
+            - ecommerce-web
         build:
             context: ./server
             dockerfile: Dockerfile
