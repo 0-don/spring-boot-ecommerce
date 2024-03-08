@@ -135,16 +135,15 @@ type FormType = ReturnType<LoginComponent['prepareForm']>;
   `,
 })
 export class LoginComponent {
-  private _sfb = inject(SignalFormBuilder);
-  private _translate = inject(TranslateService);
-  private _translateLoader = inject(TranslateLoaderService);
-
-  protected form?: FormType;
   public state = signal({
     status: 'idle' as 'idle' | 'loading' | 'success' | 'error',
     error: null as unknown | null,
   });
   public loading = computed(() => this.state().status === 'loading');
+  protected form?: FormType;
+  private _sfb = inject(SignalFormBuilder);
+  private _translate = inject(TranslateService);
+  private _translateLoader = inject(TranslateLoaderService);
 
   constructor() {
     this._translateLoader.loadTranslations(

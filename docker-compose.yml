@@ -55,7 +55,7 @@ services:
         networks:
             - proxy
         command:
-            - start-dev
+            - start
             - --import-realm
         volumes:
             - ./keycloak/:/opt/keycloak/data/import:ro
