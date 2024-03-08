@@ -25,5 +25,11 @@ jobs:
                     echo SPRING_DATASOURCE_PASSWORD=${{ secrets.SPRING_DATASOURCE_PASSWORD }} >> .env
                     echo SPRING_DATASOURCE_USERNAME=${{ secrets.SPRING_DATASOURCE_USERNAME }} >> .env
 
+            -   name: Reset DB
+                run: docker stop ecommerce-postgres || true && docker rm ecommerce-postgres || true
+
+            -   name: Reset Keycloak
+                run: docker stop ecommerce-keycloak || true && docker rm ecommerce-keycloak || true
+
             -   name: Docker run
                 run: docker compose up -d --force-recreate --build
