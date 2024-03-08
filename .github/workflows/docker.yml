@@ -18,9 +18,8 @@ jobs:
                 run: |
                     echo KEYCLOAK_URL=${{ secrets.KEYCLOAK_URL }} > .env
                     echo KEYCLOAK_URL=${{ secrets.KEYCLOAK_URL }} >> .env
-                    echo LOCALHOST_WEB=${{ secrets.LOCALHOST_WEB }} >> .env
-                    echo PUBLIC_WEB=${{ secrets.PUBLIC_WEB }} >> .env
-                    echo SERVER_SSL_ENABLED=${{ secrets.SERVER_SSL_ENABLED }} >> .env
+                    echo LOCALHOST_URL=${{ secrets.LOCALHOST_WEB }} >> .env
+                    echo PUBLIC_URL=${{ secrets.PUBLIC_WEB }} >> .env
                     echo SPRING_DATASOURCE_DATABASE=${{ secrets.SPRING_DATASOURCE_DATABASE }} >> .env
                     echo SPRING_DATASOURCE_HOST=${{ secrets.SPRING_DATASOURCE_HOST }} >> .env
                     echo SPRING_DATASOURCE_PASSWORD=${{ secrets.SPRING_DATASOURCE_PASSWORD }} >> .env
