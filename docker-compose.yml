@@ -57,8 +57,6 @@ services:
         command:
             - start
             - --import-realm
-            - --hostname=${KEYCLOAK_HOST}
-            - --verbose
         volumes:
             - ./keycloak/:/opt/keycloak/data/import
         labels:
