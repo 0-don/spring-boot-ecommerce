@@ -68,7 +68,6 @@ services:
         environment:
             KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN:-admin}
             KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
-            PROXY_ADDRESS_FORWARDING: true
             KC_PROXY: edge
             KC_HOSTNAME: ${KEYCLOAK_HOST}
 
