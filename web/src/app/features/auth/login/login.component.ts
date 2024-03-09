@@ -32,6 +32,7 @@ import {
 } from 'ng-signal-forms';
 import { HlmSpinnerComponent } from '@spartan-ng/ui-spinner-helm';
 import { TranslateLoaderService } from '../../../shared/service/translate-loader.service';
+import { KeycloakService } from 'keycloak-angular';
 
 type FormType = ReturnType<LoginComponent['prepareForm']>;
 
@@ -144,6 +145,7 @@ export class LoginComponent {
   private _sfb = inject(SignalFormBuilder);
   private _translate = inject(TranslateService);
   private _translateLoader = inject(TranslateLoaderService);
+  private _keycloak = inject(KeycloakService);
 
   constructor() {
     this._translateLoader.loadTranslations(
