@@ -57,8 +57,7 @@ services:
         command:
             - start
             - --import-realm
-            - -Djboss.bind.address=${KEYCLOAK_HOST}
-            - -Djboss.bind.address.private=${KEYCLOAK_HOST}
+            - --hostname=${KEYCLOAK_HOST}
         volumes:
             - ./keycloak/:/opt/keycloak/data/import
         labels:
