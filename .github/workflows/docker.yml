@@ -29,6 +29,10 @@ jobs:
                     echo SPRING_DATASOURCE_PASSWORD=${{ secrets.SPRING_DATASOURCE_PASSWORD }} >> .env
                     echo SPRING_DATASOURCE_USERNAME=${{ secrets.SPRING_DATASOURCE_USERNAME }} >> .env
 
+            -   name: Edit keycloak realm configuration
+                run: |
+                    sed -i 's|http://localhost:8080|https://${{ secrets.PUBLIC_URL }}/api|g' keycloak/ecommerce-realm.json
+                    sed -i 's|http://localhost:4200|https://${{ secrets.PUBLIC_URL }}|g' keycloak/ecommerce-realm.json
 
             -   name: Reset DB
                 run: docker stop ecommerce-postgres || true && docker rm ecommerce-postgres || true
