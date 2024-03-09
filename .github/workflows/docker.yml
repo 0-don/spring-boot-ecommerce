@@ -16,15 +16,19 @@ jobs:
 
             -   name: Create env file
                 run: |
+                    echo KEYCLOAK_ADMIN_PASSWORD=${{ secrets.KEYCLOAK_ADMIN_PASSWORD }} >> .env
                     echo KEYCLOAK_URL=${{ secrets.KEYCLOAK_URL }} > .env
-                    echo KEYCLOAK_URL=${{ secrets.KEYCLOAK_URL }} >> .env
+                    echo KEYCLOAK_HOST=${{ secrets.KEYCLOAK_HOST }} >> .env
+                    echo KEYCLOAK_REALM=${{ secrets.KEYCLOAK_REALM }} >> .env
+                    
                     echo LOCALHOST_URL=${{ secrets.LOCALHOST_WEB }} >> .env
                     echo PUBLIC_URL=${{ secrets.PUBLIC_WEB }} >> .env
+                    
                     echo SPRING_DATASOURCE_DATABASE=${{ secrets.SPRING_DATASOURCE_DATABASE }} >> .env
                     echo SPRING_DATASOURCE_HOST=${{ secrets.SPRING_DATASOURCE_HOST }} >> .env
                     echo SPRING_DATASOURCE_PASSWORD=${{ secrets.SPRING_DATASOURCE_PASSWORD }} >> .env
                     echo SPRING_DATASOURCE_USERNAME=${{ secrets.SPRING_DATASOURCE_USERNAME }} >> .env
-                    echo KEYCLOAK_ADMIN_PASSWORD=${{ secrets.KEYCLOAK_ADMIN_PASSWORD }} >> .env
+
 
             -   name: Reset DB
                 run: docker stop ecommerce-postgres || true && docker rm ecommerce-postgres || true
