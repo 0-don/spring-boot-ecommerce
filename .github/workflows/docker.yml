@@ -16,8 +16,8 @@ jobs:
 
             -   name: Create env file
                 run: |
-                    echo KEYCLOAK_ADMIN_PASSWORD=${{ secrets.KEYCLOAK_ADMIN_PASSWORD }} >> .env
-                    echo KEYCLOAK_URL=${{ secrets.KEYCLOAK_URL }} > .env
+                    echo KEYCLOAK_ADMIN_PASSWORD=${{ secrets.KEYCLOAK_ADMIN_PASSWORD }} > .env
+                    echo KEYCLOAK_URL=${{ secrets.KEYCLOAK_URL }} >> .env
                     echo KEYCLOAK_HOST=${{ secrets.KEYCLOAK_HOST }} >> .env
                     echo KEYCLOAK_REALM=${{ secrets.KEYCLOAK_REALM }} >> .env
                     
