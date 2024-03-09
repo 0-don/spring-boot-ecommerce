@@ -69,6 +69,7 @@ services:
             KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN:-admin}
             KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
             KC_PROXY: edge
+            KC_HOSTNAME: ${KEYCLOAK_HOST}
 
 networks:
     proxy:
