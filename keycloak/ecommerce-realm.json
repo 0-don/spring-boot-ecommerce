@@ -1,6 +1,8 @@
 {
   "id": "53d47e65-4e7a-4f81-922a-11294b41de82",
   "realm": "ecommerce",
+  "displayName": "",
+  "displayNameHtml": "",
   "notBefore": 0,
   "defaultSignatureAlgorithm": "RS256",
   "revokeRefreshToken": false,
@@ -37,6 +39,7 @@
   "editUsernameAllowed": false,
   "bruteForceProtected": false,
   "permanentLockout": false,
+  "maxTemporaryLockouts": 0,
   "maxFailureWaitSeconds": 900,
   "minimumQuickLoginWaitSeconds": 60,
   "waitIncrementSeconds": 60,
@@ -316,6 +319,26 @@
           "attributes": {}
         }
       ],
+      "angular-client": [
+        {
+          "id": "c43ab196-ae3f-4858-a71d-758ec6de873a",
+          "name": "admin",
+          "description": "",
+          "composite": false,
+          "clientRole": true,
+          "containerId": "6d764408-7f08-48c7-8ed6-9620a7260a78",
+          "attributes": {}
+        },
+        {
+          "id": "9076bfc4-a18c-4d0e-be14-1d0efa64fb6d",
+          "name": "user",
+          "description": "",
+          "composite": false,
+          "clientRole": true,
+          "containerId": "6d764408-7f08-48c7-8ed6-9620a7260a78",
+          "attributes": {}
+        }
+      ],
       "security-admin-console": [],
       "admin-cli": [],
       "spring-boot-client": [
@@ -494,13 +517,13 @@
   "users": [
     {
       "id": "707c9699-fd65-4c39-9f76-0e22f5c6014d",
-      "createdTimestamp": 1709770014039,
       "username": "don",
-      "enabled": true,
-      "totp": false,
-      "emailVerified": false,
       "firstName": "don",
       "lastName": "don",
+      "emailVerified": false,
+      "createdTimestamp": 1709770014039,
+      "enabled": true,
+      "totp": false,
       "credentials": [
         {
           "id": "ae95a96a-68dc-44fe-ae74-ddf1cf36f027",
@@ -661,10 +684,64 @@
       "publicClient": true,
       "frontchannelLogout": false,
       "protocol": "openid-connect",
-      "attributes": {},
+      "attributes": {
+        "post.logout.redirect.uris": "+"
+      },
       "authenticationFlowBindingOverrides": {},
       "fullScopeAllowed": false,
       "nodeReRegistrationTimeout": 0,
+      "defaultClientScopes": [
+        "web-origins",
+        "acr",
+        "roles",
+        "profile",
+        "email"
+      ],
+      "optionalClientScopes": [
+        "address",
+        "phone",
+        "offline_access",
+        "microprofile-jwt"
+      ]
+    },
+    {
+      "id": "6d764408-7f08-48c7-8ed6-9620a7260a78",
+      "clientId": "angular-client",
+      "name": "",
+      "description": "",
+      "rootUrl": "http://localhost:4200",
+      "adminUrl": "http://localhost:4200",
+      "baseUrl": "http://localhost:4200",
+      "surrogateAuthRequired": false,
+      "enabled": true,
+      "alwaysDisplayInConsole": false,
+      "clientAuthenticatorType": "client-secret",
+      "redirectUris": [
+        "http://localhost:4200/*"
+      ],
+      "webOrigins": [
+        "*"
+      ],
+      "notBefore": 0,
+      "bearerOnly": false,
+      "consentRequired": false,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "publicClient": true,
+      "frontchannelLogout": true,
+      "protocol": "openid-connect",
+      "attributes": {
+        "oidc.ciba.grant.enabled": "false",
+        "post.logout.redirect.uris": "http://localhost:4200",
+        "oauth2.device.authorization.grant.enabled": "false",
+        "backchannel.logout.session.required": "true",
+        "backchannel.logout.revoke.offline.tokens": "false"
+      },
+      "authenticationFlowBindingOverrides": {},
+      "fullScopeAllowed": true,
+      "nodeReRegistrationTimeout": -1,
       "defaultClientScopes": [
         "web-origins",
         "acr",
@@ -699,7 +776,9 @@
       "publicClient": false,
       "frontchannelLogout": false,
       "protocol": "openid-connect",
-      "attributes": {},
+      "attributes": {
+        "post.logout.redirect.uris": "+"
+      },
       "authenticationFlowBindingOverrides": {},
       "fullScopeAllowed": false,
       "nodeReRegistrationTimeout": 0,
@@ -737,7 +816,9 @@
       "publicClient": false,
       "frontchannelLogout": false,
       "protocol": "openid-connect",
-      "attributes": {},
+      "attributes": {
+        "post.logout.redirect.uris": "+"
+      },
       "authenticationFlowBindingOverrides": {},
       "fullScopeAllowed": false,
       "nodeReRegistrationTimeout": 0,
@@ -1038,7 +1119,8 @@
           "config": {
             "id.token.claim": "true",
             "introspection.token.claim": "true",
-            "access.token.claim": "true"
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true"
           }
         }
       ]
@@ -1123,6 +1205,7 @@
           "config": {
             "introspection.token.claim": "true",
             "multivalued": "true",
+            "userinfo.token.claim": "true",
             "user.attribute": "foo",
             "id.token.claim": "true",
             "access.token.claim": "true",
@@ -1457,13 +1540,13 @@
         "config": {
           "allowed-protocol-mapper-types": [
             "saml-user-attribute-mapper",
-            "saml-user-property-mapper",
             "oidc-address-mapper",
-            "oidc-sha256-pairwise-sub-mapper",
             "saml-role-list-mapper",
-            "oidc-usermodel-attribute-mapper",
             "oidc-usermodel-property-mapper",
-            "oidc-full-name-mapper"
+            "oidc-full-name-mapper",
+            "oidc-usermodel-attribute-mapper",
+            "saml-user-property-mapper",
+            "oidc-sha256-pairwise-sub-mapper"
           ]
         }
       },
@@ -1527,13 +1610,13 @@
         "subComponents": {},
         "config": {
           "allowed-protocol-mapper-types": [
+            "saml-user-property-mapper",
+            "oidc-full-name-mapper",
+            "oidc-sha256-pairwise-sub-mapper",
+            "oidc-address-mapper",
+            "saml-user-attribute-mapper",
             "oidc-usermodel-property-mapper",
             "oidc-usermodel-attribute-mapper",
-            "oidc-full-name-mapper",
-            "saml-user-property-mapper",
-            "saml-user-attribute-mapper",
-            "oidc-address-mapper",
-            "oidc-sha256-pairwise-sub-mapper",
             "saml-role-list-mapper"
           ]
         }
@@ -1554,6 +1637,18 @@
         }
       }
     ],
+    "org.keycloak.userprofile.UserProfileProvider": [
+      {
+        "id": "35022f78-0fbe-478f-b0f8-4f833a35d7c6",
+        "providerId": "declarative-user-profile",
+        "subComponents": {},
+        "config": {
+          "kc.user.profile.config": [
+            "{\"attributes\":[{\"name\":\"username\",\"displayName\":\"${username}\",\"validations\":{\"length\":{\"min\":3,\"max\":255},\"username-prohibited-characters\":{},\"up-username-not-idn-homograph\":{}},\"permissions\":{\"view\":[\"admin\",\"user\"],\"edit\":[\"admin\",\"user\"]},\"multivalued\":false},{\"name\":\"email\",\"displayName\":\"${email}\",\"validations\":{\"email\":{},\"length\":{\"max\":255}},\"required\":{\"roles\":[\"user\"]},\"permissions\":{\"view\":[\"admin\",\"user\"],\"edit\":[\"admin\",\"user\"]},\"multivalued\":false},{\"name\":\"firstName\",\"displayName\":\"${firstName}\",\"validations\":{\"length\":{\"max\":255},\"person-name-prohibited-characters\":{}},\"required\":{\"roles\":[\"user\"]},\"permissions\":{\"view\":[\"admin\",\"user\"],\"edit\":[\"admin\",\"user\"]},\"multivalued\":false},{\"name\":\"lastName\",\"displayName\":\"${lastName}\",\"validations\":{\"length\":{\"max\":255},\"person-name-prohibited-characters\":{}},\"required\":{\"roles\":[\"user\"]},\"permissions\":{\"view\":[\"admin\",\"user\"],\"edit\":[\"admin\",\"user\"]},\"multivalued\":false}],\"groups\":[{\"name\":\"user-metadata\",\"displayHeader\":\"User metadata\",\"displayDescription\":\"Attributes, which refer to user metadata\"}],\"unmanagedAttributePolicy\":\"ENABLED\"}"
+          ]
+        }
+      }
+    ],
     "org.keycloak.keys.KeyProvider": [
       {
         "id": "4cdfa1f7-4d2b-424a-97b9-5700db9a4168",
@@ -1562,10 +1657,10 @@
         "subComponents": {},
         "config": {
           "kid": [
-            "66205927-bc4f-4259-b21e-155d69bbe1a8"
+            "abf8596c-7ce3-496d-b248-da728decbeb3"
           ],
           "secret": [
-            "PwutHvaLflWOKwFlIqmkpnicHpJXiLniFBv8dFRzbamizfnn7dcPGi1lmqQ-a1KkTeFvuNMaosVLE5isKqrjiQ"
+            "8DrwduZ7fMFWisyCnIrrXpoZz2EOqfhctoM6LMucvXIZ4mbf0hyqfQ0rahf_za-RA6QVngzNVs7k3YPLvwdZpJ1IQyEduAYsdj5L13wmX2a5vLT3NToEAGVEjknH6vROn-XsWhXxn2BLTvefXChZ0LfXrGeu4O9J21rfz4ngN_A"
           ],
           "priority": [
             "100"
@@ -1632,6 +1727,26 @@
           ],
           "algorithm": [
             "RSA-OAEP"
+          ]
+        }
+      },
+      {
+        "id": "9fc19158-b9d5-47c4-85ff-a04d24f2d8dd",
+        "name": "hmac-generated-hs512",
+        "providerId": "hmac-generated",
+        "subComponents": {},
+        "config": {
+          "kid": [
+            "d050bbdc-02b1-4319-a892-71ac173df54a"
+          ],
+          "secret": [
+            "1EvYXj_F8WtOdREAsc9JWoQREVNUq06TPxPurxuvdlxK3HmdZkuEeBjdlRjIjDcVDhTNrR8Hm1z7ptHyBJO5f-96GuvW6EAI3dJwWWbttQ6f9w4GsJ48vfX4WeEdOYiJrQicjxVG4mRUKi8nys4UEMR2zbq1X65etiUJqEYahK8"
+          ],
+          "priority": [
+            "100"
+          ],
+          "algorithm": [
+            "HS512"
           ]
         }
       }
@@ -2257,11 +2372,12 @@
   "resetCredentialsFlow": "reset credentials",
   "clientAuthenticationFlow": "clients",
   "dockerAuthenticationFlow": "docker auth",
+  "firstBrokerLoginFlow": "first broker login",
   "attributes": {
     "cibaBackchannelTokenDeliveryMode": "poll",
     "cibaAuthRequestedUserHint": "login_hint",
-    "oauth2DevicePollingInterval": "5",
     "clientOfflineSessionMaxLifespan": "0",
+    "oauth2DevicePollingInterval": "5",
     "clientSessionIdleTimeout": "0",
     "actionTokenGeneratedByUserLifespan.verify-email": "",
     "actionTokenGeneratedByUserLifespan.idp-verify-account-via-email": "",
@@ -2273,10 +2389,12 @@
     "oauth2DeviceCodeLifespan": "600",
     "parRequestUriLifespan": "60",
     "clientSessionMaxLifespan": "0",
+    "frontendUrl": "",
+    "acr.loa.map": "{}",
     "shortVerificationUri": "",
     "actionTokenGeneratedByUserLifespan.reset-credentials": ""
   },
-  "keycloakVersion": "23.0.7",
+  "keycloakVersion": "24.0.1",
   "userManagedAccessAllowed": false,
   "clientProfiles": {
     "profiles": []

@@ -58,7 +58,7 @@ services:
             - start
             - --import-realm
         volumes:
-            - ./keycloak/:/opt/keycloak/data/import:ro
+            - ./keycloak/:/opt/keycloak/data/import
         labels:
             - 'traefik.enable=true'
             - 'traefik.http.routers.ecommerce-keycloak.rule=Host(`auth.coding.global`)'
