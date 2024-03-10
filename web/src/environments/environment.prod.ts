@@ -10,6 +10,6 @@ export const environment = {
   production: false,
   keycloak: {
     ...keycloakConfig,
-    clientSecret: 'Ub5P0N3MdvorUa7PJn87ARgMn4WJZCaE',
+    clientSecret: '04UEM5qOh2p4UA3VoDaat1WFsjs15Gp6',
   },
 };

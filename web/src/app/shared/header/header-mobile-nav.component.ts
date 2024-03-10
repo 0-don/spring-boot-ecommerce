@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { provideIcons } from '@ng-icons/core';
 import { lucideMoreVertical, lucideX } from '@ng-icons/lucide';
@@ -18,6 +18,8 @@ import {
 } from '@spartan-ng/ui-sheet-helm';
 import { AppLogoComponent } from './app-logo.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { AuthService } from '@/app/shared/service/auth.service';
+import { HlmSpinnerComponent } from '@spartan-ng/ui-spinner-helm';
 
 @Component({
   selector: 'app-mobile-nav',
@@ -39,6 +41,7 @@ import { TranslateModule } from '@ngx-translate/core';
     RouterLink,
     AppLogoComponent,
     TranslateModule,
+    HlmSpinnerComponent,
   ],
 
   providers: [provideIcons({ lucideMoreVertical, lucideX })],
@@ -75,30 +78,43 @@ import { TranslateModule } from '@ngx-translate/core';
         </div>
         <hlm-scroll-area class="h-[calc(100vh-8rem)]">
           <div class="flex flex-col space-y-1 p-2 pb-4">
-            <a
-              (click)="ctx.close()"
-              class="px-2 py-1 text-foreground hover:underline"
-              routerLink="/"
-            >
-              {{ 'header.navbar.home' | translate }}
-            </a>
-            <a
-              (click)="ctx.close()"
-              class="px-2 py-1 text-foreground hover:underline"
-              routerLink="/register"
-              >{{ 'header.navbar.register' | translate }}</a
-            >
-            <a
-              (click)="ctx.close()"
-              class="px-2 py-1 text-foreground hover:underline"
-              routerLink="/login"
-            >
-              {{ 'header.navbar.login' | translate }}
-            </a>
+            @if (!auth.isAuthenticated()) {
+              <a
+                (click)="ctx.close()"
+                class="px-2 py-1 text-foreground hover:underline"
+                routerLink="/"
+              >
+                {{ 'header.navbar.home' | translate }}
+              </a>
+              <a
+                (click)="ctx.close()"
+                class="px-2 py-1 text-foreground hover:underline"
+                routerLink="/register"
+                >{{ 'header.navbar.register' | translate }}</a
+              >
+              <a
+                (click)="ctx.close()"
+                class="px-2 py-1 text-foreground hover:underline"
+                routerLink="/login"
+              >
+                {{ 'header.navbar.login' | translate }}
+              </a>
+            }
+            @if (auth.isAuthenticated()) {
+              <a
+                (click)="ctx.close()"
+                class="px-2 py-1 text-foreground hover:underline"
+                routerLink="/products"
+              >
+                {{ 'header.navbar.home' | translate }}
+              </a>
+            }
           </div>
         </hlm-scroll-area>
       </div>
     </brn-sheet>
   `,
 })
-export class HeaderMobileNavComponent {}
+export class HeaderMobileNavComponent {
+  protected auth = inject(AuthService);
+}

@@ -108,7 +108,6 @@ type FormType = ReturnType<LoginComponent['prepareForm']>;
           }
 
           <div hlmCardFooter class="justify-between">
-            <p (click)="login()">test</p>
             <a hlmBtn variant="ghost" routerLink="/register">
               {{ 'auth.registerButton' | translate }}
               <hlm-icon class="ml-1 h-4 w-4" name="lucideDoorOpen" />
@@ -203,10 +202,6 @@ export class LoginComponent {
         ],
       }),
     }));
-  }
-
-  async login() {
-    await this._authService.keycloak.login();
   }
 
   async submit(): Promise<void> {
