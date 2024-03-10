@@ -5,6 +5,7 @@ import { KeycloakConfig } from 'keycloak-js';
 import { environment } from '@/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Token } from '@/app/shared/types';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -14,7 +15,6 @@ export class AuthService {
 
   constructor() {
     this.isAuthenticated.set(this.keycloak.isLoggedIn());
-    console.log(this.keycloak.isLoggedIn());
   }
 
   static init(options?: KeycloakOptions): KeycloakOptions {
@@ -39,20 +39,17 @@ export class AuthService {
     };
   }
 
-  login(username: string, password: string): Observable<any> {
+  login(username: string, password: string): Observable<Token> {
     const tokenEndpoint = `${environment.keycloak.url}/realms/${environment.keycloak.realm}/protocol/openid-connect/token`;
-    const body = {
-      client_id: environment.keycloak.clientId,
-      client_secret: environment.keycloak.clientSecret,
-      username,
-      password,
-      grant_type: 'password',
-    };
-
     const headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',
     });
-
-    return this._http.post(tokenEndpoint, body, { headers });
+    const urlencoded = new URLSearchParams();
+    urlencoded.append('client_id', environment.keycloak.clientId);
+    urlencoded.append('client_secret', environment.keycloak.clientSecret);
+    urlencoded.append('username', username);
+    urlencoded.append('password', password);
+    urlencoded.append('grant_type', 'password');
+    return this._http.post<Token>(tokenEndpoint, urlencoded, { headers });
   }
 }

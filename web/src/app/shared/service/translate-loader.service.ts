@@ -2,9 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { take } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class TranslateLoaderService {
   private _translate = inject(TranslateService);
 

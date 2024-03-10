@@ -31,7 +31,7 @@ import {
   withErrorComponent,
 } from 'ng-signal-forms';
 import { HlmSpinnerComponent } from '@spartan-ng/ui-spinner-helm';
-import { TranslateLoaderService } from '../../../shared/service/translate-loader.service';
+import { TranslateLoaderService } from '@/app/shared/service/translate-loader.service';
 
 type FormType = ReturnType<RegisterComponent['prepareForm']>;
 
@@ -151,16 +151,15 @@ type FormType = ReturnType<RegisterComponent['prepareForm']>;
   `,
 })
 export class RegisterComponent {
-  private _sfb = inject(SignalFormBuilder);
-  private _translate = inject(TranslateService);
-  private _translateLoader = inject(TranslateLoaderService);
-
-  protected form?: FormType;
   public state = signal({
     status: 'idle' as 'idle' | 'loading' | 'success' | 'error',
     error: null as unknown | null,
   });
   public loading = computed(() => this.state().status === 'loading');
+  protected form?: FormType;
+  private _sfb = inject(SignalFormBuilder);
+  private _translate = inject(TranslateService);
+  private _translateLoader = inject(TranslateLoaderService);
 
   constructor() {
     this._translateLoader.loadTranslations(
@@ -178,7 +177,7 @@ export class RegisterComponent {
               this._translate.instant('auth.validate.usernameRequired'),
           },
           {
-            validator: V.minLength(4),
+            validator: V.minLength(3),
             message: ({ minLength }) =>
               this._translate.instant('auth.validate.usernameMin', {
                 length: minLength,
@@ -201,7 +200,7 @@ export class RegisterComponent {
               this._translate.instant('auth.validate.passwordRequired'),
           },
           {
-            validator: V.minLength(6),
+            validator: V.minLength(3),
             message: ({ minLength }) =>
               this._translate.instant('auth.validate.passwordMin', {
                 length: minLength,
@@ -224,7 +223,7 @@ export class RegisterComponent {
               this._translate.instant('auth.validate.repeatPasswordRequired'),
           },
           {
-            validator: V.minLength(6),
+            validator: V.minLength(3),
             message: ({ minLength }) =>
               this._translate.instant('auth.validate.repeatPasswordMin', {
                 length: minLength,

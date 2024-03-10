@@ -31,8 +31,8 @@ import {
   withErrorComponent,
 } from 'ng-signal-forms';
 import { HlmSpinnerComponent } from '@spartan-ng/ui-spinner-helm';
-import { TranslateLoaderService } from '../../../shared/service/translate-loader.service';
-import { AuthService } from '../../../shared/service/auth.service';
+import { TranslateLoaderService } from '@/app/shared/service/translate-loader.service';
+import { AuthService } from '@/app/shared/service/auth.service';
 
 type FormType = ReturnType<LoginComponent['prepareForm']>;
 
@@ -108,6 +108,7 @@ type FormType = ReturnType<LoginComponent['prepareForm']>;
           }
 
           <div hlmCardFooter class="justify-between">
+            <p (click)="login()">test</p>
             <a hlmBtn variant="ghost" routerLink="/register">
               {{ 'auth.registerButton' | translate }}
               <hlm-icon class="ml-1 h-4 w-4" name="lucideDoorOpen" />
@@ -204,6 +205,10 @@ export class LoginComponent {
     }));
   }
 
+  async login() {
+    await this._authService.keycloak.login();
+  }
+
   async submit(): Promise<void> {
     if (!this.form) return;
     console.log(this.form, this.form?.valid());
@@ -212,16 +217,24 @@ export class LoginComponent {
     this._authService
       .login(this.form.value().username, this.form.value().password)
       .subscribe({
-        next: (result) => {
-          console.log(result);
+        next: (auth) => {
+          this._authService.keycloak.getKeycloakInstance().token =
+            auth.access_token;
+          this._authService.keycloak.getKeycloakInstance().refreshToken =
+            auth.refresh_token;
+          this._authService.keycloak.getKeycloakInstance().sessionId =
+            auth.session_state;
+          this._authService.keycloak.getKeycloakInstance().authenticated = true;
+
           this.state.set({ ...this.state(), status: 'success' });
+          this._authService.isAuthenticated.set(true);
         },
         error: (error) => {
           this.state.set({ ...this.state(), status: 'error', error });
+          this._authService.keycloak.getKeycloakInstance().authenticated =
+            false;
+          this._authService.isAuthenticated.set(false);
         },
       });
-    // setTimeout(() => {
-    //   this.state.update((state) => ({ ...state, status: 'idle' }));
-    // }, 1000);
   }
 }
