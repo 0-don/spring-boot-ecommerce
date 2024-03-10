@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { provideIcons } from '@ng-icons/core';
 import { lucideGithub, lucideTwitter } from '@ng-icons/lucide';
@@ -10,6 +10,8 @@ import { AppNavLinkDirective } from './app-nav-link.directive';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageComponent } from './language.component';
+import { AuthService } from '@/app/shared/service/auth.service';
+import { ProfileComponent } from '@/app/shared/header/profile.component';
 
 @Component({
   selector: 'app-header',
@@ -26,6 +28,7 @@ import { LanguageComponent } from './language.component';
     ThemeComponent,
     LanguageComponent,
     AppLogoComponent,
+    ProfileComponent,
   ],
   providers: [provideIcons({ lucideTwitter, lucideGithub })],
   host: {
@@ -48,10 +51,18 @@ import { LanguageComponent } from './language.component';
         </a>
 
         <app-mobile-nav class="sm:hidden" />
-
-        <div class="hidden sm:flex sm:space-x-2">
-          <a appNavLink="/home">{{ 'header.navbar.home' | translate }}</a>
-        </div>
+        @if (!auth.isAuthenticated()) {
+          <div class="hidden sm:flex sm:space-x-2">
+            <a appNavLink="/home">{{ 'header.navbar.home' | translate }}</a>
+          </div>
+        }
+        @if (auth.isAuthenticated()) {
+          <div class="hidden sm:flex sm:space-x-2">
+            <a appNavLink="/products">{{
+              'header.navbar.products' | translate
+            }}</a>
+          </div>
+        }
       </nav>
 
       <div class="flex space-x-2">
@@ -67,8 +78,11 @@ import { LanguageComponent } from './language.component';
         </a>
         <app-theme />
         <app-language />
+        <app-profile />
       </div>
     </div>
   `,
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  protected auth = inject(AuthService);
+}

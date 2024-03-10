@@ -50,7 +50,11 @@
 			"home": "Home",
 			"login": "Anmeldung",
 			"openMenu": "Menü öffnen",
+			"products": "Produkte",
 			"register": "Registrieren"
+		},
+		"profile": {
+			"description": "Profil"
 		},
 		"theme": {
 			"changeTheme": "Öffnen Sie das Menü, um das Thema zu ändern",

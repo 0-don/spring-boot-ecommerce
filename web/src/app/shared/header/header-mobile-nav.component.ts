@@ -106,7 +106,7 @@ import { HlmSpinnerComponent } from '@spartan-ng/ui-spinner-helm';
                 class="px-2 py-1 text-foreground hover:underline"
                 routerLink="/products"
               >
-                {{ 'header.navbar.home' | translate }}
+                {{ 'header.navbar.products' | translate }}
               </a>
             }
           </div>
