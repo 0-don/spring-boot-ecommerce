@@ -206,7 +206,6 @@ export class LoginComponent {
 
   async submit(): Promise<void> {
     if (!this.form) return;
-    console.log(this.form, this.form?.valid());
     this.state.set({ ...this.state(), status: 'loading' });
 
     this._authService
@@ -220,11 +219,6 @@ export class LoginComponent {
           this._authService.keycloak.getKeycloakInstance().sessionId =
             auth.session_state;
           this._authService.keycloak.getKeycloakInstance().authenticated = true;
-
-          this._authService.keycloak.getKeycloakInstance().init({
-            token: auth.access_token,
-            refreshToken: auth.refresh_token,
-          });
 
           this.state.set({ ...this.state(), status: 'success' });
           this._authService.isAuthenticated.set(true);

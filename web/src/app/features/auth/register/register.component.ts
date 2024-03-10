@@ -32,6 +32,7 @@ import {
 } from 'ng-signal-forms';
 import { HlmSpinnerComponent } from '@spartan-ng/ui-spinner-helm';
 import { TranslateLoaderService } from '@/app/shared/service/translate-loader.service';
+import { AuthService } from '@/app/shared/service/auth.service';
 
 type FormType = ReturnType<RegisterComponent['prepareForm']>;
 
@@ -160,6 +161,7 @@ export class RegisterComponent {
   private _sfb = inject(SignalFormBuilder);
   private _translate = inject(TranslateService);
   private _translateLoader = inject(TranslateLoaderService);
+  private _auth = inject(AuthService);
 
   constructor() {
     this._translateLoader.loadTranslations(
@@ -169,7 +171,7 @@ export class RegisterComponent {
 
   prepareForm() {
     return this._sfb.createFormGroup(() => ({
-      username: this._sfb.createFormField<string>('', {
+      username: this._sfb.createFormField<string>('test', {
         validators: [
           {
             validator: V.required(),
@@ -192,7 +194,7 @@ export class RegisterComponent {
           },
         ],
       }),
-      password: this._sfb.createFormField<string>('', {
+      password: this._sfb.createFormField<string>('test', {
         validators: [
           {
             validator: V.required(),
@@ -215,7 +217,7 @@ export class RegisterComponent {
           },
         ],
       }),
-      passwordRepeat: this._sfb.createFormField<string>('', {
+      passwordRepeat: this._sfb.createFormField<string>('test', {
         validators: [
           {
             validator: V.required(),
@@ -247,9 +249,18 @@ export class RegisterComponent {
   }
 
   submit(): void {
-    this.state.update((state) => ({ ...state, status: 'loading' }));
-    setTimeout(() => {
-      this.state.update((state) => ({ ...state, status: 'idle' }));
-    }, 1000);
+    if (!this.form) return;
+    this.state.set({ ...this.state(), status: 'loading' });
+
+    this._auth
+      .register(this.form.value().username, this.form.value().password)
+      .subscribe({
+        next: (result) => {
+          console.log(result);
+          this.state.set({ ...this.state(), status: 'success' });
+        },
+        error: (error) =>
+          this.state.set({ ...this.state(), status: 'error', error }),
+      });
   }
 }

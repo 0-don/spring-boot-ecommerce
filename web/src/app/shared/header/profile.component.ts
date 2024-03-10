@@ -50,11 +50,11 @@ import { AuthService } from '@/app/shared/service/auth.service';
             {{ 'header.navbar.login' | translate }}
           </button>
           <!--          </a>-->
-          <a routerLink="/register">
-            <button hlmMenuItemCheckbox>
-              {{ 'header.navbar.register' | translate }}
-            </button>
-          </a>
+          <!--          <a routerLink="/register">-->
+          <button hlmMenuItemCheckbox (click)="auth.keycloak.register()">
+            {{ 'header.navbar.register' | translate }}
+          </button>
+          <!--          </a>-->
         }
         @if (auth.isAuthenticated()) {
           <button hlmMenuItemCheckbox (click)="logout()">
