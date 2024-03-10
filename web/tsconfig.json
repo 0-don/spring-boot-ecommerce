@@ -23,6 +23,9 @@
       "dom"
     ],
     "paths": {
+      "@/*": [
+        "./src/*"
+      ],
       "@spartan-ng/ui-accordion-helm": [
         "./components/ui-accordion-helm/src/index.ts"
       ],

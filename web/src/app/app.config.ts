@@ -9,23 +9,7 @@ import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
-import { environment } from '../environments/environment';
-
-function initializeKeycloak(keycloak: KeycloakService) {
-  return () =>
-    keycloak.init({
-      config: {
-        url: environment.keycloak.url,
-        realm: environment.keycloak.realm,
-        clientId: environment.keycloak.clientId,
-      },
-      initOptions: {
-        onLoad: 'check-sso',
-        silentCheckSsoRedirectUri:
-          window.location.origin + '/assets/silent-check-sso.html',
-      },
-    });
-}
+import { AuthService } from './shared/service/auth.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -33,7 +17,8 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     {
       provide: APP_INITIALIZER,
-      useFactory: initializeKeycloak,
+      useFactory: (keycloak: KeycloakService) => () =>
+        keycloak.init(AuthService.init()),
       multi: true,
       deps: [KeycloakService],
     },

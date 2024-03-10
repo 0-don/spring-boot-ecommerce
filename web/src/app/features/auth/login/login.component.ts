@@ -32,7 +32,7 @@ import {
 } from 'ng-signal-forms';
 import { HlmSpinnerComponent } from '@spartan-ng/ui-spinner-helm';
 import { TranslateLoaderService } from '../../../shared/service/translate-loader.service';
-import { KeycloakService } from 'keycloak-angular';
+import { AuthService } from '../../../shared/service/auth.service';
 
 type FormType = ReturnType<LoginComponent['prepareForm']>;
 
@@ -136,16 +136,16 @@ type FormType = ReturnType<LoginComponent['prepareForm']>;
   `,
 })
 export class LoginComponent {
-  public state = signal({
+  protected state = signal({
     status: 'idle' as 'idle' | 'loading' | 'success' | 'error',
     error: null as unknown | null,
   });
-  public loading = computed(() => this.state().status === 'loading');
+  protected loading = computed(() => this.state().status === 'loading');
   protected form?: FormType;
   private _sfb = inject(SignalFormBuilder);
   private _translate = inject(TranslateService);
   private _translateLoader = inject(TranslateLoaderService);
-  private _keycloak = inject(KeycloakService);
+  private _authService = inject(AuthService);
 
   constructor() {
     this._translateLoader.loadTranslations(
@@ -155,7 +155,7 @@ export class LoginComponent {
 
   prepareForm() {
     return this._sfb.createFormGroup(() => ({
-      username: this._sfb.createFormField<string>('', {
+      username: this._sfb.createFormField<string>('don', {
         validators: [
           {
             validator: V.required(),
@@ -163,7 +163,7 @@ export class LoginComponent {
               this._translate.instant('auth.validate.usernameRequired'),
           },
           {
-            validator: V.minLength(4),
+            validator: V.minLength(3),
             message: ({ minLength }) =>
               this._translate.instant('auth.validate.usernameMin', {
                 length: minLength,
@@ -178,7 +178,7 @@ export class LoginComponent {
           },
         ],
       }),
-      password: this._sfb.createFormField<string>('', {
+      password: this._sfb.createFormField<string>('don', {
         validators: [
           {
             validator: V.required(),
@@ -186,7 +186,7 @@ export class LoginComponent {
               this._translate.instant('auth.validate.passwordRequired'),
           },
           {
-            validator: V.minLength(6),
+            validator: V.minLength(3),
             message: ({ minLength }) =>
               this._translate.instant('auth.validate.passwordMin', {
                 length: minLength,
@@ -204,10 +204,24 @@ export class LoginComponent {
     }));
   }
 
-  submit(): void {
-    this.state.update((state) => ({ ...state, status: 'loading' }));
-    setTimeout(() => {
-      this.state.update((state) => ({ ...state, status: 'idle' }));
-    }, 1000);
+  async submit(): Promise<void> {
+    if (!this.form) return;
+    console.log(this.form, this.form?.valid());
+    this.state.set({ ...this.state(), status: 'loading' });
+
+    this._authService
+      .login(this.form.value().username, this.form.value().password)
+      .subscribe({
+        next: (result) => {
+          console.log(result);
+          this.state.set({ ...this.state(), status: 'success' });
+        },
+        error: (error) => {
+          this.state.set({ ...this.state(), status: 'error', error });
+        },
+      });
+    // setTimeout(() => {
+    //   this.state.update((state) => ({ ...state, status: 'idle' }));
+    // }, 1000);
   }
 }

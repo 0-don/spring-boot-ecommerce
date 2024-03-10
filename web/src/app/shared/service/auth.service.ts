@@ -1,15 +1,58 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
+import { KeycloakOptions } from 'keycloak-angular/lib/core/interfaces/keycloak-options';
+import { KeycloakConfig } from 'keycloak-js';
+import { environment } from '@/environments/environment';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class AuthService {
   public keycloak = inject(KeycloakService);
   public isAuthenticated = signal<boolean>(false);
+  private _http = inject(HttpClient);
 
   constructor() {
-    console.log(1);
     this.isAuthenticated.set(this.keycloak.isLoggedIn());
+    console.log(this.keycloak.isLoggedIn());
+  }
+
+  static init(options?: KeycloakOptions): KeycloakOptions {
+    const baseConfig: KeycloakConfig = {
+      url: environment.keycloak.url,
+      realm: environment.keycloak.realm,
+      clientId: environment.keycloak.clientId,
+    };
+
+    return {
+      ...options,
+      config: {
+        ...baseConfig,
+        ...(options?.config as KeycloakConfig),
+      },
+      initOptions: {
+        onLoad: 'check-sso',
+        silentCheckSsoRedirectUri:
+          window.location.origin + '/assets/silent-check-sso.html',
+        ...options?.initOptions,
+      },
+    };
+  }
+
+  login(username: string, password: string): Observable<any> {
+    const tokenEndpoint = `${environment.keycloak.url}/realms/${environment.keycloak.realm}/protocol/openid-connect/token`;
+    const body = {
+      client_id: environment.keycloak.clientId,
+      client_secret: environment.keycloak.clientSecret,
+      username,
+      password,
+      grant_type: 'password',
+    };
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded',
+    });
+
+    return this._http.post(tokenEndpoint, body, { headers });
   }
 }
