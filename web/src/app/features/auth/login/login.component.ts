@@ -221,6 +221,11 @@ export class LoginComponent {
             auth.session_state;
           this._authService.keycloak.getKeycloakInstance().authenticated = true;
 
+          this._authService.keycloak.getKeycloakInstance().init({
+            token: auth.access_token,
+            refreshToken: auth.refresh_token,
+          });
+
           this.state.set({ ...this.state(), status: 'success' });
           this._authService.isAuthenticated.set(true);
         },

@@ -15,6 +15,4 @@ import { HeaderComponent } from './shared/header/header.component';
     <app-footer />
   `,
 })
-export class AppComponent {
-  // private _auth = inject(AuthService);
-}
+export class AppComponent {}

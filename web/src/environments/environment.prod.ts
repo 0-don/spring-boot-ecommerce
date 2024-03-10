@@ -8,8 +8,5 @@ const keycloakConfig: KeycloakConfig = {
 
 export const environment = {
   production: false,
-  keycloak: {
-    ...keycloakConfig,
-    clientSecret: '04UEM5qOh2p4UA3VoDaat1WFsjs15Gp6',
-  },
+  keycloak: { ...keycloakConfig },
 };

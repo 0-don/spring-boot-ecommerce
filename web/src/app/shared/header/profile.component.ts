@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
 import { BrnMenuTriggerDirective } from '@spartan-ng/ui-menu-brain';
@@ -12,6 +12,7 @@ import { provideIcons } from '@ng-icons/core';
 import { lucideCircleUser } from '@ng-icons/lucide';
 import { RouterLink } from '@angular/router';
 import { AsyncPipe } from '@angular/common';
+import { AuthService } from '@/app/shared/service/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -43,18 +44,31 @@ import { AsyncPipe } from '@angular/common';
     </button>
     <ng-template #language>
       <hlm-menu class="w-40">
-        <a routerLink="/register" class="!cursor-pointer">
-          <button hlmMenuItemCheckbox>
-            {{ 'header.navbar.register' | translate }}
-          </button>
-        </a>
-        <a routerLink="/login" class="!cursor-pointer">
-          <button hlmMenuItemCheckbox>
+        @if (!auth.isAuthenticated()) {
+          <!--          <a routerLink="/login" >-->
+          <button hlmMenuItemCheckbox (click)="auth.keycloak.login()">
             {{ 'header.navbar.login' | translate }}
           </button>
-        </a>
+          <!--          </a>-->
+          <a routerLink="/register">
+            <button hlmMenuItemCheckbox>
+              {{ 'header.navbar.register' | translate }}
+            </button>
+          </a>
+        }
+        @if (auth.isAuthenticated()) {
+          <button hlmMenuItemCheckbox (click)="logout()">
+            {{ 'header.navbar.logout' | translate }}
+          </button>
+        }
       </hlm-menu>
     </ng-template>
   `,
 })
-export class ProfileComponent {}
+export class ProfileComponent {
+  protected auth = inject(AuthService);
+
+  async logout() {
+    await this.auth.keycloak.logout(window.location.origin);
+  }
+}
