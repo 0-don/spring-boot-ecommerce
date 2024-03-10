@@ -29,7 +29,7 @@ export class AuthService {
   }
 
   register(username: string, password: string): Observable<any> {
-    const endpoint = `${environment.keycloak.url}/auth/admin/realms/${environment.keycloak.realm}/users`;
+    const endpoint = `${environment.keycloak.url}/admin/realms/${environment.keycloak.realm}/users`;
 
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 

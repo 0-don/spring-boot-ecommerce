@@ -170,6 +170,30 @@ export class RegisterComponent {
   }
 
   prepareForm() {
+    const password = this._sfb.createFormField<string>('test', {
+      validators: [
+        {
+          validator: V.required(),
+          message: () =>
+            this._translate.instant('auth.validate.passwordRequired'),
+        },
+        {
+          validator: V.minLength(3),
+          message: ({ minLength }) =>
+            this._translate.instant('auth.validate.passwordMin', {
+              length: minLength,
+            }),
+        },
+        {
+          validator: V.maxLength(128),
+          message: ({ maxLength }) =>
+            this._translate.instant('auth.validate.passwordMax', {
+              length: maxLength,
+            }),
+        },
+      ],
+    });
+
     return this._sfb.createFormGroup(() => ({
       username: this._sfb.createFormField<string>('test', {
         validators: [
@@ -194,29 +218,7 @@ export class RegisterComponent {
           },
         ],
       }),
-      password: this._sfb.createFormField<string>('test', {
-        validators: [
-          {
-            validator: V.required(),
-            message: () =>
-              this._translate.instant('auth.validate.passwordRequired'),
-          },
-          {
-            validator: V.minLength(3),
-            message: ({ minLength }) =>
-              this._translate.instant('auth.validate.passwordMin', {
-                length: minLength,
-              }),
-          },
-          {
-            validator: V.maxLength(128),
-            message: ({ maxLength }) =>
-              this._translate.instant('auth.validate.passwordMax', {
-                length: maxLength,
-              }),
-          },
-        ],
-      }),
+      password,
       passwordRepeat: this._sfb.createFormField<string>('test', {
         validators: [
           {
@@ -239,7 +241,7 @@ export class RegisterComponent {
               }),
           },
           {
-            validator: V.equalsTo('password'),
+            validator: V.equalsTo(password.value),
             message: () =>
               this._translate.instant('auth.validate.repeatPasswordNoMatch'),
           },
