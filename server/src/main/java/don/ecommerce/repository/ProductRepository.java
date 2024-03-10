@@ -1,4 +1,4 @@
-package don.ecommerce.dao;
+package don.ecommerce.repository;
 
 import don.ecommerce.entity.Product;
 import org.springframework.data.domain.Page;

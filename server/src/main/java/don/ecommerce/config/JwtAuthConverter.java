@@ -30,6 +30,9 @@ public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationTo
     @Value("${jwt.auth.converter.principle-attribute}")
     private String principleAttribute;
 
+    @Value("${jwt.auth.converter.resource-id}")
+    private String resourceId;
+
     @Override
     public AbstractAuthenticationToken convert(@NonNull Jwt jwt) {
         try {
@@ -53,18 +56,18 @@ public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationTo
 
     private Collection<? extends GrantedAuthority> extractResourceRoles(Jwt jwt) {
         if (jwt.getClaim("resource_access") instanceof Map<?, ?> resourceAccess) {
-            if (resourceAccess.get("account") instanceof Map<?, ?> resource) {
+            if (resourceAccess.get(resourceId) instanceof Map<?, ?> resource) {
                 if (resource.get("roles") instanceof Collection<?> roles) {
                     return roles.stream()
                             .filter(String.class::isInstance)
                             .map(String.class::cast)
-                            .map((r) -> new SimpleGrantedAuthority("ROLE_" + r))
+                            .map((r) -> new SimpleGrantedAuthority("ROLE_" + r.toUpperCase()))
                             .collect(Collectors.toSet());
                 }
                 log.warn("No roles key found in the resource access" + resource);
                 return Collections.emptySet();
             }
-            log.warn("No account key found in the resource access" + resourceAccess);
+            log.warn("No resourceId key found in the resource access" + resourceAccess);
             return Collections.emptySet();
         }
         log.warn("No resource access found in the JWT" + jwt.getClaims());

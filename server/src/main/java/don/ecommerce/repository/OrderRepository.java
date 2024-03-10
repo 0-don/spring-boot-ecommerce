@@ -1,4 +1,4 @@
-package don.ecommerce.dao;
+package don.ecommerce.repository;
 
 import don.ecommerce.entity.Order;
 import org.springframework.data.domain.Page;
@@ -10,6 +10,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
-    Page<Order> findByCustomerEmailOrderByDateCreatedDesc(@Param("email") String email, Pageable pageable);
+    Page<Order> findByCustomerEmailOrderByDateCreatedDesc(@Param("email") String email,
+            Pageable pageable);
 
 }
