@@ -26,7 +26,6 @@ public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationTo
     private final JwtGrantedAuthoritiesConverter jwtGrantedAuthoritiesConverter =
             new JwtGrantedAuthoritiesConverter();
 
-
     @Value("${jwt.auth.converter.principle-attribute}")
     private String principleAttribute;
 
@@ -38,7 +37,7 @@ public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationTo
         try {
             Collection<GrantedAuthority> grantedAuthorities =
                     jwtGrantedAuthoritiesConverter.convert(jwt);
-            var resourceRoles = extractResourceRoles(jwt);
+            Collection<? extends GrantedAuthority> resourceRoles = extractResourceRoles(jwt);
             String username = jwt.getClaim(principleAttribute);
 
             Collection<GrantedAuthority> authorities = Stream.concat(
