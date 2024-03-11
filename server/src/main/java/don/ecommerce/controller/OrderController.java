@@ -5,10 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("products")
+@RequestMapping("orders")
 @RequiredArgsConstructor
-public class ProductsController {
-
+public class OrderController {
 
 
 }
