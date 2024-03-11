@@ -12,8 +12,8 @@ public class OpenApiConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Product API")
+                        .title("Ecommerce API")
                         .version("1.0")
-                        .description("Documentation of Product API"));
+                        .description("Documentation of Ecommerce API"));
     }
 }
