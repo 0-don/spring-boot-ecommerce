@@ -40,5 +40,8 @@ jobs:
             -   name: Reset Keycloak
                 run: docker stop ecommerce-keycloak || true && docker rm ecommerce-keycloak || true
 
+            -   name: Rename and overwrite docker-compose file
+                run: mv docker-compose-prod.yml docker-compose.yml
+                
             -   name: Docker run
                 run: docker compose up -d --force-recreate --build
