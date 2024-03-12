@@ -1,6 +1,7 @@
 package don.ecommerce;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import don.ecommerce.entity.Product;
 import don.ecommerce.repository.ProductRepository;
@@ -18,6 +19,7 @@ import org.springframework.stereotype.Component;
 public class SeedScriptRunner implements ApplicationRunner {
 
     private final ProductRepository productRepository;
+    private final Faker faker = new Faker();
 
     @Async
     public void run(ApplicationArguments args) throws Exception {
@@ -27,7 +29,12 @@ public class SeedScriptRunner implements ApplicationRunner {
     }
 
     public void seedProducts() {
-        Faker faker = new Faker();
+        List<Product> products = productRepository.findAll();
+
+        if (!products.isEmpty()) {
+            log.info("Products already seeded");
+            return;
+        }
 
         for (int i = 0; i < 100; i++) {
             Product product = Product.builder()
