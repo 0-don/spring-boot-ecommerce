@@ -33,7 +33,7 @@ services:
             - proxy
         labels:
             - 'traefik.enable=true'
-            - 'traefik.http.routers.ecommerce-server.rule=Host(`${PUBLIC_URL}`) && PathPrefix(`/api`) && PathPrefix(`/v3`)'
+            - 'traefik.http.routers.ecommerce-server.rule=Host(`${PUBLIC_URL}`) && (PathPrefix(`/api`) || PathPrefix(`/v3/api-docs`))'
             - 'traefik.http.routers.ecommerce-server.entrypoints=websecure'
             - 'traefik.http.routers.ecommerce-server.tls.certresolver=letsencrypt'
             - 'traefik.http.services.ecommerce-server.loadbalancer.server.port=8080'
