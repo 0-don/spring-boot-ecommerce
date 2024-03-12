@@ -2,6 +2,7 @@
   "reject": [
     "@ngneat/overview",
     "clsx",
-    "typescript"
+    "typescript",
+    "keycloak-js"
   ]
 }
