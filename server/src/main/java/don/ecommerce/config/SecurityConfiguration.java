@@ -38,8 +38,12 @@ public class SecurityConfiguration {
                         CookieCsrfTokenRepository.withHttpOnlyFalse()).disable())
                 // Configure authorization
                 .authorizeHttpRequests(
-                        authz -> authz.requestMatchers("/swagger-ui/**", "/v3/api-docs/**",
-                                "/swagger-ui.html").permitAll().anyRequest().permitAll())
+                        authz -> authz
+                                .requestMatchers("api/swagger-ui/**", "/v3/api-docs/**")
+                                .permitAll()
+                                .anyRequest()
+                                .authenticated()
+                )
                 // Configure OAuth2 Resource Server
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt(
                         jwt -> jwt.jwtAuthenticationConverter(jwtAuthConverter)
