@@ -39,10 +39,10 @@ public class SecurityConfiguration {
                 // Configure authorization
                 .authorizeHttpRequests(
                         authz -> authz
-                                .requestMatchers("api/swagger-ui/**", "/v3/api-docs/**")
-                                .permitAll()
+                                //                                .requestMatchers("api/swagger-ui/**", "/v3/api-docs/**")
+                                //                                .permitAll()
                                 .anyRequest()
-                                .authenticated()
+                                .permitAll()
                 )
                 // Configure OAuth2 Resource Server
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt(
