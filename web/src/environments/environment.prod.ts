@@ -8,5 +8,6 @@ const keycloakConfig: KeycloakConfig = {
 
 export const environment = {
   production: false,
+  apiUrl: 'https://ecommerce.coding.global',
   keycloak: { ...keycloakConfig },
 };

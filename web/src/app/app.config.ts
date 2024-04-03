@@ -1,15 +1,16 @@
+import { environment } from '@/environments/environment';
+import { BASE_PATH } from '@/openapi';
+import { HttpClient, provideHttpClient } from '@angular/common/http';
 import {
   APP_INITIALIZER,
   ApplicationConfig,
   importProvidersFrom,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { routes } from './app.routes';
-import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
-import { environment } from '@/environments/environment';
+import { routes } from './app.routes';
 
 const initializeKeycloak = (keycloak: KeycloakService) => () =>
   keycloak.init({
@@ -35,6 +36,7 @@ export const appConfig: ApplicationConfig = {
       multi: true,
       deps: [KeycloakService],
     },
+    { provide: BASE_PATH, useValue: environment.apiUrl },
     importProvidersFrom([
       KeycloakAngularModule,
       TranslateModule.forRoot({
