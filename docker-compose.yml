@@ -1,27 +1,25 @@
-version: "3.8"
-
 services:
-    ecommerce-postgres:
-        container_name: ecommerce-postgres
-        image: postgres:latest
-        ports:
-            - "5432:5432"
-        restart: always
-        environment:
-            - POSTGRES_DB=${SPRING_DATASOURCE_DATABASE:-ecommerce}
-            - POSTGRES_USER=${SPRING_DATASOURCE_USERNAME:-postgres}
-            - POSTGRES_PASSWORD=${SPRING_DATASOURCE_PASSWORD:-postgres}
-    ecommerce-keycloak:
-        container_name: ecommerce-keycloak
-        image: quay.io/keycloak/keycloak:latest
-        ports:
-            - "8081:8080"
-        restart: always
-        command:
-            - start-dev
-            - --import-realm
-        volumes:
-            - ./keycloak/:/opt/keycloak/data/import
-        environment:
-            KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN:-admin}
-            KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD:-admin}
+  ecommerce-postgres:
+    container_name: ecommerce-postgres
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      - POSTGRES_DB=${SPRING_DATASOURCE_DATABASE:-ecommerce}
+      - POSTGRES_USER=${SPRING_DATASOURCE_USERNAME:-postgres}
+      - POSTGRES_PASSWORD=${SPRING_DATASOURCE_PASSWORD:-postgres}
+  ecommerce-keycloak:
+    container_name: ecommerce-keycloak
+    image: quay.io/keycloak/keycloak:latest
+    ports:
+      - "8081:8080"
+    restart: always
+    command:
+      - start-dev
+      - --import-realm
+    volumes:
+      - ./keycloak/:/opt/keycloak/data/import
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: ${KEYCLOAK_ADMIN:-admin}
+      KC_BOOTSTRAP_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD:-admin}

@@ -36,7 +36,10 @@ export const appConfig: ApplicationConfig = {
       multi: true,
       deps: [KeycloakService],
     },
-    { provide: BASE_PATH, useValue: environment.apiUrl },
+    {
+      provide: BASE_PATH,
+      useValue: environment.apiUrl,
+    },
     importProvidersFrom([
       KeycloakAngularModule,
       TranslateModule.forRoot({
