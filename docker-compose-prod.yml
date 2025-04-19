@@ -69,6 +69,8 @@ services:
       KC_BOOTSTRAP_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
       KC_HTTP_ENABLED: "true"
       KC_PROXY: edge
+      KC_HOSTNAME: ${KEYCLOAK_HOST}
+      KC_HOSTNAME_STRICT_HTTPS: "true"
     depends_on:
       - ecommerce-postgres
 
