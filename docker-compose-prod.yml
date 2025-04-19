@@ -64,6 +64,9 @@ services:
       - "traefik.http.routers.ecommerce-keycloak.entrypoints=websecure"
       - "traefik.http.routers.ecommerce-keycloak.tls.certresolver=letsencrypt"
       - "traefik.http.services.ecommerce-keycloak.loadbalancer.server.port=8080"
+      - "traefik.http.middlewares.keycloak-headers.headers.customResponseHeaders.Content-Security-Policy=frame-src 'self' https://${KEYCLOAK_HOST}; frame-ancestors 'self' https://${KEYCLOAK_HOST} https://${PUBLIC_URL}; object-src 'none';"
+      - "traefik.http.middlewares.keycloak-headers.headers.customResponseHeaders.X-Frame-Options=SAMEORIGIN"
+      - "traefik.http.routers.ecommerce-keycloak.middlewares=keycloak-headers"
     environment:
       KC_BOOTSTRAP_ADMIN_USERNAME: ${KEYCLOAK_ADMIN:-admin}
       KC_BOOTSTRAP_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
