@@ -68,12 +68,9 @@ services:
       KC_BOOTSTRAP_ADMIN_USERNAME: ${KEYCLOAK_ADMIN:-admin}
       KC_BOOTSTRAP_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
       KC_HTTP_ENABLED: "true"
-      KC_PROXY: edge
+      KC_PROXY_HEADERS: "forwarded"
       KC_HOSTNAME: ${KEYCLOAK_HOST}
       KC_HOSTNAME_URL: https://${KEYCLOAK_HOST}
-      KC_HOSTNAME_ADMIN_URL: https://${KEYCLOAK_HOST}
-      KC_HOSTNAME_STRICT_HTTPS: "true"
-      KC_PROXY_ADDRESS_FORWARDING: "true"
     depends_on:
       - ecommerce-postgres
 
