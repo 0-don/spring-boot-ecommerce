@@ -70,7 +70,7 @@ services:
       KC_HTTP_ENABLED: "true"
       KC_PROXY: edge
       KC_HOSTNAME: ${KEYCLOAK_HOST}
-      KC_HOSTNAME_STRICT_HTTPS: "true"
+      KC_HOSTNAME_URL: https://${KEYCLOAK_HOST}
     depends_on:
       - ecommerce-postgres
 
