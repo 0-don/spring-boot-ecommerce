@@ -55,7 +55,6 @@ services:
     command:
       - start
       - --import-realm
-      - --hostname-strict=false
     volumes:
       - ./keycloak/:/opt/keycloak/data/import
     labels:
