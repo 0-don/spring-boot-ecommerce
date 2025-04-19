@@ -54,7 +54,6 @@ services:
       - proxy
     command:
       - start
-      - --optimized
       - --import-realm
     volumes:
       - ./keycloak/:/opt/keycloak/data/import
