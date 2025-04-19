@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   ecommerce-postgres:
     container_name: ecommerce-postgres
@@ -57,6 +55,7 @@ services:
     command:
       - start
       - --import-realm
+      - --hostname-strict=false
     volumes:
       - ./keycloak/:/opt/keycloak/data/import
     labels:
@@ -68,8 +67,6 @@ services:
     environment:
       KC_BOOTSTRAP_ADMIN_USERNAME: ${KEYCLOAK_ADMIN:-admin}
       KC_BOOTSTRAP_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
-      KC_HOSTNAME_URL: https://${KEYCLOAK_HOST}
-      KC_HOSTNAME_ADMIN_URL: https://${KEYCLOAK_HOST}
       KC_HTTP_ENABLED: "true"
       KC_PROXY: edge
     depends_on:
