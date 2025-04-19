@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   ecommerce-postgres:
     container_name: ecommerce-postgres
@@ -46,33 +48,33 @@ services:
       - "traefik.http.routers.ecommerce-web.rule=Host(`${PUBLIC_URL}`)"
       - "traefik.http.routers.ecommerce-web.entrypoints=websecure"
       - "traefik.http.routers.ecommerce-web.tls.certresolver=letsencrypt"
-    ecommerce-keycloak:
-      container_name: ecommerce-keycloak
-      image: quay.io/keycloak/keycloak:latest
-      restart: always
-      networks:
-        - proxy
-      command:
-        - start
-        - --import-realm
-        - --optimized
-      volumes:
-        - ./keycloak/:/opt/keycloak/data/import
-      labels:
-        - "traefik.enable=true"
-        - "traefik.http.routers.ecommerce-keycloak.rule=Host(`${KEYCLOAK_HOST}`)"
-        - "traefik.http.routers.ecommerce-keycloak.entrypoints=websecure"
-        - "traefik.http.routers.ecommerce-keycloak.tls.certresolver=letsencrypt"
-        - "traefik.http.services.ecommerce-keycloak.loadbalancer.server.port=8080"
-      environment:
-        KC_BOOTSTRAP_ADMIN_USERNAME: ${KEYCLOAK_ADMIN:-admin}
-        KC_BOOTSTRAP_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
-        KC_HOSTNAME_URL: https://${KEYCLOAK_HOST}
-        KC_HOSTNAME_ADMIN_URL: https://${KEYCLOAK_HOST}
-        KC_HTTP_ENABLED: "true"
-        KC_PROXY: edge
-      depends_on:
-        - ecommerce-postgres
+  ecommerce-keycloak:
+    container_name: ecommerce-keycloak
+    image: quay.io/keycloak/keycloak:latest
+    restart: always
+    networks:
+      - proxy
+    command:
+      - start
+      - --import-realm
+      - --optimized
+    volumes:
+      - ./keycloak/:/opt/keycloak/data/import
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.ecommerce-keycloak.rule=Host(`${KEYCLOAK_HOST}`)"
+      - "traefik.http.routers.ecommerce-keycloak.entrypoints=websecure"
+      - "traefik.http.routers.ecommerce-keycloak.tls.certresolver=letsencrypt"
+      - "traefik.http.services.ecommerce-keycloak.loadbalancer.server.port=8080"
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: ${KEYCLOAK_ADMIN:-admin}
+      KC_BOOTSTRAP_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
+      KC_HOSTNAME_URL: https://${KEYCLOAK_HOST}
+      KC_HOSTNAME_ADMIN_URL: https://${KEYCLOAK_HOST}
+      KC_HTTP_ENABLED: "true"
+      KC_PROXY: edge
+    depends_on:
+      - ecommerce-postgres
 
 networks:
   proxy:
