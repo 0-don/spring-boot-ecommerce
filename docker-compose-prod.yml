@@ -39,9 +39,16 @@ services:
     container_name: ecommerce-web
     build: ./web
     restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
     networks:
       - proxy
     labels:
+      - "autoheal=true"
       - "traefik.enable=true"
       - "traefik.http.routers.ecommerce-web.rule=Host(`${PUBLIC_URL}`)"
       - "traefik.http.routers.ecommerce-web.entrypoints=websecure"
