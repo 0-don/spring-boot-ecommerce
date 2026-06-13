@@ -11,10 +11,10 @@ WORKDIR /app
 COPY --from=build /build/target/*.jar app.jar
 EXPOSE 8080
 
-ARG KEYCLOAK_URL=https://auth.coding.global
+ARG KEYCLOAK_URL=https://auth.coding-global.com
 ARG KEYCLOAK_REALM=ecommerce
 ARG LOCALHOST_URL=ecommerce-web
-ARG PUBLIC_URL=ecommerce.coding.global
+ARG PUBLIC_URL=ecommerce.coding-global.com
 ARG SPRING_DATASOURCE_USERNAME=postgres
 ARG SPRING_DATASOURCE_PASSWORD=mgnDzqJvjwfRMmzCY6T8G3DbNrNKGSWz
 ARG SPRING_DATASOURCE_HOST=ecommerce-postgres:5432
