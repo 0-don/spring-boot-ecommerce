@@ -3,7 +3,7 @@ services:
     container_name: ecommerce-postgres
     image: postgres:latest
     ports:
-      - "5432:5432"
+      - "5439:5432"
     restart: always
     environment:
       - POSTGRES_DB=${SPRING_DATASOURCE_DATABASE:-ecommerce}
